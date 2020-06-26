@@ -1,0 +1,8 @@
+* {
+  align-items: center;
+}
+#pills-tab {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0d889;
+  height: 50px;
+}
