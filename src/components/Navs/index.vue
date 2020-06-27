@@ -128,7 +128,29 @@ export default {};
         role="tabpanel"
         aria-labelledby="login-tab"
       >
-        147
+        <div class="hello">
+          <form method="post" autocomplete="off">
+            帳號：
+            <input
+              type="text"
+              name="acc"
+              id="acc"
+              style="margin-bottom:10px;"
+            />
+            <br />密碼：
+            <input
+              type="password"
+              name="pwd"
+              id="pwd"
+              style="margin-bottom:10px;"
+            />
+            <br />
+            <ul>
+              <input type="submit" value="登入" style="margin-right:10px;" />
+              <input type="submit" value="註冊" style="margin-right:10px;" />
+            </ul>
+          </form>
+        </div>
       </div>
     </div>
   </div>
