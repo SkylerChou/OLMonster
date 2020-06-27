@@ -3,16 +3,15 @@ export default {};
 </script>
 <template>
   <div>
-    <!-- <img src="../../assets/logo.png" /> -->
     <h2 id="top">OLMonster</h2>
     <ul
-      class="nav justify-content-center nav-pills mb-3"
+      class="nav justify-content-center nav-pills mb-3 fixed-top"
       id="pills-tab"
       role="tablist"
     >
       <li class="nav-item">
         <a
-          class="nav-link active"
+          class="nav-link"
           id="pills-home-tab"
           data-toggle="pill"
           href="#MonsterIntroduction"
@@ -100,10 +99,9 @@ export default {};
           可能想透過整理找回記憶的蛛絲馬跡吧。<br />
         </p>
       </li>
+      <br />
       <h1 id="APPIntroduction">APP介紹</h1>
-      <br />
       <h3>史上最萌的零股投資教學</h3>
-      <br />
       <img src="../../assets/qmon03.png" />
       <img src="../../assets/qmon04.png" /><br />
       <a href="#top">TOP</a>
