@@ -1,29 +1,21 @@
-* {
-  align-items: center;
+#myTab {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-#top {
-  margin-top: 50px;
+ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
+  background-color: rgb(132, 223, 226);
 }
-#pills-tab {
-  background-color: #fafafa;
-  margin: 0 auto;
-  width: 100%;
-  height: 50px;
-  z-index: 1;
-  border-radius: 20px;
-  box-shadow: 1px 1px 1px 1px rgb(158, 154, 154);
+div.tab-content {
+  background-color: rgba(132, 223, 226, 0.445);
 }
-
-body {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
+#title,
+h1#APPIntroduction,
+form {
+  padding: 20px;
 }
-
+.div {
+  border: grey;
+}
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -52,4 +44,7 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+#block {
+  padding: 50px;
 }

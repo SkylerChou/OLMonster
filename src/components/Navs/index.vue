@@ -3,7 +3,7 @@ export default {};
 </script>
 <template>
   <div>
-    <ul class="nav justify-content-center nav-tabs" id="myTab" role="tablist">
+    <ul class="nav justify-content-center nav-pills nav-justified" id="myTab" role="tablist">
       <li class="nav-item">
         <a
           class="nav-link active"
@@ -52,8 +52,8 @@ export default {};
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <ul>
-          <h1 id="MonsterIntroduction">怪物介紹</h1>
-          <li>
+          <div id="block">
+            <h1 id="title">怪物介紹</h1>
             <img src="../../assets/1.png" height="250px" />
             <h2>Q摸</h2>
             <h3>愛開玩笑的幸運星</h3>
@@ -61,16 +61,9 @@ export default {};
               Q摸是隻食量驚人超愛美食的大眼毛怪。
               <br />身高體大卻有雙7號半的小腳，走路時常跌倒。
               <br />下班超愛網購瞎拚買鞋，卻總找不到合腳的鞋，超苦惱。
-              <br />
             </p>
-            <p>
-              Q摸有帶幸運給別人的特殊魔力，
-              只要跟著他買彩卷、簽運彩、對發票......
-              <br />都會有好運發生 (雖然自己都槓龜)，簡直福神在世。
-              <br />
-            </p>
-          </li>
-          <li>
+          </div>
+          <div id="block">
             <img src="../../assets/2.png" height="250px" />
             <h2>Q呆</h2>
             <h3>天真樂觀的大胃王</h3>
@@ -82,31 +75,51 @@ export default {};
               <br />非常有義氣，寧可當個傻蛋也不願拿變聰明取代友情。
               <br />
             </p>
-          </li>
-          <li>
+          </div>
+          <div id="block">
             <img src="../../assets/3.png" height="250px" />
             <h2>奇樂</h2>
             <h3>喪失記憶的殺手</h3>
-            <p>
+            <div>
               是隻神秘的怪獸， 因為從樹上掉下來敲到頭，失去了記憶。
               <br />傳聞之前是個殺手， 因為不能留下DNA生物證據，
               <br />所以對整潔特別吹毛求疵，很愛打掃 全套的清潔用品一應俱全，
               <br />最近更迷上了”怦然心動的人生整理魔法”
               <br />可能想透過整理找回記憶的蛛絲馬跡吧。
               <br />
-            </p>
-          </li>
+            </div>
+          </div>
         </ul>
       </div>
-      <div class="tab-pane fade" id="story" role="tabpanel" aria-labelledby="story-tab">456</div>
-      <div class="tab-pane fade" id="appIntro" role="tabpanel" aria-labelledby="appIntro-tab">
-        <h1 id="APPIntroduction">APP介紹</h1>
-        <h3>史上最萌的零股投資教學</h3>
-        <img src="../../assets/qmon03.png" />
-        <img src="../../assets/qmon04.png" />
+      <div
+        class="tab-pane fade"
+        id="story"
+        role="tabpanel"
+        aria-labelledby="story-tab"
+        style="height: 100vh"
+      >123</div>
+      <div
+        class="tab-pane fade"
+        id="appIntro"
+        role="tabpanel"
+        aria-labelledby="appIntro-tab"
+        style="height: 100vh"
+      >
+        <div id="block">
+          <h1 id="APPIntroduction">APP介紹</h1>
+          <h3>史上最萌的零股投資教學</h3>
+          <img src="../../assets/qmon03.png" />
+          <img src="../../assets/qmon04.png" />
+        </div>
       </div>
-      <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
-        <div class="hello">
+      <div
+        class="tab-pane fade"
+        id="login"
+        role="tabpanel"
+        aria-labelledby="login-tab"
+        style="height: 100vh"
+      >
+        <div id="block">
           <form method="post" autocomplete="off">
             帳號：
             <input type="text" name="acc" id="acc" style="margin-bottom:10px;" />
@@ -142,9 +155,8 @@ export default {};
                 <input type="checkbox" value="remember-me" /> Remember me
               </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-            <button class="btn btn-lg btn-primary btn-block">Register</button>
-            <p class="mt-5 mb-3 text-muted">© 2017-2020</p>
+            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-primary btn-block">Register</button>
           </form>
         </div>
       </div>
