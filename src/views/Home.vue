@@ -3,7 +3,9 @@
   <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <!-- </div> -->
-  <Navs />
+  <div>
+    <Navs />
+  </div>
 </template>
 
 <script>
@@ -15,7 +17,7 @@ export default {
   name: "Home",
   components: {
     // HelloWorld,
-    Navs,
-  },
+    Navs
+  }
 };
 </script>

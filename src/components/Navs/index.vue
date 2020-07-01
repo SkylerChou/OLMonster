@@ -150,11 +150,11 @@ export default {};
               placeholder="Password"
               required
             />
-            <div class="checkbox mb-3">
-              <label>
+            <!-- <div class="checkbox mb-3"> -->
+            <!-- <label>
                 <input type="checkbox" value="remember-me" /> Remember me
-              </label>
-            </div>
+            </label>-->
+            <!-- </div> -->
             <button class="btn btn-primary btn-block" type="submit">Sign in</button>
             <button class="btn btn-primary btn-block">Register</button>
           </form>
