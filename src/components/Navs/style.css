@@ -43,8 +43,8 @@ a {
   height: 100%;
   position: absolute;
   padding: 90px 70px 50px 70px;
-  background: #103b32e1;
-  border-radius: 10px;
+  background: #103b32d3;
+  border-radius: 20px;
 }
 .login-html .sign-in-htm,
 .login-html .sign-up-htm {
@@ -121,8 +121,14 @@ input.button {
   font-size: 12px;
 }
 .login-form .group .button {
-  background: #1161ee;
+  background: #134f6e;
 }
+
+.login-form .group .button:hover {
+  background-color: #2a82adcc;
+  outline: none;
+}
+
 .login-form .group label .icon {
   width: 15px;
   height: 15px;

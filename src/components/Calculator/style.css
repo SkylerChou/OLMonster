@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #091921; */
+}
+.calculator {
+  position: relative;
+  display: grid;
+}
+
+.calculator .value {
+  background: rgba(218, 214, 214, 0.5);
+  color: rgb(12, 9, 9);
+  grid-column: span 4;
+  height: 100px;
+  text-align: right;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.calculator span {
+  display: grid;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  background: #0c2835;
+  place-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.calculator span:active {
+  background: #74ff3b;
+  color: #111;
+}
+.calculator span.clear {
+  grid-column: span 3;
+  width: 180px;
+}
+
+.calculator span.buy {
+  grid-row: span 2;
+  height: 120px;
+  background: #d45039ec;
+}
+
+.calculator span.buy:hover {
+  background: #d45039b6;
+}
+
+.calculator span.sell {
+  grid-row: span 2;
+  height: 120px;
+  background: #65d678ec;
+}
+
+.calculator span.sell:hover {
+  background: #65d678d3;
+}
+
+.calculator span.equal {
+  grid-column: span 2;
+  width: 120px;
+  background: #03b1ff;
+}
+
+.calculator span.equal:hover {
+  background: #03afff9f;
+}

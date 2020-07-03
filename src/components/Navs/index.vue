@@ -10,7 +10,7 @@ export default {
       nickname: "",
     };
   },
-  name: "Login",
+  // name: "Login",
   //透過props傳入外部資料
   // props: {
   //   msg: String
@@ -21,7 +21,6 @@ export default {
   // },
   methods: {
     loginClicked() {
-      // this.$router.push("/login");
       axios
         .post("http://104.199.134.68:8080/login", {
           account: this.account,
