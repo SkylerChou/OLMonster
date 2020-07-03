@@ -1,5 +1,8 @@
 <template>
-  <div><Chart /> <Calculator /></div>
+  <div class="container">
+    <div><Chart /></div>
+    <div><Calculator /></div>
+  </div>
 </template>
 <script>
 import Chart from "@/components/Chart/index.vue";
@@ -12,3 +15,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  width: 2000px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div {
+  background: #f2ebf0;
+}
+</style>

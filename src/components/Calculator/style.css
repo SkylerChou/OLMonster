@@ -3,10 +3,12 @@
   font-family: "Poppins", sans-serif;
 }
 form {
+  padding: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
-  /* background: #091921; */
+  background: #070808;
+  border-radius: 10px;
 }
 .calculator {
   position: relative;
