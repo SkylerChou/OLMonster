@@ -1,5 +1,57 @@
 <script>
-export default {};
+import axios from "axios";
+import cookie from "../../utils/cookie";
+export default {
+  data() {
+    return {
+      account: "",
+      password: "",
+      confirmPassword: "",
+      nickname: "",
+    };
+  },
+  name: "Login",
+  //透過props傳入外部資料
+  // props: {
+  //   msg: String
+  // },
+  // //網頁名字
+  // metaInfo: {
+  //   title: "Login"
+  // },
+  methods: {
+    loginClicked() {
+      // this.$router.push("/login");
+      axios
+        .post("http://104.199.134.68:8080/login", {
+          account: this.account,
+          password: this.password,
+        })
+        .then((res) => {
+          console.log(res);
+          cookie.set("token", res.data.jwt);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+    registerClicked() {
+      axios
+        .post("http://104.199.134.68:8080/register", {
+          account: this.account,
+          password: this.password,
+          confirmPassword: this.confirmPassword,
+          nickname: this.nickname,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 <template>
   <div>
@@ -127,19 +179,116 @@ export default {};
           <img src="../../assets/qmon04.png" />
         </div>
       </div>
-    </div>
-    <div
-      class="tab-pane fade"
-      id="login"
-      role="tabpanel"
-      aria-labelledby="appIntro-tab"
-      style="height: 100vh"
-    >
-      <div id="block">
-        <h1 id="APPIntroduction">APP介紹</h1>
-        <h3>史上最萌的零股投資教學</h3>
-        <img src="../../assets/qmon03.png" />
-        <img src="../../assets/qmon04.png" />
+      <div
+        class="tab-pane fade"
+        id="login"
+        role="tabpanel"
+        aria-labelledby="login-tab"
+        style="height: 100vh"
+      >
+        <div class="login-wrap">
+          <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked />
+            <label for="tab-1" class="tab">登入</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up" />
+            <label for="tab-2" class="tab">註冊</label>
+
+            <div class="login-form">
+              <form action>
+                <div class="sign-in-htm">
+                  <div class="group">
+                    <label for="Username" class="label">
+                      使用者帳號
+                      <!-- 備註必填 -->
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="input"
+                      v-model="account"
+                      id="Username"
+                      placeholder="必填，帳號"
+                      required
+                    />
+                  </div>
+
+                  <div class="group">
+                    <label for="Password" class="label">
+                      密碼
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="password"
+                      class="input"
+                      v-model="password"
+                      id="Password"
+                      placeholder="必填，密碼"
+                      required
+                    />
+                  </div>
+
+                  <div class="group">
+                    <input
+                      type="submit"
+                      class="button"
+                      @click="loginClicked"
+                      value="登入"
+                    />
+                  </div>
+                  <div class="hr"></div>
+                </div>
+                <div class="sign-up-htm">
+                  <div class="group">
+                    <label for="user" class="label">帳號</label>
+                    <input
+                      id="user"
+                      v-model="account"
+                      type="text"
+                      class="input"
+                    />
+                  </div>
+                  <div class="group">
+                    <label for="pass" class="label">密碼</label>
+                    <input
+                      id="pass"
+                      v-model="password"
+                      type="password"
+                      class="input"
+                      data-type="password"
+                    />
+                  </div>
+                  <div class="group">
+                    <label for="repPass" class="label">密碼確認</label>
+                    <input
+                      id="repPass"
+                      v-model="confirmPassword"
+                      type="password"
+                      class="input"
+                      data-type="password"
+                    />
+                  </div>
+                  <div class="group">
+                    <label for="nick" class="label">暱稱</label>
+                    <input
+                      id="nick"
+                      v-model="nickname"
+                      type="text"
+                      class="input"
+                    />
+                  </div>
+                  <div class="group">
+                    <input
+                      type="submit"
+                      class="button"
+                      value="確認"
+                      @click="registerClicked"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

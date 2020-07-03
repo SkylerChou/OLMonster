@@ -17,75 +17,6 @@ form {
 #block {
   padding: 50px;
 }
-#login {
-  background: url(../../assets/background1.jpg) no-repeat center center / cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.login {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  border: 2px solid #fff;
-  box-shadow: 0 0 30px #000;
-  backdrop-filter: blur(5px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.form {
-  width: 400px;
-  color: #fff;
-}
-.form h2 {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #fff;
-}
-.form .group {
-  margin-bottom: 20px;
-}
-.form label {
-  line-height: 2;
-  font-family: "Noto Sans TC", sans-serif;
-}
-.form input {
-  width: 100%;
-  border: 1px solid #aaa;
-  line-height: 3;
-  border-radius: 5px;
-}
-
-.form .btn-group {
-  font-size: 0;
-  width: px;
-  margin-top: 25px;
-}
-.form .input {
-  font-size: 20px;
-  border: none;
-  width: 190px;
-  padding: 10px 0;
-  color: #fff;
-  font-family: "Noto Sans TC", sans-serif;
-}
-.form .btn + .btn {
-  margin-left: 20px;
-}
-
-body {
-  margin: 0;
-  color: #6a6f8c;
-  background: #c8c8c8;
-  font: 600 16px/18px "Open Sans", sans-serif;
-}
-*,
-:after,
-:before {
-  box-sizing: border-box;
-}
 .clearfix:after,
 .clearfix:before {
   content: "";
@@ -106,17 +37,14 @@ a {
   max-width: 525px;
   min-height: 670px;
   position: relative;
-  background: url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg)
-    no-repeat center;
-  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 .login-html {
   width: 100%;
   height: 100%;
   position: absolute;
   padding: 90px 70px 50px 70px;
-  background: rgba(40, 57, 101, 0.9);
+  background: #103b32e1;
+  border-radius: 10px;
 }
 .login-html .sign-in-htm,
 .login-html .sign-up-htm {
@@ -168,6 +96,11 @@ a {
   color: #fff;
   display: block;
 }
+
+.login-form .group .input:focus {
+  outline: none;
+}
+
 .login-form .group .input,
 .login-form .group .button {
   border: none;
@@ -175,6 +108,11 @@ a {
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.1);
 }
+
+input.button {
+  margin-top: 50px;
+}
+
 .login-form .group input[data-type="password"] {
   -webkit-text-security: circle;
 }
@@ -238,11 +176,6 @@ a {
   transform: rotate(0);
 }
 
-.hr {
-  height: 2px;
-  margin: 60px 0 50px 0;
-  background: rgba(255, 255, 255, 0.2);
-}
-.foot-lnk {
-  text-align: center;
+div.login-html {
+  margin-top: 50px;
 }
