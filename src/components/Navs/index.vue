@@ -3,7 +3,11 @@ export default {};
 </script>
 <template>
   <div>
-    <ul class="nav justify-content-center nav-pills nav-justified" id="myTab" role="tablist">
+    <ul
+      class="nav justify-content-center nav-pills nav-justified"
+      id="myTab"
+      role="tablist"
+    >
       <li class="nav-item">
         <a
           class="nav-link active"
@@ -13,7 +17,8 @@ export default {};
           role="tab"
           aria-controls="home"
           aria-selected="true"
-        >怪獸介紹</a>
+          >怪獸介紹</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -24,7 +29,8 @@ export default {};
           role="tab"
           aria-controls="story"
           aria-selected="false"
-        >怪物故事</a>
+          >怪物故事</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -35,7 +41,8 @@ export default {};
           role="tab"
           aria-controls="appIntro"
           aria-selected="false"
-        >APP介紹</a>
+          >APP介紹</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -46,11 +53,17 @@ export default {};
           role="tab"
           aria-controls="login"
           aria-selected="false"
-        >登入/註冊</a>
+          >登入/註冊</a
+        >
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div
+        class="tab-pane fade show active"
+        id="home"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+      >
         <ul>
           <div id="block">
             <h1 id="title">怪物介紹</h1>
@@ -97,7 +110,9 @@ export default {};
         role="tabpanel"
         aria-labelledby="story-tab"
         style="height: 100vh"
-      >123</div>
+      >
+        123
+      </div>
       <div
         class="tab-pane fade"
         id="appIntro"
@@ -112,53 +127,19 @@ export default {};
           <img src="../../assets/qmon04.png" />
         </div>
       </div>
-      <div
-        class="tab-pane fade"
-        id="login"
-        role="tabpanel"
-        aria-labelledby="login-tab"
-        style="height: 100vh"
-      >
-        <div id="block">
-          <form method="post" autocomplete="off">
-            帳號：
-            <input type="text" name="acc" id="acc" style="margin-bottom:10px;" />
-            <br />密碼：
-            <input type="password" name="pwd" id="pwd" style="margin-bottom:10px;" />
-            <br />
-            <ul>
-              <input type="submit" value="登入" style="margin-right:10px;" />
-              <input type="submit" value="註冊" style="margin-right:10px;" />
-            </ul>
-          </form>
-          <form class="form-signin">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input
-              type="email"
-              id="inputEmail"
-              class="form-control"
-              placeholder="Email address"
-              required
-              autofocus
-            />
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input
-              type="password"
-              id="inputPassword"
-              class="form-control"
-              placeholder="Password"
-              required
-            />
-            <!-- <div class="checkbox mb-3"> -->
-            <!-- <label>
-                <input type="checkbox" value="remember-me" /> Remember me
-            </label>-->
-            <!-- </div> -->
-            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
-            <button class="btn btn-primary btn-block">Register</button>
-          </form>
-        </div>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="login"
+      role="tabpanel"
+      aria-labelledby="appIntro-tab"
+      style="height: 100vh"
+    >
+      <div id="block">
+        <h1 id="APPIntroduction">APP介紹</h1>
+        <h3>史上最萌的零股投資教學</h3>
+        <img src="../../assets/qmon03.png" />
+        <img src="../../assets/qmon04.png" />
       </div>
     </div>
   </div>

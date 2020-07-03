@@ -19,7 +19,7 @@
                 <input
                   type="text"
                   class="input"
-                  v-model="userName"
+                  v-model="account"
                   id="Username"
                   placeholder="必填，帳號或Email電子信箱"
                   required
@@ -41,25 +41,20 @@
                 />
               </div>
 
-              <!-- <div class="group">
-              <input id="check" type="checkbox" class="check" checked />
-              <label for="check">
-                <span class="icon"></span> Keep me Signed in
-              </label>
-              </div>-->
-
               <div class="group">
-                <input type="submit" class="button" @click="loginClicked" value="Sign In" />
+                <input
+                  type="submit"
+                  class="button"
+                  @click="loginClicked"
+                  value="Sign In"
+                />
               </div>
               <div class="hr"></div>
-              <!-- <div class="foot-lnk">
-              <a href="#forgot">Forgot Password?</a>
-              </div>-->
             </div>
             <div class="sign-up-htm">
               <div class="group">
-                <label for="user" class="label">Username</label>
-                <input id="user" v-model="userName" type="text" class="input" />
+                <label for="user" class="label">account</label>
+                <input id="user" v-model="account" type="text" class="input" />
               </div>
               <div class="group">
                 <label for="pass" class="label">Password</label>
@@ -72,9 +67,9 @@
                 />
               </div>
               <div class="group">
-                <label for="pass" class="label">Repeat Password</label>
+                <label for="repPass" class="label">Repeat Password</label>
                 <input
-                  id="pass"
+                  id="repPass"
                   v-model="confirmPassword"
                   type="password"
                   class="input"
@@ -82,11 +77,16 @@
                 />
               </div>
               <div class="group">
-                <label for="pass" class="label">NickName</label>
-                <input id="pass" v-model="nickname" type="text" class="input" />
+                <label for="nick" class="label">NickName</label>
+                <input id="nick" v-model="nickname" type="text" class="input" />
               </div>
               <div class="group">
-                <input type="submit" class="button" value="Sign Up" @click="loginClicked" />
+                <input
+                  type="submit"
+                  class="button"
+                  value="Sign Up"
+                  @click="registerClicked"
+                />
               </div>
               <div class="hr"></div>
               <div class="foot-lnk">
@@ -101,14 +101,15 @@
 </template>
 
 <script>
+import axios from "axios";
 import cookie from "../utils/cookie";
 export default {
   data() {
     return {
-      userName: "",
+      account: "",
       password: "",
       confirmPassword: "",
-      nickname: ""
+      nickname: "",
     };
   },
   name: "Login",
@@ -124,21 +125,34 @@ export default {
     loginClicked() {
       // this.$router.push("/login");
       axios
-        .post("http://104.199.134.68:8080/register", {
-          userName: this.userName,
+        .post("http://104.199.134.68:8080/login", {
+          account: this.account,
           password: this.password,
-          confirmPassword: this.confirmPassword,
-          nickname: this.nickname
         })
-        .then(res => {
-          console.log(res.data);
+        .then((res) => {
+          console.log(res);
           cookie.set("token", res.data.jwt);
         })
         .catch(function(error) {
           console.log(error);
         });
-    }
-  }
+    },
+    registerClicked() {
+      axios
+        .post("http://104.199.134.68:8080/register", {
+          account: this.account,
+          password: this.password,
+          confirmPassword: this.confirmPassword,
+          nickname: this.nickname,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+  },
 };
 </script>
 
@@ -246,7 +260,7 @@ a {
   background: rgba(255, 255, 255, 0.1);
 }
 .login-form .group input[data-type="password"] {
-  text-security: circle;
+  /* text-security: circle; */
   -webkit-text-security: circle;
 }
 .login-form .group .label {

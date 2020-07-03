@@ -10,7 +10,7 @@
 </template>
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif, "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   align-content: center;
