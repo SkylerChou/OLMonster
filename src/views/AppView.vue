@@ -1,18 +1,23 @@
 <template>
   <div class="container">
-    <div><Chart /></div>
-    <div><Calculator /></div>
+    <div>
+      <Chart />
+    </div>
+    <div>
+      <Calculator />
+    </div>
   </div>
 </template>
 <script>
 import Chart from "@/components/Chart/index.vue";
 import Calculator from "@/components/Calculator/index.vue";
+
 export default {
   name: "Home",
   components: {
     Chart,
-    Calculator,
-  },
+    Calculator
+  }
 };
 </script>
 

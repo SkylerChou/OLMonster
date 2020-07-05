@@ -20,10 +20,36 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/AppView.vue"),
   },
   {
-    path: "/reg",
-    name: "Register",
+    path: "/know",
+    name: "Knowledge",
     component: () =>
-      import(/* webpackChunkName: "register" */ "../views/Register.vue"),
+      import(/* webpackChunkName: "Knowledge" */ "../views/Knowledge.vue"),
+    // childred: [
+    //   {
+    //     path: "/know",
+    //     name: "Knowledge",
+    //     component: () =>
+    //       import(/* webpackChunkName: "Knowledge" */ "../views/Knowledge.vue"),
+    //   },
+    //   {
+    //     path: "/know",
+    //     name: "Knowledge",
+    //     component: () =>
+    //       import(/* webpackChunkName: "Knowledge" */ "../views/Knowledge.vue"),
+    //   },
+    //   {
+    //     path: "/know",
+    //     name: "Knowledge",
+    //     component: () =>
+    //       import(/* webpackChunkName: "Knowledge" */ "../views/Knowledge.vue"),
+    //   },
+    // ],
+  },
+  {
+    path: "/mon",
+    name: "Monster",
+    component: () =>
+      import(/* webpackChunkName: "Knowledge" */ "../views/Monster.vue"),
   },
 ];
 
