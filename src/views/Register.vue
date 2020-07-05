@@ -42,12 +42,7 @@
               </div>
 
               <div class="group">
-                <input
-                  type="submit"
-                  class="button"
-                  @click="loginClicked"
-                  value="Sign In"
-                />
+                <input type="submit" class="button" @click="loginClicked" value="Sign In" />
               </div>
               <div class="hr"></div>
             </div>
@@ -81,12 +76,7 @@
                 <input id="nick" v-model="nickname" type="text" class="input" />
               </div>
               <div class="group">
-                <input
-                  type="submit"
-                  class="button"
-                  value="Sign Up"
-                  @click="registerClicked"
-                />
+                <input type="submit" class="button" value="Sign Up" @click="registerClicked" />
               </div>
             </div>
           </form>
@@ -105,7 +95,7 @@ export default {
       account: "",
       password: "",
       confirmPassword: "",
-      nickname: "",
+      nickname: ""
     };
   },
   name: "Login",
@@ -123,9 +113,9 @@ export default {
       axios
         .post("http://104.199.134.68:8080/login", {
           account: this.account,
-          password: this.password,
+          password: this.password
         })
-        .then((res) => {
+        .then(res => {
           console.log(res);
           cookie.set("token", res.data.jwt);
         })
@@ -139,20 +129,20 @@ export default {
           account: this.account,
           password: this.password,
           confirmPassword: this.confirmPassword,
-          nickname: this.nickname,
+          nickname: this.nickname
         })
-        .then((res) => {
+        .then(res => {
           console.log(res);
         })
         .catch(function(error) {
           console.log(error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style>
+<style scoped>
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 body {

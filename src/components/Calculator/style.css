@@ -16,8 +16,8 @@ form {
 }
 
 .calculator .value {
-  background: rgba(218, 214, 214, 0.5);
-  color: rgb(12, 9, 9);
+  background: rgba(218, 214, 214, 0.835);
+  color: rgb(10, 8, 8);
   grid-column: span 4;
   height: 100px;
   text-align: right;

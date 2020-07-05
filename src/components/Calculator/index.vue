@@ -1,21 +1,21 @@
 <template>
   <form class="calculator" name="calc">
-    <input class="value" type="text" name="txt" readonly="" />
+    <input class="value" type="text" name="txt" readonly />
     <span class="num clear" onclick="document.calc.txt.value=''">C</span>
-    <span class="num buy" onclick="console.log(買都買)">BUY</span>
+    <span class="num buy" onclick="document.calc.txt.value='買都買'">BUY</span>
     <span class="num" onclick="document.calc.txt.value+='7'">7</span>
     <span class="num" onclick="document.calc.txt.value+='8'">8</span>
     <span class="num" onclick="document.calc.txt.value+='9'">9</span>
     <span class="num" onclick="document.calc.txt.value+='4'">4</span>
     <span class="num" onclick="document.calc.txt.value+='5'">5</span>
     <span class="num" onclick="document.calc.txt.value+='6'">6</span>
-    <span class="num sell" onclick="console.log(賣都賣)">SELL</span>
+    <span class="num sell" onclick="document.calc.txt.value='賣都賣'">SELL</span>
     <span class="num" onclick="document.calc.txt.value+='3'">3</span>
     <span class="num" onclick="document.calc.txt.value+='2'">2</span>
     <span class="num" onclick="document.calc.txt.value+='1'">1</span>
     <span class="num" onclick="document.calc.txt.value+='0'">0</span>
     <span class="num" onclick="document.calc.txt.value+='00'">00</span>
-    <span class="num equal" onclick="console.log(買最多))">MAX</span>
+    <span class="num equal" onclick="document.calc.txt.value='買爆'">MAX</span>
   </form>
 </template>
 
@@ -23,4 +23,4 @@
 export default {};
 </script>
 
-<style src="./style.css"></style>
+<style src="./style.css" scoped></style>
