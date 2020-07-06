@@ -5,6 +5,7 @@
       <router-link to="/app">APP</router-link>|
       <router-link to="/know">Knowledge</router-link>|
       <router-link to="/mon">Monster</router-link>
+      <router-link to="/reg">Register</router-link>
     </div>
     <router-view />
   </div>

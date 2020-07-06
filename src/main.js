@@ -4,9 +4,11 @@ import router from "./router";
 import store from "./store";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
-import axios from "axios";
+import axious from "axios";
+import qs from "qs";
 
-Vue.prototype.$axious = axios;
+Vue.prototype.$axios = axious;
+Vue.prototype.$qs = qs;
 Vue.config.productionTip = false;
 
 new Vue({
