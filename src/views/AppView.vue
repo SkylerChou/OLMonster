@@ -86,6 +86,7 @@
 import Pet from "@/components/Pet/index.vue";
 import Chart from "@/components/Chart/index.vue";
 import Calculator from "@/components/Calculator/index.vue";
+import cookie from "../utils/cookie";
 
 export default {
   name: "Home",
@@ -93,6 +94,36 @@ export default {
     Pet,
     Chart,
     Calculator
+  },
+  methods: {
+    Clicked() {
+      this.$axios
+        .get("http://104.199.134.68:8080/user/getmission", Headers)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+    registerClicked() {
+      this.$axios
+        .post(
+          "http://104.199.134.68:8080/user/register",
+          this.$qs.stringify({
+            account: this.account,
+            password: this.password,
+            confirmPassword: this.confirmPassword,
+            nickname: this.nickname
+          })
+        )
+        .then(res => {
+          console.log(res);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
   }
 };
 </script>

@@ -26,8 +26,14 @@ export default {
           password: this.password
         })
         .then(res => {
-          console.log(res);
-          cookie.set("token", res.data.jwt);
+          console.log(this.account + " " + this.password);
+          console.log(res.data);
+          cookie.set("token", res.data.message);
+          if (res.data.status == 200) {
+            this.$router.push({ path: "/app" });
+          } else if (res.data.status == 403) {
+            alert("登入失敗");
+          }
         })
         .catch(function(error) {
           console.log(error);
@@ -41,7 +47,8 @@ export default {
             account: this.account,
             password: this.password,
             confirmPassword: this.confirmPassword,
-            nickname: this.nickname
+            nickname: this.nickname,
+            birth: this.birth
           })
         )
         .then(res => {

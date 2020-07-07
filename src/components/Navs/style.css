@@ -258,10 +258,3 @@ h3 {
   border: 1px solid #e0cb63;
   border-radius: 20px;
 }
-
-#title:hover {
-  -webkit-transition: opacity 2s ease-in-out;
-  -moz-transition: opacity 2s ease-in-out;
-  -o-transition: opacity 2s ease-in-out;
-  transition: opacity 2s ease-in-out;
-}
