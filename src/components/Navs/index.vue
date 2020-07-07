@@ -71,17 +71,6 @@ export default {
       <li class="nav-item">
         <a
           class="nav-link"
-          id="story-tab"
-          data-toggle="tab"
-          href="#story"
-          role="tab"
-          aria-controls="story"
-          aria-selected="false"
-        >怪物故事</a>
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
           id="appIntro-tab"
           data-toggle="tab"
           href="#appIntro"
@@ -104,53 +93,56 @@ export default {
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <ul>
-          <div id="block">
-            <h1 id="title">怪物介紹</h1>
-            <img src="../../assets/1.png" height="250px" />
-            <h2>Q摸</h2>
-            <h3>愛開玩笑的幸運星</h3>
-            <p>
-              Q摸是隻食量驚人超愛美食的大眼毛怪。
-              <br />身高體大卻有雙7號半的小腳，走路時常跌倒。
-              <br />下班超愛網購瞎拚買鞋，卻總找不到合腳的鞋，超苦惱。
-            </p>
-          </div>
-          <div id="block">
-            <img src="../../assets/2.png" height="250px" />
-            <h2>Q呆</h2>
-            <h3>天真樂觀的大胃王</h3>
-            <p>
-              Q摸從小的玩伴，是個天生的樂觀派，
-              <br />雖然傻呆卻有顆真摯的心。
-              <br />外表有點粗線條，聲音卻細小，常常被Q摸惡作劇跟使喚，
-              <br />不管對他做什麼，他都很開心，夢想是跟大家交朋友。
-              <br />非常有義氣，寧可當個傻蛋也不願拿變聰明取代友情。
-              <br />
-            </p>
-          </div>
-          <div id="block">
-            <img src="../../assets/3.png" height="250px" />
-            <h2>奇樂</h2>
-            <h3>喪失記憶的殺手</h3>
-            <div>
-              是隻神秘的怪獸， 因為從樹上掉下來敲到頭，失去了記憶。
-              <br />傳聞之前是個殺手， 因為不能留下DNA生物證據，
-              <br />所以對整潔特別吹毛求疵，很愛打掃 全套的清潔用品一應俱全，
-              <br />最近更迷上了”怦然心動的人生整理魔法”
-              <br />可能想透過整理找回記憶的蛛絲馬跡吧。
-              <br />
+        <div class="flex">
+          <ul>
+            <div id="title">
+              <h1>怪物介紹</h1>
             </div>
-          </div>
-        </ul>
+            <div id="block">
+              <div class="img">
+                <img src="../../assets/dino1.png" height="250px" />
+              </div>
+              <h2>花椰菜</h2>
+              <h3>天真樂觀的賣萌擔當</h3>
+              <div class="p">
+                <p>
+                  雖然傻呆卻有顆真摯的心。
+                  <br />外表有點粗線條，聲音卻細小，
+                  <br />夢想是跟大家交朋友。
+                </p>
+              </div>
+            </div>
+            <div id="block">
+              <div class="img">
+                <img src="../../assets/square.png" height="250px" />
+              </div>
+              <h2>嗨揪</h2>
+              <h3>愛生氣的怪獸</h3>
+              <div class="p">
+                <p>
+                  方塊貓是隻食量驚人超愛美食的果凍怪。
+                  <br />在一次實驗意外被創造出來，導致外表奇特，
+                  <br />超愛調皮搗蛋，捉弄主人。
+                </p>
+              </div>
+            </div>
+            <div id="block">
+              <div class="img">
+                <img src="../../assets/fox1.png" height="250px" />
+              </div>
+              <h2>函吉</h2>
+              <h3>失憶守護神</h3>
+              <div class="p">
+                因為從樹上掉下來敲到頭，失去了記憶。
+                <br />傳聞之前是某座森林的守護神，
+                <br />所以對於保護弱小非常執著，
+                <br />大家都非常喜歡牠。
+                <br />
+              </div>
+            </div>
+          </ul>
+        </div>
       </div>
-      <div
-        class="tab-pane fade"
-        id="story"
-        role="tabpanel"
-        aria-labelledby="story-tab"
-        style="height: 100vh"
-      >123</div>
       <div
         class="tab-pane fade"
         id="appIntro"
@@ -178,7 +170,6 @@ export default {
             <label for="tab-1" class="tab">登入</label>
             <input id="tab-2" type="radio" name="tab" class="sign-up" />
             <label for="tab-2" class="tab">註冊</label>
-
             <div class="login-form">
               <form action>
                 <div class="sign-in-htm">

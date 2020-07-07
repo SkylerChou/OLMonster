@@ -10,41 +10,12 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  {
-    path: "/app",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AppView.vue"),
-  },
-  {
-    path: "/know",
-    name: "Knowledge",
-    component: () =>
-      import(/* webpackChunkName: "Knowledge" */ "../views/Knowledge.vue"),
-    // childred: [
-    //   {
-    //     path: "/know",
-    //     name: "Knowledge",
-    //     component: () =>
-    //       import(/* webpackChunkName: "Knowledge" */ "../views/Knowledge.vue"),
-    //   },
-    //   {
-    //     path: "/know",
-    //     name: "Knowledge",
-    //     component: () =>
-    //       import(/* webpackChunkName: "Knowledge" */ "../views/Knowledge.vue"),
-    //   },
-    //   {
-    //     path: "/know",
-    //     name: "Knowledge",
-    //     component: () =>
-    //       import(/* webpackChunkName: "Knowledge" */ "../views/Knowledge.vue"),
-    //   },
-    // ],
-  },
+  // {
+  //   path: "/app",
+  //   name: "About",
+  //   component: () =>
+  //     import(/* webpackChunkName: "about" */ "../views/AppView.vue"),
+  // },
   {
     path: "/mon",
     name: "Monster",
@@ -52,10 +23,10 @@ const routes = [
       import(/* webpackChunkName: "Knowledge" */ "../views/Monster.vue"),
   },
   {
-    path: "/reg",
-    name: "Register",
+    path: "/app",
+    name: "AppView",
     component: () =>
-      import(/* webpackChunkName: "Register" */ "../views/Register.vue"),
+      import(/* webpackChunkName: "Register" */ "../views/AppView.vue"),
   },
 ];
 

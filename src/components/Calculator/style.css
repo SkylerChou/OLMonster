@@ -2,10 +2,12 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+form.calculator {
+  width: fit-content;
+}
 form {
   padding: 10px;
-  display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   background: #070808;
   border-radius: 10px;

@@ -1,7 +1,11 @@
 <template>
   <div class="container">
-    <h2><b> 0050 元大台灣50</b></h2>
-    <div id="chart"><canvas id="lineChart"></canvas></div>
+    <h2>
+      <b>0050 元大台灣50</b>
+    </h2>
+    <div id="chart">
+      <canvas id="lineChart"></canvas>
+    </div>
   </div>
 </template>
 
@@ -12,7 +16,7 @@ import planetChartData from "./lineChart.js";
 export default {
   data() {
     return {
-      planetChartData: planetChartData,
+      planetChartData: planetChartData
     };
   },
   methods: {
@@ -21,13 +25,13 @@ export default {
       const myChart = new Chart(ctx, {
         type: chartData.type,
         data: chartData.data,
-        options: chartData.options,
+        options: chartData.options
       });
-    },
+    }
   },
   mounted() {
     this.createChart("lineChart", this.planetChartData);
-  },
+  }
 };
 </script>
 

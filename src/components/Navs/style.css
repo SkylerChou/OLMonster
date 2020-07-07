@@ -185,3 +185,59 @@ input.button {
 div.login-html {
   margin-top: 50px;
 }
+#title {
+  margin-top: 50px;
+  margin-left: 130px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border: 1px solid rgba(195, 143, 64, 0.781);
+  border-radius: 10px;
+  background: rgba(195, 143, 64, 0.781);
+}
+#title h1 {
+  font-size: 60px;
+}
+.flex {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+}
+.img {
+  margin-left: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  border: 1px solid rgba(139, 237, 100, 0.472);
+  border-radius: 99em;
+  background: rgba(139, 237, 100, 0.39);
+}
+#block h2,
+h3 {
+  margin-top: 25px;
+  margin-left: 30px;
+  margin-bottom: 25px;
+}
+h3 {
+  font-size: 25px;
+}
+.p {
+  font-size: 18px;
+  margin-left: 35px;
+  background: powderblue;
+  border: 1px solid powderblue;
+  border-radius: 10px;
+}
+
+#block h2 {
+  background: rgba(219, 123, 219, 0.712);
+  border: 1px solid rgba(219, 123, 219, 0.712);
+  border-radius: 20px;
+}

@@ -1,20 +1,96 @@
 <template>
-  <div class="container">
-    <div>
-      <Chart />
-    </div>
-    <div>
-      <Calculator />
+  <div class="container1">
+    <ul class="nav justify-content-center nav-pills nav-justified" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          id="home-tab"
+          data-toggle="tab"
+          href="#home"
+          role="tab"
+          aria-controls="home"
+          aria-selected="true"
+        >怪獸主頁</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="mission-tab"
+          data-toggle="tab"
+          href="#mission"
+          role="tab"
+          aria-controls="mission"
+          aria-selected="false"
+        >怪獸相關</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="deal-tab"
+          data-toggle="tab"
+          href="#deal"
+          role="tab"
+          aria-controls="deal"
+          aria-selected="false"
+        >零股交易</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="invest-tab"
+          data-toggle="tab"
+          href="#invest"
+          role="tab"
+          aria-controls="invest"
+          aria-selected="false"
+        >怪獸寶典</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <Pet />
+      </div>
+      <div
+        class="tab-pane fade"
+        id="deal"
+        role="tabpanel"
+        aria-labelledby="deal-tab"
+        style="height: 100vh"
+      >
+        <div class="container">
+          <Chart />
+          <div id="cal">
+            <Calculator />
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="invest"
+        role="tabpanel"
+        aria-labelledby="invest-tab"
+        style="height: 100vh"
+      >456</div>
+      <div
+        class="tab-pane fade"
+        id="mission"
+        role="tabpanel"
+        aria-labelledby="mission-tab"
+        style="height: 100vh"
+      >789</div>
     </div>
   </div>
 </template>
+
 <script>
+import Pet from "@/components/Pet/index.vue";
 import Chart from "@/components/Chart/index.vue";
 import Calculator from "@/components/Calculator/index.vue";
 
 export default {
   name: "Home",
   components: {
+    Pet,
     Chart,
     Calculator
   }
@@ -22,14 +98,22 @@ export default {
 </script>
 
 <style scoped>
+#myTab {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
+  background-color: rgb(132, 223, 226);
+}
 .container {
-  width: 2000px;
-  height: 700px;
+  margin-top: 50px;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-div {
-  background: #f2ebf0;
+#cal {
+  margin: 50px;
 }
 </style>
