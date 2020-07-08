@@ -7,6 +7,9 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
 }
 div.tab-content {
   /* background-color: rgba(132, 223, 226, 0.445); */
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   background: -webkit-linear-gradient(
     rgba(201, 250, 168, 0.685),
     rgba(81, 226, 231, 0.856)
@@ -31,7 +34,7 @@ form {
 }
 
 #block {
-  padding: 50px;
+  padding: 25px;
 }
 .clearfix:after,
 .clearfix:before {
@@ -203,7 +206,7 @@ div.login-html {
 }
 #title {
   margin-top: 50px;
-  margin-left: 130px;
+  margin-left: 70px;
   display: flex;
   align-self: center;
   justify-content: center;
@@ -223,7 +226,7 @@ div.login-html {
   align-items: center;
 }
 .img {
-  margin-left: 50px;
+  margin-left: 15px;
   margin-bottom: 30px;
   display: flex;
   align-self: center;
