@@ -58,9 +58,77 @@
         style="height: 100vh"
       >
         <div class="container">
-          <Chart />
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#example"
+          >走勢圖</button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="example"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">走勢圖</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <Chart />
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div id="cal">
-            <Calculator />
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModalCenter"
+            >買入 / 賣出</button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModalCenter"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">股票名稱</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <Calculator />
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -70,14 +138,19 @@
         role="tabpanel"
         aria-labelledby="invest-tab"
         style="height: 100vh"
-      >456</div>
+      >
+        <div>
+          <h1 class="title">怪獸投資學</h1>
+          <Knowledge />
+        </div>
+      </div>
       <div
         class="tab-pane fade"
         id="mission"
         role="tabpanel"
         aria-labelledby="mission-tab"
         style="height: 100vh"
-      >789</div>
+      >正在施工中..未開放</div>
     </div>
   </div>
 </template>
@@ -86,6 +159,7 @@
 import Pet from "@/components/Pet/index.vue";
 import Chart from "@/components/Chart/index.vue";
 import Calculator from "@/components/Calculator/index.vue";
+import Knowledge from "@/components/Knowledge/index.vue";
 import cookie from "../utils/cookie";
 
 export default {
@@ -93,7 +167,8 @@ export default {
   components: {
     Pet,
     Chart,
-    Calculator
+    Calculator,
+    Knowledge
   },
   methods: {
     Clicked() {
@@ -146,5 +221,11 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
 }
 #cal {
   margin: 20px;
+}
+.modal-title {
+  font-size: 35px;
+}
+.title {
+  margin: 30px;
 }
 </style>

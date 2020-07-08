@@ -1,13 +1,23 @@
 <template>
   <div class="flex">
     <div class="pet">
-      <img src="../../assets/dino1.png" />
+      <img src="../../assets/gif/dino2.gif" />
     </div>
-    <div id="buttin-group">
+    <div id="info">
+      <div>
+        <span>
+          現金: 0
+          股票: 0
+          總資產: 0
+        </span>
+        <button type="button" class="btn btn-danger">切換怪獸</button>
+      </div>
+    </div>
+    <div id="button-group">
       <div>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-light"
           data-toggle="modal"
           data-target="#exampleModal"
         >商店</button>

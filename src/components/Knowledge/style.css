@@ -1,0 +1,11 @@
+.card {
+  margin: 20px;
+}
+.modal-body {
+  align-items: center;
+}
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
