@@ -65,7 +65,6 @@
             data-toggle="modal"
             data-target="#example"
           >走勢圖</button>
-
           <!-- Modal -->
           <div
             class="modal fade"
@@ -139,9 +138,11 @@
         aria-labelledby="invest-tab"
         style="height: 100vh"
       >
-        <div>
-          <h1 class="title">怪獸投資學</h1>
-          <Knowledge />
+        <div class="con">
+          <div>
+            <h1 class="title">怪獸投資學</h1>
+            <Knowledge />
+          </div>
         </div>
       </div>
       <div
@@ -226,6 +227,12 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
   font-size: 35px;
 }
 .title {
-  margin: 30px;
+  padding: 30px;
+}
+.con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(184, 135, 11, 0.692);
 }
 </style>

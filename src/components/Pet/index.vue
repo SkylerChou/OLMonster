@@ -6,9 +6,9 @@
     <div id="info">
       <div>
         <span>
-          現金: 0
-          股票: 0
-          總資產: 0
+          現金: {{cash}}
+          股票: {{stock}}
+          總資產: {{cash+stock}}
         </span>
         <button type="button" class="btn btn-danger">切換怪獸</button>
       </div>
@@ -133,7 +133,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      cash: 300000,
+      stock: 300000
+    };
+  }
+};
 </script>
 
 <style src="./style.css" scoped>

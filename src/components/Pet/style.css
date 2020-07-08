@@ -1,5 +1,5 @@
 .flex {
-  width: 98.999vw;
+  width: 98.99vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -64,7 +64,7 @@ button {
 
 #info {
   padding: 10px;
-  width: 98.999vw;
+  width: 98.99vw;
   background-color: rgba(205, 92, 92, 0.794);
   text-align: center;
 }
