@@ -20,3 +20,6 @@ div {
   justify-content: center;
   align-content: center;
 }
+#info {
+  font-size: 30px;
+}

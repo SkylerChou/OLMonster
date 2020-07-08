@@ -137,7 +137,7 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
   background-color: rgb(132, 223, 226);
 }
 .container {
-  margin-top: 50px;
+  margin-top: 25px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -145,6 +145,6 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
   align-items: center;
 }
 #cal {
-  margin: 50px;
+  margin: 20px;
 }
 </style>

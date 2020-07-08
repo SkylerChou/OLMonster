@@ -77,3 +77,7 @@ form {
 .calculator span.equal:hover {
   background: #03afff9f;
 }
+p {
+  font-size: 30px;
+  font-family: "Noto Sans TC", sans-serif;
+}

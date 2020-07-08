@@ -6,6 +6,7 @@
     <div id="chart">
       <canvas id="lineChart"></canvas>
     </div>
+    <div id="info"></div>
   </div>
 </template>
 

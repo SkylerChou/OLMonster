@@ -9,15 +9,6 @@ export default {
       nickname: ""
     };
   },
-  // name: "Login",
-  //透過props傳入外部資料
-  // props: {
-  //   msg: String
-  // },
-  // //網頁名字
-  // metaInfo: {
-  //   title: "Login"
-  // },
   methods: {
     loginClicked() {
       this.$axios
