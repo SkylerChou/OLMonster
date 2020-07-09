@@ -1,11 +1,6 @@
 <template>
   <div class="container">
-    <h2>
-      <b>0050 元大台灣50</b>
-    </h2>
-    <div class="container">
-      <canvas id="lineChart"></canvas>
-    </div>
+    <canvas id="lineChart"></canvas>
   </div>
 </template>
 
