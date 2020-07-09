@@ -18,7 +18,7 @@ export const planetChartData = {
     datasets: [
       {
         // one line graph
-        label: "Price of Month in this year",
+        label: "股價",
         data: [0, 20, 30, 40, 67, 62, 27, 14, 20, 66, 81, 12],
         backgroundColor: "rgba(71, 183,132,.5)", // Blue
         borderColor: "#47b784",

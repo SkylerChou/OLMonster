@@ -4,6 +4,7 @@
 }
 
 ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
+  width: 100%;
   background-color: rgb(132, 223, 226);
 }
 div.tab-content {
@@ -34,9 +35,6 @@ form {
   padding: 20px;
 }
 
-#block {
-  padding: 25px;
-}
 .clearfix:after,
 .clearfix:before {
   content: "";
@@ -206,8 +204,7 @@ div.login-html {
   margin-top: 50px;
 }
 #title {
-  margin-top: 50px;
-  margin-left: 70px;
+  margin: 38px;
   display: flex;
   align-self: center;
   justify-content: center;

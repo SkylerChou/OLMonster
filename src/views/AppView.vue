@@ -143,20 +143,6 @@ export default {
 ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
   background-color: rgb(132, 223, 226);
 }
-.container {
-  margin-top: 25px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#cal {
-  margin: 20px;
-}
-.modal-title {
-  font-size: 25px;
-}
 .title {
   padding: 30px;
 }
