@@ -1,6 +1,6 @@
 .flex {
   width: 98.99vw;
-  height: 100vh;
+  height: 120vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,11 +13,14 @@
 }
 .pet {
   width: 100%;
-  height: 80%;
-  padding-top: 100px;
-  background-image: url(../../assets/window.jpg);
-  background-size: 100% 100%;
+  height: 100%;
+  padding-top: 150px;
+  background-image: url(../../assets/house/carpet.png);
+  background-size: 100% 500px;
   background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  /* background-size: cover; */
 }
 .pet img {
   width: 100%;
@@ -25,6 +28,7 @@
 }
 
 #buttin-group {
+  width: 100%;
   padding: 20px;
 }
 
@@ -40,9 +44,8 @@
   font-size: 30px;
 }
 
-.feed img,
-button {
-  width: 170px;
+.feed img {
+  width: 100%;
 }
 
 .feed button {
@@ -75,4 +78,10 @@ button {
 
 #info span {
   font-size: 30px;
+}
+
+.btn-light {
+  width: 100%;
+  max-width: 150px;
+  min-width: 100px;
 }

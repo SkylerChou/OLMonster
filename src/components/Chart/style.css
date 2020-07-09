@@ -2,15 +2,12 @@
   font-family: "Noto Sans TC", sans-serif;
 }
 
-.container {
-  width: 100%;
-}
 .container h2 {
   color: #214362;
 }
 #chart {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   min-width: 390px;
 }
 div {

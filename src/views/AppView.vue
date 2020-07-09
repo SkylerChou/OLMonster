@@ -1,5 +1,5 @@
 <template>
-  <div class="container1">
+  <div>
     <ul class="nav justify-content-center nav-pills nav-justified" id="myTab" role="tablist">
       <li class="nav-item">
         <a
@@ -87,13 +87,12 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div id="cal">
+          <div class="container" id="cal">
             <!-- Button trigger modal -->
             <button
               type="button"
@@ -138,9 +137,9 @@
         aria-labelledby="invest-tab"
         style="height: 100vh"
       >
-        <div class="con">
+        <div id="con">
           <div>
-            <h1 class="title">怪獸投資學</h1>
+            <h1 class="title text-font-bold">怪獸投資學</h1>
             <Knowledge />
           </div>
         </div>
@@ -224,12 +223,12 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
   margin: 20px;
 }
 .modal-title {
-  font-size: 35px;
+  font-size: 25px;
 }
 .title {
   padding: 30px;
 }
-.con {
+#con {
   display: flex;
   justify-content: center;
   align-items: center;

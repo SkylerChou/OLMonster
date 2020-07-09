@@ -3,10 +3,7 @@
     <h2>
       <b>0050 元大台灣50</b>
     </h2>
-    <div id="chart">
-      <canvas id="lineChart"></canvas>
-    </div>
-    <div id="info"></div>
+    <canvas id="lineChart"></canvas>
   </div>
 </template>
 
