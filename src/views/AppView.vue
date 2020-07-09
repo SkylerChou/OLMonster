@@ -57,78 +57,7 @@
         aria-labelledby="deal-tab"
         style="height: 100vh"
       >
-        <div class="container">
-          <!-- Button trigger modal -->
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#example"
-          >走勢圖</button>
-          <!-- Modal -->
-          <div
-            class="modal fade"
-            id="example"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalCenterTitle">走勢圖</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <Chart />
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="container" id="cal">
-            <!-- Button trigger modal -->
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#exampleModalCenter"
-            >買入 / 賣出</button>
-
-            <!-- Modal -->
-            <div
-              class="modal fade"
-              id="exampleModalCenter"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalCenterTitle"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">股票名稱</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <Calculator />
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Stock />
       </div>
       <div
         class="tab-pane fade"
@@ -150,35 +79,38 @@
         role="tabpanel"
         aria-labelledby="mission-tab"
         style="height: 100vh"
-      >正在施工中..未開放</div>
+      >
+        <h1>正在施工中..未開放</h1>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Pet from "@/components/Pet/index.vue";
-import Chart from "@/components/Chart/index.vue";
-import Calculator from "@/components/Calculator/index.vue";
 import Knowledge from "@/components/Knowledge/index.vue";
+import Stock from "@/components/Stock/index.vue";
 import cookie from "../utils/cookie";
 
 export default {
   name: "Home",
   components: {
     Pet,
-    Chart,
-    Calculator,
-    Knowledge
+    Knowledge,
+    Stock
   },
   methods: {
     Clicked() {
       this.$axios
-        .get("http://104.199.134.68:8080/user/getmission", Headers)
+        .get({
+          url: "http://104.199.134.68:8080/user/getmission",
+          headers: { Authorization: "Bearer " + this.cookie.get("token") }
+        })
         .then(res => {
-          console.log(res);
+          console.log(res.data);
         })
         .catch(function(error) {
-          console.log(error);
+          console.log("請求失敗", error);
         });
     },
     registerClicked() {
@@ -205,7 +137,7 @@ export default {
 
 <style scoped>
 #myTab {
-  padding-top: 20px;
+  padding-top: 15px;
   padding-bottom: 20px;
 }
 ul#myTab.nav.justify-content-center.nav-pills.nav-justified {

@@ -1,7 +1,8 @@
 #myTab {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
+
 ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
   background-color: rgb(132, 223, 226);
 }
@@ -226,6 +227,7 @@ div.login-html {
   align-items: center;
 }
 .img {
+  margin-right: 15px;
   margin-left: 15px;
   margin-bottom: 30px;
   display: flex;
@@ -240,9 +242,7 @@ div.login-html {
 }
 #block h2,
 h3 {
-  margin-top: 25px;
-  margin-left: 30px;
-  margin-bottom: 25px;
+  margin: 25px;
 }
 h3 {
   font-size: 25px;
@@ -250,7 +250,7 @@ h3 {
 .p {
   padding: 10px;
   font-size: 18px;
-  margin-left: 35px;
+  margin: 30px;
   background: rgba(245, 222, 179, 0.781);
   border: 1px solid rgba(245, 222, 179, 0.781);
   border-radius: 10px;
