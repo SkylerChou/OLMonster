@@ -1,6 +1,6 @@
 <template>
   <div class="column">
-    <div class="col-sm-8">
+    <div class="col">
       <div class="card" v-for="(item, index) in classes" :key="index">
         <div class="card-body">
           <h2 class="card-title">{{ item.name }}</h2>

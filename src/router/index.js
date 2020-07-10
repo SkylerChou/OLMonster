@@ -1,6 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "@/views/Home.vue";
+import AppView from "@/views/AppView.vue";
+import Pet from "@/components/Pet/index.vue";
+import Stock from "@/components/Stock/index.vue";
+import Knowledge from "@/components/Knowledge/index.vue";
 
 Vue.use(VueRouter);
 
@@ -13,32 +17,27 @@ const routes = [
   {
     path: "/app",
     name: "AppView",
-    component: () =>
-      import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+    component: AppView,
     children: [
       {
-        path: "/main",
-        name: "main",
-        component: () =>
-          import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+        path: "pet",
+        name: "pet",
+        component: Pet,
       },
       {
-        path: "/about",
-        name: "main",
-        component: () =>
-          import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+        path: "about",
+        name: "about",
+        component: Knowledge,
       },
       {
-        path: "/main",
-        name: "main",
-        component: () =>
-          import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+        path: "deal",
+        name: "deal",
+        component: Stock,
       },
       {
-        path: "/main",
-        name: "main",
-        component: () =>
-          import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+        path: "knowledge",
+        name: "knowledge",
+        component: Knowledge,
       },
     ],
   },

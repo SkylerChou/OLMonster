@@ -6,113 +6,60 @@
       role="tablist"
     >
       <li class="nav-item">
-        <a
+        <router-link
           class="nav-link active"
-          id="home-tab"
+          to="/app/pet"
           data-toggle="tab"
-          href="#home"
           role="tab"
-          aria-controls="home"
-          aria-selected="true"
-          >怪獸主頁</a
+          >怪獸主頁</router-link
         >
       </li>
       <li class="nav-item">
-        <a
+        <router-link
           class="nav-link"
-          id="mission-tab"
+          to="/app/about"
           data-toggle="tab"
-          href="#mission"
           role="tab"
-          aria-controls="mission"
-          aria-selected="false"
-          >怪獸相關</a
+          >怪獸成就</router-link
         >
       </li>
       <li class="nav-item">
-        <a
+        <router-link
           class="nav-link"
-          id="deal-tab"
+          to="/app/deal"
           data-toggle="tab"
-          href="#deal"
           role="tab"
-          aria-controls="deal"
-          aria-selected="false"
-          >零股交易</a
+          >零股交易</router-link
         >
       </li>
       <li class="nav-item">
-        <a
+        <router-link
           class="nav-link"
-          id="invest-tab"
+          to="/app/knowledge"
           data-toggle="tab"
-          href="#invest"
           role="tab"
-          aria-controls="invest"
-          aria-selected="false"
-          >怪獸寶典</a
+          >怪獸寶典</router-link
         >
       </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
-      <div
-        class="tab-pane fade show active"
-        id="home"
-        role="tabpanel"
-        aria-labelledby="home-tab"
-      >
-        <Pet />
-      </div>
-      <div
-        class="tab-pane fade"
-        id="deal"
-        role="tabpanel"
-        aria-labelledby="deal-tab"
-        style="height: 100vh"
-      >
-        <span class="title text-font-bold">投資市場</span>
-        <Stock />
-      </div>
-      <div
-        class="tab-pane fade"
-        id="invest"
-        role="tabpanel"
-        aria-labelledby="invest-tab"
-        style="height: 100vh"
-      >
-        <div>
-          <h1 class="title text-font-bold">怪獸投資學</h1>
-          <Knowledge />
-        </div>
-      </div>
-      <div
-        class="tab-pane fade"
-        id="mission"
-        role="tabpanel"
-        aria-labelledby="mission-tab"
-        style="height: 100vh"
-      >
-        <h1>正在施工中..未開放</h1>
-      </div>
-    </div>
+    <router-view v-if="token" />
   </div>
 </template>
 
 <script>
-const Pet = () => import("@/components/Pet/index.vue");
-const Knowledge = () => import("@/components/Knowledge/index.vue");
-const Stock = () => import("@/components/Stock/index.vue");
-// import Pet from "@/components/Pet/index.vue";
-// import Knowledge from "@/components/Knowledge/index.vue";
-// import Stock from "@/components/Stock/index.vue";
 import cookie from "../utils/cookie";
 
 export default {
-  name: "Home",
-  components: {
-    Pet,
-    Knowledge,
-    Stock,
+  data() {
+    return {
+      token: cookie.get("token"),
+    };
+  },
+  mounted() {
+    console.log("!!!");
+    if (!this.token) {
+      this.$router.push({ path: "/" });
+    }
   },
   methods: {
     Clicked() {
@@ -152,16 +99,12 @@ export default {
 
 <style scoped>
 #myTab {
-  padding-top: 15px;
-  padding-bottom: 20px;
+  padding: 15px;
 }
 ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
   background-color: rgb(132, 223, 226);
 }
-.title {
-  padding: 20px;
-}
-a {
+.nav-link {
   font-size: 15.4px;
 }
 </style>

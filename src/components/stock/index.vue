@@ -6,101 +6,99 @@
           <h2 class="card-title">{{ item.name }}</h2>
           <!-- <p class="card-text">{{item.title}}</p> -->
           <!-- <a :href="item.link" class="btn btn-primary" target="_blank">閱讀</a> -->
-          <div class="container">
-            <!-- Button trigger modal -->
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target=".bd-example-modal-lg"
-            >
-              走勢圖
-            </button>
-            <!-- Modal -->
-            <div
-              class="modal fade bd-example-modal-lg"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="myLargeModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                      走勢圖
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target=".bd-example-modal-lg"
+          >
+            走勢圖
+          </button>
+          <!-- Modal -->
+          <div
+            class="modal fade bd-example-modal-lg"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myLargeModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">
+                    走勢圖
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
 
-                  <Chart />
+                <Chart />
 
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                  </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Button trigger modal -->
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#exampleModalCenter"
-            >
-              買入 / 賣出
-            </button>
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
+          >
+            買入 / 賣出
+          </button>
 
-            <!-- Modal -->
-            <div
-              class="modal fade"
-              id="exampleModalCenter"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalCenterTitle"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                      股票名稱
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <Calculator />
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                  </div>
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModalCenter"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">
+                    股票名稱
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <Calculator />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
@@ -112,10 +110,8 @@
 </template>
 
 <script>
-const Chart = () => import("@/components/Chart/index.vue");
-const Calculator = () => import("@/components/Calculator/index.vue");
-// import Chart from "@/components/Chart/index.vue";
-// import Calculator from "@/components/Calculator/index.vue";
+import Chart from "@/components/Chart/index.vue";
+import Calculator from "@/components/Calculator/index.vue";
 
 export default {
   name: "Home",

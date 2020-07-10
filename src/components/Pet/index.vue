@@ -38,12 +38,10 @@
                   class="close"
                   data-dismiss="modal"
                   aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                ></button>
               </div>
               <div class="modal-body">
-                <div class="contianer">
+                <div class="contianer-fuild">
                   <div class="img">
                     <h2>怪物住宅</h2>
                     <div class="con">
@@ -139,7 +137,6 @@
           <button type="button" class="btn btn-warning">餵食</button>
         </div>
       </div>
-      <div class="container"></div>
       <div class="container">
         <div class="row">
           <div class="col-sm">

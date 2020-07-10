@@ -21,7 +21,7 @@ export default {
           console.log(res.data);
           cookie.set("token", res.data.message);
           if (res.data.status == 200) {
-            this.$router.push({ path: "/app" });
+            this.$router.push({ path: "/app/pet" });
           } else if (!(this.account == "") && res.data.status == 403) {
             alert("登入失敗");
           }
@@ -61,13 +61,13 @@ export default {
     >
       <li class="nav-item">
         <a
-          class="nav-link"
+          class="nav-link active"
           id="home-tab"
           data-toggle="tab"
           href="#home"
           role="tab"
           aria-controls="home"
-          aria-selected="false"
+          aria-selected="true"
           >怪獸介紹</a
         >
       </li>
@@ -85,13 +85,13 @@ export default {
       </li>
       <li class="nav-item">
         <a
-          class="nav-link active"
+          class="nav-link"
           id="login-tab"
           data-toggle="tab"
           href="#login"
           role="tab"
           aria-controls="login"
-          aria-selected="true"
+          aria-selected="false"
           >登入/註冊</a
         >
       </li>

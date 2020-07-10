@@ -5,10 +5,11 @@
   align-items: center;
 }
 .column {
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: rgba(255, 127, 80, 0.5); */
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -35,31 +36,4 @@
 }
 .card-text {
   font-size: 25px;
-}
-.container {
-  margin-top: 25px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#cal {
-  margin: 20px;
-}
-.modal-title {
-  font-size: 25px;
-}
-
-div.modal-content {
-  background: rgba(7, 5, 5, 0.849);
-}
-
-#exampleModalCenterTitle.modal-title {
-  color: aliceblue;
-}
-span {
-  color: #fff;
-}
-button.btn.btn-primary {
-  margin-right: 10px;
 }
