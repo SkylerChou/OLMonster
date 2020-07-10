@@ -10,23 +10,37 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  // {
-  //   path: "/app",
-  //   name: "About",
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ "../views/AppView.vue"),
-  // },
-  // {
-  //   path: "/mon",
-  //   name: "Monster",
-  //   component: () =>
-  //     import(/* webpackChunkName: "Knowledge" */ "../views/Monster.vue"),
-  // },
   {
     path: "/app",
     name: "AppView",
     component: () =>
-      import(/* webpackChunkName: "Register" */ "../views/AppView.vue"),
+      import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+    children: [
+      {
+        path: "/main",
+        name: "main",
+        component: () =>
+          import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+      },
+      {
+        path: "/about",
+        name: "main",
+        component: () =>
+          import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+      },
+      {
+        path: "/main",
+        name: "main",
+        component: () =>
+          import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+      },
+      {
+        path: "/main",
+        name: "main",
+        component: () =>
+          import(/* webpackChunkName: "Register" */ "@/views/AppView.vue"),
+      },
+    ],
   },
 ];
 
