@@ -6,9 +6,7 @@
     <div id="info">
       <div>
         <span>
-          現金: {{cash}}
-          股票: {{stock}}
-          總資產: {{cash+stock}}
+          現金: {{ cash }} 股票: {{ stock }} 總資產: {{ cash + stock }}
         </span>
         <button type="button" class="btn btn-danger">切換怪獸</button>
       </div>
@@ -20,7 +18,9 @@
           class="btn btn-light"
           data-toggle="modal"
           data-target="#exampleModal"
-        >商店</button>
+        >
+          商店
+        </button>
         <div
           class="modal fade"
           id="exampleModal"
@@ -33,7 +33,12 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">怪獸商店</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -102,7 +107,13 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -128,6 +139,14 @@
           <button type="button" class="btn btn-warning">餵食</button>
         </div>
       </div>
+      <div class="container"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <button type="button" class="btn btn-secondary">Secondary</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -137,11 +156,10 @@ export default {
   data() {
     return {
       cash: 300000,
-      stock: 300000
+      stock: 300000,
     };
-  }
+  },
 };
 </script>
 
-<style src="./style.css" scoped>
-</style>
+<style src="./style.css" scoped></style>
