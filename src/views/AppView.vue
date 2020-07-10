@@ -70,8 +70,12 @@
         aria-labelledby="deal-tab"
         style="height: 100vh"
       >
-        <h1 class="title text-font-bold">投資市場</h1>
-        <Stock />
+        <div id="con">
+          <div>
+            <h1 class="title text-font-bold">投資市場</h1>
+            <Stock />
+          </div>
+        </div>
       </div>
       <div
         class="tab-pane fade"
@@ -101,9 +105,12 @@
 </template>
 
 <script>
-import Pet from "@/components/Pet/index.vue";
-import Knowledge from "@/components/Knowledge/index.vue";
-import Stock from "@/components/Stock/index.vue";
+const Pet = () => import("@/components/Pet/index.vue");
+const Knowledge = () => import("@/components/Knowledge/index.vue");
+const Stock = () => import("@/components/Stock/index.vue");
+// import Pet from "@/components/Pet/index.vue";
+// import Knowledge from "@/components/Knowledge/index.vue";
+// import Stock from "@/components/Stock/index.vue";
 import cookie from "../utils/cookie";
 
 export default {

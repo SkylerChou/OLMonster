@@ -11,7 +11,7 @@ import planetChartData from "./lineChart.js";
 export default {
   data() {
     return {
-      planetChartData: planetChartData
+      planetChartData: planetChartData,
     };
   },
   methods: {
@@ -20,13 +20,13 @@ export default {
       const myChart = new Chart(ctx, {
         type: chartData.type,
         data: chartData.data,
-        options: chartData.options
+        options: chartData.options,
       });
-    }
+    },
   },
   mounted() {
     this.createChart("lineChart", this.planetChartData);
-  }
+  },
 };
 </script>
 

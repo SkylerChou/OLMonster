@@ -112,8 +112,10 @@
 </template>
 
 <script>
-import Chart from "@/components/Chart/index.vue";
-import Calculator from "@/components/Calculator/index.vue";
+const Chart = () => import("@/components/Chart/index.vue");
+const Calculator = () => import("@/components/Calculator/index.vue");
+// import Chart from "@/components/Chart/index.vue";
+// import Calculator from "@/components/Calculator/index.vue";
 
 export default {
   name: "Home",

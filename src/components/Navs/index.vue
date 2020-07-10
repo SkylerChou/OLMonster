@@ -61,13 +61,13 @@ export default {
     >
       <li class="nav-item">
         <a
-          class="nav-link active"
+          class="nav-link"
           id="home-tab"
           data-toggle="tab"
           href="#home"
           role="tab"
           aria-controls="home"
-          aria-selected="true"
+          aria-selected="false"
           >怪獸介紹</a
         >
       </li>
@@ -85,13 +85,13 @@ export default {
       </li>
       <li class="nav-item">
         <a
-          class="nav-link"
+          class="nav-link active"
           id="login-tab"
           data-toggle="tab"
           href="#login"
           role="tab"
           aria-controls="login"
-          aria-selected="false"
+          aria-selected="true"
           >登入/註冊</a
         >
       </li>
