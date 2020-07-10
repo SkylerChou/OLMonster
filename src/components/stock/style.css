@@ -1,10 +1,6 @@
 .card {
   margin: 20px;
 }
-
-.card-body {
-  background: rgba(245, 200, 127, 0.664);
-}
 .modal-body {
   align-items: center;
 }
@@ -45,7 +41,6 @@
   margin-top: 25px;
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -62,4 +57,10 @@ div.modal-content {
 
 #exampleModalCenterTitle.modal-title {
   color: aliceblue;
+}
+span {
+  color: #fff;
+}
+button.btn.btn-primary {
+  margin-right: 10px;
 }

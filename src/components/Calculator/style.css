@@ -9,7 +9,7 @@ form {
   padding: 10px;
   justify-content: center;
   align-items: center;
-  background: #070808;
+  background: #0d0f0f96;
   border-radius: 10px;
 }
 .calculator {
@@ -22,11 +22,10 @@ form {
   color: rgb(10, 8, 8);
   grid-column: span 4;
   height: 100px;
-  text-align: right;
   border: none;
   outline: none;
   padding: 10px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .calculator span {
@@ -78,7 +77,8 @@ form {
   background: #03afff9f;
 }
 p {
-  font-size: 30px;
+  color: #fff;
+  font-size: 25px;
   font-family: "Noto Sans TC", sans-serif;
 }
 div {
