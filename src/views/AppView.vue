@@ -70,12 +70,8 @@
         aria-labelledby="deal-tab"
         style="height: 100vh"
       >
-        <div id="con">
-          <div>
-            <h1 class="title text-font-bold">投資市場</h1>
-            <Stock />
-          </div>
-        </div>
+        <span class="title text-font-bold">投資市場</span>
+        <Stock />
       </div>
       <div
         class="tab-pane fade"
@@ -84,11 +80,9 @@
         aria-labelledby="invest-tab"
         style="height: 100vh"
       >
-        <div id="con">
-          <div>
-            <h1 class="title text-font-bold">怪獸投資學</h1>
-            <Knowledge />
-          </div>
+        <div>
+          <h1 class="title text-font-bold">怪獸投資學</h1>
+          <Knowledge />
         </div>
       </div>
       <div
@@ -166,12 +160,6 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
 }
 .title {
   padding: 20px;
-}
-#con {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(184, 135, 11, 0.692);
 }
 a {
   font-size: 15.4px;
