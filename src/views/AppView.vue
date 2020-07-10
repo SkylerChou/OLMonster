@@ -1,6 +1,10 @@
 <template>
   <div>
-    <ul class="nav justify-content-center nav-pills nav-justified" id="myTab" role="tablist">
+    <ul
+      class="nav justify-content-center nav-pills nav-justified"
+      id="myTab"
+      role="tablist"
+    >
       <li class="nav-item">
         <a
           class="nav-link active"
@@ -10,7 +14,8 @@
           role="tab"
           aria-controls="home"
           aria-selected="true"
-        >怪獸主頁</a>
+          >怪獸主頁</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -21,7 +26,8 @@
           role="tab"
           aria-controls="mission"
           aria-selected="false"
-        >怪獸相關</a>
+          >怪獸相關</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -32,7 +38,8 @@
           role="tab"
           aria-controls="deal"
           aria-selected="false"
-        >零股交易</a>
+          >零股交易</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -43,11 +50,17 @@
           role="tab"
           aria-controls="invest"
           aria-selected="false"
-        >怪獸寶典</a>
+          >怪獸寶典</a
+        >
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div
+        class="tab-pane fade show active"
+        id="home"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+      >
         <Pet />
       </div>
       <div
@@ -57,6 +70,7 @@
         aria-labelledby="deal-tab"
         style="height: 100vh"
       >
+        <h1 class="title text-font-bold">投資市場</h1>
         <Stock />
       </div>
       <div
@@ -97,16 +111,16 @@ export default {
   components: {
     Pet,
     Knowledge,
-    Stock
+    Stock,
   },
   methods: {
     Clicked() {
       this.$axios
         .get({
           url: "http://104.199.134.68:8080/user/getmission",
-          headers: { Authorization: "Bearer " + this.cookie.get("token") }
+          headers: { Authorization: "Bearer " + this.cookie.get("token") },
         })
-        .then(res => {
+        .then((res) => {
           console.log(res.data);
         })
         .catch(function(error) {
@@ -121,17 +135,17 @@ export default {
             account: this.account,
             password: this.password,
             confirmPassword: this.confirmPassword,
-            nickname: this.nickname
+            nickname: this.nickname,
           })
         )
-        .then(res => {
+        .then((res) => {
           console.log(res);
         })
         .catch(function(error) {
           console.log(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -144,12 +158,15 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
   background-color: rgb(132, 223, 226);
 }
 .title {
-  padding: 30px;
+  padding: 20px;
 }
 #con {
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(184, 135, 11, 0.692);
+}
+a {
+  font-size: 15.4px;
 }
 </style>
