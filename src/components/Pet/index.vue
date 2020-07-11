@@ -137,13 +137,6 @@
           <button type="button" class="btn btn-warning">餵食</button>
         </div>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <button type="button" class="btn btn-secondary">Secondary</button>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>

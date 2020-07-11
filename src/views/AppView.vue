@@ -6,38 +6,22 @@
       role="tablist"
     >
       <li class="nav-item">
-        <router-link
-          class="nav-link active"
-          to="/app/pet"
-          data-toggle="tab"
-          role="tab"
+        <router-link class="nav-link active" to="/app/pet" data-toggle="tab"
           >怪獸主頁</router-link
         >
       </li>
       <li class="nav-item">
-        <router-link
-          class="nav-link"
-          to="/app/about"
-          data-toggle="tab"
-          role="tab"
+        <router-link class="nav-link" to="/app/about" data-toggle="tab"
           >怪獸成就</router-link
         >
       </li>
       <li class="nav-item">
-        <router-link
-          class="nav-link"
-          to="/app/deal"
-          data-toggle="tab"
-          role="tab"
+        <router-link class="nav-link" to="/app/deal" data-toggle="tab"
           >零股交易</router-link
         >
       </li>
       <li class="nav-item">
-        <router-link
-          class="nav-link"
-          to="/app/knowledge"
-          data-toggle="tab"
-          role="tab"
+        <router-link class="nav-link" to="/app/knowledge" data-toggle="tab"
           >怪獸寶典</router-link
         >
       </li>
@@ -56,7 +40,6 @@ export default {
     };
   },
   mounted() {
-    console.log("!!!");
     if (!this.token) {
       this.$router.push({ path: "/" });
     }
