@@ -17,7 +17,6 @@ export default {
           password: this.password,
         })
         .then((res) => {
-          console.log(this.account + " " + this.password);
           console.log(res.data);
           cookie.set("token", res.data.message);
           if (res.data.status == 200) {

@@ -6,24 +6,63 @@
       role="tablist"
     >
       <li class="nav-item">
-        <router-link class="nav-link active" to="/app/pet" data-toggle="tab"
-          >怪獸主頁</router-link
+        <router-link
+          class="nav-link active text-nowrap"
+          to="/app/pet"
+          data-toggle="tab"
+        >
+          <div class="container">
+            <div><img src="@/assets/svg/home.svg" /></div>
+            <div>主頁</div>
+          </div>
+        </router-link>
+      </li>
+      <li class="nav-item">
+        <router-link
+          class="nav-link text-nowrap"
+          to="/app/about"
+          data-toggle="tab"
+          ><div class="container">
+            <div><img src="@/assets/svg/bag.svg" /></div>
+            成就
+          </div></router-link
         >
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/app/about" data-toggle="tab"
-          >怪獸成就</router-link
+        <router-link
+          class="nav-link text-nowrap"
+          to="/app/deal"
+          data-toggle="tab"
+          ><div class="container">
+            <div><img src="@/assets/svg/stock.svg" /></div>
+            交易
+          </div></router-link
         >
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/app/deal" data-toggle="tab"
-          >零股交易</router-link
+        <router-link
+          class="nav-link text-nowrap"
+          to="/app/knowledge"
+          data-toggle="tab"
+          ><div class="container">
+            <div><img src="@/assets/svg/book.svg" /></div>
+            寶典
+          </div></router-link
         >
       </li>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/app/knowledge" data-toggle="tab"
-          >怪獸寶典</router-link
-        >
+      <li>
+        <div class="container">
+          <div>
+            <span>HI~{{ user }} </span>
+          </div>
+          <button
+            type="button"
+            class="btn btn-warning text-nowrap"
+            @click="logout()"
+          >
+            登出
+          </button>
+        </div>
       </li>
     </ul>
     <router-view v-if="token" />
@@ -36,6 +75,7 @@ import cookie from "../utils/cookie";
 export default {
   data() {
     return {
+      user: "catta",
       token: cookie.get("token"),
     };
   },
@@ -45,6 +85,10 @@ export default {
     }
   },
   methods: {
+    logout() {
+      cookie.del("token");
+      this.$router.push({ path: "/" });
+    },
     Clicked() {
       this.$axios
         .get({
@@ -89,5 +133,8 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
 }
 .nav-link {
   font-size: 15.4px;
+}
+span {
+  font-size: 20px;
 }
 </style>
