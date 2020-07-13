@@ -1,0 +1,78 @@
+.col {
+  width: 150px;
+}
+img {
+  width: 100%;
+  max-width: 200px;
+}
+.row {
+  width: 100%;
+}
+.all {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+.container-fluid {
+  height: 100vh;
+  background-position: center;
+  background: -webkit-linear-gradient(
+    rgba(201, 250, 168, 0.685),
+    rgba(81, 226, 231, 0.856)
+  );
+  background: -o-linear-gradient(
+    rgba(201, 250, 168, 0.685),
+    rgba(81, 226, 231, 0.856)
+  );
+  background: -moz-linear-gradient(
+    rgba(201, 250, 168, 0.685),
+    rgba(81, 226, 231, 0.856)
+  );
+  background: linear-gradient(
+    rgba(201, 250, 168, 0.685),
+    rgba(81, 226, 231, 0.856)
+  );
+}
+
+@media (min-width: 375px) {
+  #show {
+    margin-top: -233px;
+  }
+}
+@media (min-width: 400px) {
+  #show {
+    margin-top: -255.5px;
+  }
+}
+@media (min-width: 500px) {
+  #show {
+    margin-top: -372.5px;
+  }
+}
+@media (min-width: 600px) {
+  #show {
+    margin-top: -422.5px;
+  }
+}
+@media (min-width: 700px) {
+  #show {
+    margin-top: -450.5px;
+  }
+}
+@media (min-width: 800px) {
+  #show {
+    margin-top: -465.5px;
+  }
+}
+@media (min-width: 992px) {
+  #show {
+    margin-top: -464.5px;
+  }
+}
+
+h1 {
+  margin-bottom: 50px;
+  padding: 10px;
+  border: 1px solid wheat;
+  border-radius: 30px;
+  background: wheat;
+}

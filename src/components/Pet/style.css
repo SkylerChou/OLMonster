@@ -14,7 +14,6 @@
 
 .pet {
   width: 100%;
-  height: 100%;
   padding-top: 100px;
   background-image: url(../../assets/house/window.jpg);
   background-size: 100% 100%;
@@ -66,7 +65,7 @@
 
 #info {
   padding: 10px;
-  width: 100vw;
+  width: 100%;
   background-color: rgba(205, 92, 92, 0.794);
   text-align: center;
 }
@@ -83,4 +82,9 @@
   width: 100%;
   max-width: 150px;
   min-width: 100px;
+}
+div#sel.col img {
+  width: 100%;
+  max-width: 150px;
+  padding: 20px;
 }

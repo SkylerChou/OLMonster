@@ -1,0 +1,9 @@
+#stock:hover {
+  background: rgba(230, 212, 113, 0.849);
+}
+.input-group {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px;
+  margin-block-start: auto;
+}
