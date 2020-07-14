@@ -19,6 +19,7 @@
           class="btn btn-secondary"
           data-toggle="modal"
           data-target="#exampleModalCenter"
+          @click="sign()"
         >簽到</button>
 
         <!-- Modal -->
@@ -33,16 +34,19 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">每日簽到</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <h5
+                  class="modal-title"
+                  id="exampleModalCenterTitle"
+                  style="font-size:35px;color:white;"
+                >每日簽到</h5>
               </div>
-              <div class="modal-body">簽到成功</div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+              <div class="modal-body" style="font-size:30px;color:white;">
+                <div class="h3">當前時間：</div>
+                <h1>{{nowDay}}</h1>
+                <h1>{{nowTime}}</h1>
+                {{text}}
               </div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -118,7 +122,7 @@
           aria-hidden="true"
         >
           <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
+            <div class="modal-content" id="store">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">怪獸商店</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
@@ -225,21 +229,11 @@
 </template>
 
 <script>
-
-
 import cookie from "@/utils/cookie";
 export default {
   data() {
     return {
-      date = new Date(timestamp * 1000),
-      dataValues = [
-   date.getFullYear(),
-   date.getMonth()+1,
-   date.getDate(),
-   date.getHours(),
-   date.getMinutes(),
-   date.getSeconds(),
-],
+      text: "簽到成功~",
       link: require("@/assets/gif/dino1.gif"),
       cash: 0,
       stock: 0,
@@ -259,6 +253,8 @@ export default {
       food2name: "草莓蛋糕",
       food3: 1000,
       food3name: "相撲火鍋",
+      nowDay: "",
+      nowTime: ""
     };
   },
   update() {
@@ -294,6 +290,19 @@ export default {
       });
   },
   methods: {
+    sign() {
+      this.$axios
+        .get("http://104.199.134.68:8080/user/getsalaryweb", {
+          headers: { Authorization: "Bearer " + cookie.get("token") }
+        })
+        .then(res => {
+          console.log(res.data);
+          this.text = "已簽到~";
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
+    },
     change1() {
       this.link = require("@/assets/gif/dino1.gif");
     },
@@ -302,10 +311,46 @@ export default {
     },
     change3() {
       this.link = require("@/assets/gif/fox1.gif");
+    }, // 得到當下時間
+    timeFormate(timeStamp) {
+      let newdate = new Date(timeStamp);
+      let week = ["日", "一", "二", "三", "四", "五", "六"];
+
+      let year = newdate.getFullYear();
+      let month =
+        newdate.getMonth() + 1 < 10
+          ? "0" + (newdate.getMonth() + 1)
+          : newdate.getMonth() + 1;
+      let date =
+        newdate.getDate() < 10 ? "0" + newdate.getDate() : newdate.getDate();
+      let hh =
+        newdate.getHours() < 10 ? "0" + newdate.getHours() : newdate.getHours();
+      let mm =
+        newdate.getMinutes() < 10
+          ? "0" + newdate.getMinutes()
+          : newdate.getMinutes();
+      let ss =
+        newdate.getSeconds() < 10
+          ? "0" + newdate.getSeconds()
+          : newdate.getSeconds();
+
+      this.nowTime = hh + ":" + mm + ":" + ss;
+      this.nowDay = year + "年" + month + "月" + date + "日";
+    },
+    // 定時器函數
+    nowTimes() {
+      let self = this;
+      self.timeFormate(new Date());
+      setInterval(function() {
+        self.timeFormate(new Date());
+      }, 1000);
     }
   },
-
+  created() {
+    this.nowTimes();
+  },
   mounted() {
+    this.nowTimes();
     let key = "Bearer " + cookie.get("token");
     this.$axios
       .get("http://104.199.134.68:8080/user/userfocusmonster", {
@@ -358,16 +403,6 @@ export default {
         console.log("請求失敗", error);
       });
     this.$axios
-      .get("http://104.199.134.68:8080/user/getsalaryweb", {
-        headers: { Authorization: key }
-      })
-      .then(res => {
-        // console.log(res.data);
-      })
-      .catch(function(error) {
-        console.log("請求失敗", error);
-      });
-    this.$axios
       .get("http://104.199.134.68:8080/user/getdata", {
         headers: {
           Authorization: key
@@ -375,7 +410,6 @@ export default {
       })
       .then(res => {
         // console.log(res.data);
-        this.isActive = res.data.message;
         this.cash = res.data.message.cash;
         this.stock = res.data.message.stock;
         this.total = res.data.message.totalAsset;
