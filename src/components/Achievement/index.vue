@@ -3,6 +3,9 @@
     <div class="all">
       <h1>成就</h1>
       <div class="row">
+        <div class="col-2"></div>
+      </div>
+      <div class="row">
         <div class="col-4" v-for="(item, index) in srcs" :key="index">
           <img :src="item.src" v-if="!isActive[index]" />
           <h3 v-if="!isActive[index]">成就 {{index+1}}</h3>
@@ -13,6 +16,9 @@
           <img :src="item.src" v-if="isActive[index]" />
           <h3 v-if="isActive[index]">成就 {{index+1}}</h3>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
       </div>
     </div>
   </div>

@@ -5,7 +5,14 @@
     </div>
     <div id="info">
       <div>
-        <span>現金: {{ cash }} 股票: {{ stock }} 總資產: {{ cash + stock }}</span>
+        <span>
+          現金: {{ cash }}
+          <br />
+          股票: {{ stock }}
+          <br />
+          總資產: {{ cash + stock }}
+        </span>
+        <br />
         <!-- Small modal -->
         <button
           type="button"
@@ -330,28 +337,33 @@ export default {
   },
   methods: {
     buy(val) {
+      let key = "Bearer " + cookie.get("token");
       this.$axios
         .get("http://104.199.134.68:8080/store/userbuyweb", {
-          headers: { Authorization: "Bearer " + cookie.get("token") },
+          headers: { Authorization: key },
           params: {
             id: val
           }
         })
         .then(res => {
           // console.log(res.data);
-          this.cake = this.cake + 1;
-          this.hotpot = this.hotpot + 1;
-          this.mar = this.mar + 1;
-          alert("購買成功");
+          if (res.data.message[i].store.id == 1) {
+            this.cake = this.cake + 1;
+          } else if (res.data.message[i].store.id == 2) {
+            this.hotpot = this.hotpot + 1;
+          } else if (res.data.message[i].store.id == 3) {
+            this.mar = this.mar + 1;
+          }
         })
         .catch(function(error) {
           console.log("請求失敗", error);
         });
     },
     sign() {
+      let key = "Bearer " + cookie.get("token");
       this.$axios
         .get("http://104.199.134.68:8080/user/getsalaryweb", {
-          headers: { Authorization: "Bearer " + cookie.get("token") }
+          headers: { Authorization: key }
         })
         .then(res => {
           console.log(res.data);
