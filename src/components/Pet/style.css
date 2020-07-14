@@ -31,12 +31,7 @@
 }
 
 .img img {
-  width: 200px;
-}
-.img h2 {
-  margin-top: 15px;
-  padding: 20px;
-  background: rgb(97, 210, 218);
+  width: 150px;
 }
 .modal-title {
   font-size: 30px;
@@ -92,5 +87,22 @@ div#sel.col img {
   background: rgba(0, 0, 0, 0.842);
 }
 #store {
-  background: cornsilk;
+  background: rgb(243, 232, 189);
+}
+
+a#home-tab,
+a#profile-tab {
+  background: rgba(238, 115, 78, 0.787);
+}
+
+a#home-tab:focus,
+a#home-tab:hover,
+a#profile-tab:focus,
+a#profile-tab:hover {
+  color: aliceblue;
+  background: rgba(228, 131, 101, 0.787);
+}
+.modal-title {
+  padding: 10px;
+  background: rgb(238, 156, 89);
 }

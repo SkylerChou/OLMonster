@@ -123,76 +123,115 @@
         >
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content" id="store">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">怪獸商店</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-              </div>
+              <h5 class="modal-title" id="exampleModalLabel">怪獸商店</h5>
               <div class="modal-body">
-                <div class="contianer-fuild">
-                  <div class="img">
-                    <h2>怪物住宅</h2>
-                    <div class="con">
-                      <img src="../../assets/shop/house1.png" />
-                      <br />
-                      <span>
-                        {{ marName }}
-                        <br />
-                        ${{ wood }}
-                      </span>
-                      <br />
-                      <button type="button" class="btn btn-info">購買</button>
-                      <br />
-                      <img src="../../assets/shop/house2.png" />
-                      <div>
-                        <span>
-                          {{ cakeName }}
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      id="home-tab"
+                      data-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                    >怪物住宅</a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      id="profile-tab"
+                      data-toggle="tab"
+                      href="#profile"
+                      role="tab"
+                      aria-controls="profile"
+                      aria-selected="false"
+                    >怪物食品</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="home"
+                    role="tabpanel"
+                    aria-labelledby="home-tab"
+                  >
+                    <div class="contianer-fuild">
+                      <div class="img">
+                        <div class="con">
+                          <img src="../../assets/shop/house1.png" />
                           <br />
-                          ${{ house }}
-                        </span>
-                        <br />
-                        <button type="button" class="btn btn-info">購買</button>
+                          <span>
+                            {{ woodName }}
+                            <br />
+                            ${{ wood }}
+                          </span>
+                          <br />
+                          <button type="button" class="btn btn-info" @click="buy(6)">購買</button>
+                          <br />
+                          <img src="../../assets/shop/house2.png" />
+                          <div>
+                            <span>
+                              {{ houseName }}
+                              <br />
+                              ${{ house }}
+                            </span>
+                            <br />
+                            <button type="button" class="btn btn-info" @click="buy(5)">購買</button>
+                          </div>
+                        </div>
+                        <img src="../../assets/shop/house3.png" />
+                        <div>
+                          <span>
+                            {{ flatName }}
+                            <br />
+                            ${{ flat }}
+                          </span>
+                          <br />
+                          <button type="button" class="btn btn-info" @click="buy(4)">購買</button>
+                        </div>
                       </div>
                     </div>
-                    <img src="../../assets/shop/house3.png" />
-                    <div>
-                      <span>
-                        {{ hotpotName }}
-                        <br />
-                        ${{ flat }}
-                      </span>
-                      <br />
-                      <button type="button" class="btn btn-info">購買</button>
-                    </div>
-                    <h2>怪物食品</h2>
-                    <img src="../../assets/shop/food1.png" />
-                    <div>
-                      <span>
-                        {{ food1name }}
-                        <br />
-                        ${{ food1 }}
-                      </span>
-                      <br />
-                      <button type="button" class="btn btn-info">購買</button>
-                    </div>
-                    <img src="../../assets/shop/food2.png" />
-                    <div>
-                      <span>
-                        {{ food2name }}
-                        <br />
-                        ${{ food2 }}
-                      </span>
-                      <br />
-                      <button type="button" class="btn btn-info">購買</button>
-                    </div>
-                    <img src="../../assets/shop/food3.png" />
-                    <div>
-                      <span>
-                        {{ food3name }}
-                        <br />
-                        ${{ food3 }}
-                      </span>
-                      <br />
-                      <button type="button" class="btn btn-info">購買</button>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="profile"
+                    role="tabpanel"
+                    aria-labelledby="profile-tab"
+                  >
+                    <div class="contianer-fuild">
+                      <div class="img">
+                        <img src="../../assets/shop/food1.png" />
+                        <div>
+                          <span>
+                            {{ food1name }}
+                            <br />
+                            ${{ food1 }}
+                          </span>
+                          <br />
+                          <button type="button" class="btn btn-info" @click="buy(3)">購買</button>
+                        </div>
+                        <img src="../../assets/shop/food2.png" />
+                        <div>
+                          <span>
+                            {{ food2name }}
+                            <br />
+                            ${{ food2 }}
+                          </span>
+                          <br />
+                          <button type="button" class="btn btn-info" @click="buy(1)">購買</button>
+                        </div>
+                        <img src="../../assets/shop/food3.png" />
+                        <div>
+                          <span>
+                            {{ food3name }}
+                            <br />
+                            ${{ food3 }}
+                          </span>
+                          <br />
+                          <button type="button" class="btn btn-info" @click="buy(2)">購買</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -239,11 +278,11 @@ export default {
       stock: 0,
       total: 0,
       mar: 0,
-      marName: "小木屋",
+      woodName: "小木屋",
       cake: 0,
-      cakeName: "獨棟豪宅",
+      houseName: "獨棟豪宅",
       hotpot: 0,
-      hotpotName: "帝寶",
+      flatName: "帝寶",
       wood: 8000,
       house: 80000,
       flat: 800000,
@@ -290,6 +329,25 @@ export default {
       });
   },
   methods: {
+    buy(val) {
+      this.$axios
+        .get("http://104.199.134.68:8080/store/userbuyweb", {
+          headers: { Authorization: "Bearer " + cookie.get("token") },
+          params: {
+            id: val
+          }
+        })
+        .then(res => {
+          // console.log(res.data);
+          this.cake = this.cake + 1;
+          this.hotpot = this.hotpot + 1;
+          this.mar = this.mar + 1;
+          alert("購買成功");
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
+    },
     sign() {
       this.$axios
         .get("http://104.199.134.68:8080/user/getsalaryweb", {
@@ -297,7 +355,11 @@ export default {
         })
         .then(res => {
           console.log(res.data);
-          this.text = "已簽到~";
+          if (res.data.status == 200) {
+            this.text = "簽到成功~";
+          } else if (res.data.status == 401) {
+            this.text = "已簽到~";
+          }
         })
         .catch(function(error) {
           console.log("請求失敗", error);

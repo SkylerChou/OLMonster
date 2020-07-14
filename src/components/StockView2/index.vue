@@ -58,13 +58,11 @@
 
 <script>
 import Chart from "@/components/Chart/index.vue";
-import Calculator from "@/components/Calculator/index.vue";
 
 export default {
   name: "Home",
   components: {
-    Chart,
-    Calculator
+    Chart
   },
   data() {
     return {
