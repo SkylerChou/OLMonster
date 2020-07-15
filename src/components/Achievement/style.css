@@ -1,6 +1,6 @@
 img {
   width: 100%;
-  max-width: 250px;
+  max-width: 220px;
 }
 .row {
   width: 100%;
@@ -28,42 +28,6 @@ img {
     rgba(201, 250, 168, 0.685),
     rgba(81, 226, 231, 0.856)
   );
-}
-
-@media (min-width: 375px) {
-  #show {
-    margin-top: -235px;
-  }
-}
-@media (min-width: 400px) {
-  #show {
-    margin-top: -255.5px;
-  }
-}
-@media (min-width: 500px) {
-  #show {
-    margin-top: -372.5px;
-  }
-}
-@media (min-width: 800px) {
-  #show {
-    margin-top: -510.5px;
-  }
-}
-@media (min-width: 856px) {
-  #show {
-    margin-top: -550.5px;
-  }
-}
-@media (min-width: 887px) {
-  #show {
-    margin-top: -540px;
-  }
-}
-@media (min-width: 887px) {
-  #show {
-    margin-top: -556.5px;
-  }
 }
 
 h1 {

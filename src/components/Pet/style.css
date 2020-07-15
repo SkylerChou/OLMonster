@@ -1,6 +1,5 @@
 .flex {
-  width: 100vw;
-  height: 120vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,15 +13,26 @@
 
 .pet {
   width: 100%;
+  height: 50vh;
   padding-top: 100px;
-  background-image: url(../../assets/house/house.jpg);
+  background-image: url(../../assets/house/house2.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
-.pet img {
-  width: 100%;
-  max-width: 200px;
+@media (min-width: 300px) {
+  .pet img {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+@media (min-width: 400px) {
+  .pet img {
+    margin-top: 80px;
+    width: 100%;
+    max-width: 200px;
+  }
 }
 
 #buttin-group {

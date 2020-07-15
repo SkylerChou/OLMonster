@@ -3,22 +3,11 @@
     <div class="all">
       <h1>成就</h1>
       <div class="row">
-        <div class="col-2"></div>
-      </div>
-      <div class="row">
         <div class="col-4" v-for="(item, index) in srcs" :key="index">
           <img :src="item.src" v-if="!isActive[index]" />
-          <h3 v-if="!isActive[index]">成就 {{index+1}}</h3>
+          <img :src="srcsShow[index].src" v-if="isActive[index]" />
+          <h3>{{item.name}}</h3>
         </div>
-      </div>
-      <div class="row" id="show">
-        <div class="col-4" v-for="(item, index) in srcsShow" :key="index">
-          <img :src="item.src" v-if="isActive[index]" />
-          <h3 v-if="isActive[index]">成就 {{index+1}}</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-2"></div>
       </div>
     </div>
   </div>
@@ -32,22 +21,28 @@ export default {
       isActive: [],
       srcs: [
         {
-          src: require("../../assets/achievementOrIcon/achievement01_false.png")
+          src: require("../../assets/achievementOrIcon/achievement01_false.png"),
+          name: "全勤達標"
         },
         {
-          src: require("../../assets/achievementOrIcon/achievement02_false.png")
+          src: require("../../assets/achievementOrIcon/achievement02_false.png"),
+          name: "學霸達成"
         },
         {
-          src: require("../../assets/achievementOrIcon/achievement03_false.png")
+          src: require("../../assets/achievementOrIcon/achievement03_false.png"),
+          name: "馬卡龍殺手"
         },
         {
-          src: require("../../assets/achievementOrIcon/achievement04_false.png")
+          src: require("../../assets/achievementOrIcon/achievement04_false.png"),
+          name: "糕點大師"
         },
         {
-          src: require("../../assets/achievementOrIcon/achievement05_false.png")
+          src: require("../../assets/achievementOrIcon/achievement05_false.png"),
+          name: "火鍋達人"
         },
         {
-          src: require("../../assets/achievementOrIcon/achievement06_false.png")
+          src: require("../../assets/achievementOrIcon/achievement06_false.png"),
+          name: "我是土豪"
         }
       ],
       srcsShow: [

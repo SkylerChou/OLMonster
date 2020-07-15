@@ -347,13 +347,40 @@ export default {
         })
         .then(res => {
           // console.log(res.data);
-          if (res.data.message[i].store.id == 1) {
-            this.cake = this.cake + 1;
-          } else if (res.data.message[i].store.id == 2) {
-            this.hotpot = this.hotpot + 1;
-          } else if (res.data.message[i].store.id == 3) {
-            this.mar = this.mar + 1;
-          }
+          this.$axios
+            .get("http://104.199.134.68:8080/store/userhave", {
+              headers: { Authorization: key }
+            })
+            .then(res => {
+              // console.log(res.data);
+              for (let i = 0; i < res.data.message.length; i++) {
+                if (res.data.message[i].store.id == 1) {
+                  this.cake = res.data.message[i].number;
+                } else if (res.data.message[i].store.id == 2) {
+                  this.hotpot = res.data.message[i].number;
+                } else if (res.data.message[i].store.id == 3) {
+                  this.mar = res.data.message[i].number;
+                }
+              }
+              this.$axios
+                .get("http://104.199.134.68:8080/user/getdata", {
+                  headers: {
+                    Authorization: key
+                  }
+                })
+                .then(res => {
+                  // console.log(res.data);
+                  this.cash = res.data.message.cash;
+                  this.stock = res.data.message.stock;
+                  this.total = res.data.message.totalAsset;
+                })
+                .catch(function(error) {
+                  console.log("請求失敗", error);
+                });
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
         })
         .catch(function(error) {
           console.log("請求失敗", error);
