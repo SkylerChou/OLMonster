@@ -35,9 +35,9 @@ h1 {
   margin-bottom: 20px;
   margin-right: 20px;
   padding: 10px;
-  border: 1px solid wheat;
+  border: 1px solid rgba(255, 251, 243, 0.596);
   border-radius: 30px;
-  background: wheat;
+  background: rgba(255, 251, 243, 0.596);
 }
 
 ul {

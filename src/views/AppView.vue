@@ -16,7 +16,7 @@
           <div class="container">
             <div>
               <img src="@/assets/svg/bag.svg" />
-            </div>成就
+            </div>怪獸相關
           </div>
         </router-link>
       </li>
