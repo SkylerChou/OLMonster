@@ -90,8 +90,8 @@ export default {
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="flex">
-          <ul>
+        <div class="container">
+          <div class="flex">
             <div id="title">
               <h1>怪物介紹</h1>
             </div>
@@ -102,11 +102,13 @@ export default {
               <h2>花椰菜</h2>
               <h3>天真樂觀的賣萌擔當</h3>
               <div class="p">
-                <p>
-                  雖然傻呆卻有顆真摯的心。
-                  <br />外表有點粗線條，聲音卻細小，
-                  <br />夢想是跟大家交朋友。
-                </p>
+                <div class="container-fluid">
+                  <p>
+                    雖然傻呆卻有顆真摯的心。
+                    外表有點粗線條，聲音卻細小，
+                    夢想是跟大家交朋友。
+                  </p>
+                </div>
               </div>
             </div>
             <div id="block">
@@ -116,11 +118,13 @@ export default {
               <h2>嗨揪</h2>
               <h3>愛生氣的怪獸</h3>
               <div class="p">
-                <p>
-                  方塊貓是隻食量驚人超愛美食的果凍怪。
-                  <br />在一次實驗意外被創造出來，導致外表奇特，
-                  <br />超愛調皮搗蛋，捉弄主人。
-                </p>
+                <div class="container-fluid">
+                  <p>
+                    方塊貓是隻食量驚人超愛美食的果凍怪。
+                    在一次實驗意外被創造出來，導致外表奇特，
+                    超愛調皮搗蛋，捉弄主人。
+                  </p>
+                </div>
               </div>
             </div>
             <div id="block">
@@ -130,14 +134,17 @@ export default {
               <h2>函吉</h2>
               <h3>失憶守護神</h3>
               <div class="p">
-                因為從樹上掉下來敲到頭，失去了記憶。
-                <br />傳聞之前是某座森林的守護神，
-                <br />所以對於保護弱小非常執著，
-                <br />大家都非常喜歡牠。
-                <br />
+                <div class="container-fluid">
+                  <p>
+                    因為從樹上掉下來敲到頭，失去了記憶。
+                    傳聞之前是某座森林的守護神，
+                    所以對於保護弱小非常執著，
+                    大家都非常喜歡牠。
+                  </p>
+                </div>
               </div>
             </div>
-          </ul>
+          </div>
         </div>
       </div>
       <div
@@ -148,10 +155,12 @@ export default {
         style="height: 100vh"
       >
         <div id="block">
-          <h1 id="APPIntroduction">APP介紹</h1>
-          <h3>史上最萌的零股投資教學</h3>
-          <img src="../../assets/qmon03.png" />
-          <img src="../../assets/qmon04.png" />
+          <div class="container">
+            <h1 id="APPIntroduction">APP介紹</h1>
+            <h3>史上最萌的零股投資教學</h3>
+            <img src="../../assets/qmon03.png" />
+            <img src="../../assets/qmon04.png" />
+          </div>
         </div>
       </div>
       <div

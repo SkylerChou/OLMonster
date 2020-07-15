@@ -203,29 +203,28 @@ input.button {
 div.login-html {
   margin-top: 50px;
 }
+
+.container {
+  padding-top: 30px;
+}
 #title {
-  margin: 38px;
+  margin-bottom: 20px;
+  padding: 20px;
   display: flex;
   align-self: center;
   justify-content: center;
   align-items: center;
   width: 300px;
-  border: 1px solid rgba(195, 143, 64, 0.781);
-  border-radius: 10px;
-  background: rgba(195, 143, 64, 0.781);
+  background-image: url(../../assets/box/background_test02.png);
+  background-position: center;
+  background-size: 300px 118px;
 }
 #title h1 {
   font-size: 60px;
 }
-.flex {
-  display: flex;
-  align-self: center;
-  justify-content: center;
-  align-items: center;
-}
+
 .img {
-  margin-right: 15px;
-  margin-left: 15px;
+  margin-top: 30px;
   margin-bottom: 30px;
   display: flex;
   align-self: center;
@@ -233,23 +232,36 @@ div.login-html {
   align-items: center;
   width: 350px;
   height: 350px;
-  border: 1px solid rgba(139, 237, 100, 0.472);
-  border-radius: 99em;
+  border: 1px solid rgba(139, 237, 100, 0.513);
+  border-radius: 99%;
   background: rgba(139, 237, 100, 0.513);
 }
-#block h2,
-h3 {
-  margin: 25px;
+#block {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
 }
-h3 {
-  font-size: 25px;
+#block h2 {
+  margin: 40px;
+}
+#block h3 {
+  font-size: 30px;
 }
 .p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  height: 330px;
+  background-image: url(../../assets/box/background_test051.png);
+  background-position: center;
+  background-size: 100% 100%;
   padding: 10px;
-  font-size: 18px;
-  margin: 30px;
-  background: rgba(245, 222, 179, 0.781);
-  border: 1px solid rgba(245, 222, 179, 0.781);
+  font-size: 25px;
+  /* background: rgba(245, 222, 179, 0.781); */
+  /* border: 1px solid rgba(245, 222, 179, 0.781); */
   border-radius: 10px;
 }
 
@@ -257,4 +269,17 @@ h3 {
   background: #e0cb63;
   border: 1px solid #e0cb63;
   border-radius: 20px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.container-fluid {
+  margin-top: 80px;
+  padding: 20px;
 }
