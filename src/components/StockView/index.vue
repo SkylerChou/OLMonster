@@ -2,26 +2,28 @@
   <div class="container">
     <table class="table">
       <tr>
-        <th>編號</th>
-        <th>成交價</th>
+        <th>名稱</th>
+        <th>股價</th>
         <th>漲跌</th>
-        <th>交易量</th>
-        <th>持股數</th>
-        <th>購買成本</th>
+        <th>成交量</th>
+        <!-- <th>持股</th> -->
+        <!-- <th>購買成本</th> -->
       </tr>
       <tr
         id="stock"
-        v-for="(item, index) in stocks"
-        :key="index"
         data-toggle="modal"
         data-target=".bd-example-modal-lg"
+        v-for="(item, index) in stocks"
+        :key="index"
       >
-        <th>{{ item.num }}</th>
-        <th :style="item.color">{{ item.dealprice }}</th>
-        <th :style="item.color">{{ item.updown }}</th>
-        <th>{{ item.Tv }}</th>
-        <th>{{ item.have }}</th>
-        <th>{{ item.cost }}</th>
+        <th>{{name[index]}}</th>
+        <th>{{price[index]}}</th>
+        <th v-if="updown[index]==0">{{updown[index]}}</th>
+        <th v-if="updown[index]<0" style=" color:green;">{{updown[index]}}</th>
+        <th v-if="updown[index]>0" style=" color:red;">{{updown[index]}}</th>
+        <th>{{dealNum[index]}}</th>
+        <!-- <th>{{ item.have }}</th> -->
+        <!-- <th>{{ item.cost }}</th> -->
       </tr>
     </table>
     <router-view />
@@ -58,71 +60,41 @@
 
 <script>
 import Chart from "@/components/Chart/index.vue";
-
+import cookie from "@/utils/cookie";
 export default {
   components: {
     Chart
   },
   data() {
     return {
-      stocks: [
-        {
-          num: 2880,
-          name: "華南金 ",
-          dealprice: 20,
-          updown: 2,
-          Tv: 100,
-          have: 0,
-          cost: 0,
-          type: "金融股",
-          color: "color: green"
-        },
-        {
-          num: 2880,
-          name: "華南金 ",
-          dealprice: 20,
-          type: "金融股",
-          updown: 2,
-          Tv: 100,
-          have: 0,
-          cost: 0,
-          color: "color: red"
-        },
-        {
-          num: 2880,
-          name: "華南金 ",
-          dealprice: 20,
-          type: "金融股",
-          updown: 2,
-          Tv: 100,
-          have: 0,
-          cost: 0,
-          color: "color: green"
-        },
-        {
-          num: 2880,
-          name: "華南金 ",
-          dealprice: 20,
-          type: "金融股",
-          updown: 2,
-          Tv: 100,
-          have: 0,
-          cost: 0,
-          color: "color: green"
-        },
-        {
-          num: 2880,
-          name: "華南金 ",
-          dealprice: 20,
-          type: "金融股",
-          updown: 2,
-          Tv: 100,
-          have: 0,
-          cost: 0,
-          color: "color: green"
-        }
-      ]
+      stocks: [],
+      serial: [],
+      name: [],
+      price: [],
+      updown: [],
+      dealNum: []
     };
+  },
+  mounted() {
+    let key = "Bearer " + cookie.get("token");
+    this.$axios
+      .get("http://104.199.134.68:8080/stock/getallstockdaydata", {
+        headers: {
+          Authorization: key
+        }
+      })
+      .then(res => {
+        // console.log(res.data);
+        this.stocks = res.data.message;
+        this.serial = this.stocks.map(item => item[0]);
+        this.name = this.stocks.map(item => item[1]);
+        this.price = this.stocks.map(item => item[2]);
+        this.updown = this.stocks.map(item => item[5]);
+        this.dealNum = this.stocks.map(item => item[3]);
+      })
+      .catch(function(error) {
+        console.log("請求失敗", error);
+      });
   }
 };
 </script>
