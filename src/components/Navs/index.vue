@@ -1,9 +1,11 @@
 <script>
 import cookie from "../../utils/cookie";
 import Story from "@/components/Story/index.vue";
+import Intro from "@/components/Intro/index.vue";
 export default {
   components: {
     Story,
+    Intro,
   },
   data() {
     return {
@@ -119,7 +121,7 @@ export default {
             </div>
             <div id="block">
               <div class="img">
-                <img src="../../assets/dino1.png" height="250px" />
+                <img src="../../assets/dino2.png" height="250px" />
               </div>
               <h2>花椰菜</h2>
               <h3>天真樂觀的賣萌擔當</h3>
@@ -150,7 +152,7 @@ export default {
             </div>
             <div id="block">
               <div class="img">
-                <img src="../../assets/fox1.png" height="250px" />
+                <img src="../../assets/fox2.png" height="250px" />
               </div>
               <h2>函吉</h2>
               <h3>失憶守護神</h3>
@@ -174,12 +176,9 @@ export default {
         aria-labelledby="appIntro-tab"
         style="height: 100vh"
       >
-        <div id="block">
-          <div class="container">
-            <h1 id="APPIntroduction">APP介紹</h1>
-            <h3>史上最萌的零股投資教學</h3>
-            <img src="../../assets/qmon03.png" />
-            <img src="../../assets/qmon04.png" />
+        <div class="flex">
+          <div id="block">
+            <Intro />
           </div>
         </div>
       </div>

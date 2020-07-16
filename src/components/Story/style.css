@@ -5,3 +5,7 @@
   max-height: 800px;
   margin-bottom: 150px;
 }
+img {
+  border: 10px solid rgb(251, 251, 251);
+  border-radius: 30px;
+}

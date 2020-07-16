@@ -19,7 +19,9 @@
           class="btn btn-danger"
           data-toggle="modal"
           data-target=".bd-example-modal-sm"
-        >切換怪獸</button>
+        >
+          切換怪獸
+        </button>
         <!-- Button trigger modal -->
         <button
           type="button"
@@ -27,7 +29,9 @@
           data-toggle="modal"
           data-target="#exampleModalCenter"
           @click="sign()"
-        >簽到</button>
+        >
+          簽到
+        </button>
 
         <!-- Modal -->
         <div
@@ -45,15 +49,23 @@
                   class="modal-title"
                   id="exampleModalCenterTitle"
                   style="font-size:35px;color:white;"
-                >每日簽到</h5>
+                >
+                  每日簽到
+                </h5>
               </div>
               <div class="modal-body" style="font-size:30px;color:white;">
                 <div class="h3">當前時間：</div>
-                <h1>{{nowDay}}</h1>
-                <h1>{{nowTime}}</h1>
-                {{text}}
+                <h1>{{ nowDay }}</h1>
+                <h1>{{ nowTime }}</h1>
+                {{ text }}
               </div>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -76,7 +88,9 @@
                       class="btn btn-success"
                       data-dismiss="modal"
                       @click="change1()"
-                    >選牠</button>
+                    >
+                      選牠
+                    </button>
                   </div>
                 </div>
                 <div class="row">
@@ -87,7 +101,9 @@
                       class="btn btn-success"
                       data-dismiss="modal"
                       @click="change2()"
-                    >選牠</button>
+                    >
+                      選牠
+                    </button>
                   </div>
                 </div>
                 <div class="row">
@@ -98,7 +114,9 @@
                       class="btn btn-success"
                       data-dismiss="modal"
                       @click="change3()"
-                    >選牠</button>
+                    >
+                      選牠
+                    </button>
                   </div>
                 </div>
               </div>
@@ -132,7 +150,11 @@
             <div class="modal-content" id="store">
               <h5 class="modal-title" id="exampleModalLabel">怪獸商店</h5>
               <div class="modal-body">
-                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                <ul
+                  class="nav nav-tabs justify-content-center"
+                  id="myTab"
+                  role="tablist"
+                >
                   <li class="nav-item">
                     <a
                       class="nav-link active"
@@ -142,7 +164,8 @@
                       role="tab"
                       aria-controls="home"
                       aria-selected="true"
-                    >怪物住宅</a>
+                      >怪物住宅</a
+                    >
                   </li>
                   <li class="nav-item">
                     <a
@@ -153,7 +176,8 @@
                       role="tab"
                       aria-controls="profile"
                       aria-selected="false"
-                    >怪物食品</a>
+                      >怪物食品</a
+                    >
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -174,7 +198,13 @@
                             ${{ wood }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(6)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(6)"
+                          >
+                            購買
+                          </button>
                           <br />
                           <img src="../../assets/shop/house2.png" />
                           <div>
@@ -184,7 +214,13 @@
                               ${{ house }}
                             </span>
                             <br />
-                            <button type="button" class="btn btn-info" @click="buy(5)">購買</button>
+                            <button
+                              type="button"
+                              class="btn btn-info"
+                              @click="buy(5)"
+                            >
+                              購買
+                            </button>
                           </div>
                         </div>
                         <img src="../../assets/shop/house3.png" />
@@ -195,7 +231,13 @@
                             ${{ flat }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(4)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(4)"
+                          >
+                            購買
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -216,7 +258,13 @@
                             ${{ food1 }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(3)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(3)"
+                          >
+                            購買
+                          </button>
                         </div>
                         <img src="../../assets/shop/food2.png" />
                         <div>
@@ -226,7 +274,13 @@
                             ${{ food2 }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(1)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(1)"
+                          >
+                            購買
+                          </button>
                         </div>
                         <img src="../../assets/shop/food3.png" />
                         <div>
@@ -236,7 +290,13 @@
                             ${{ food3 }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(2)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(2)"
+                          >
+                            購買
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -244,7 +304,13 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -300,16 +366,16 @@ export default {
       food3: 1000,
       food3name: "相撲火鍋",
       nowDay: "",
-      nowTime: ""
+      nowTime: "",
     };
   },
   update() {
     let key = "Bearer " + cookie.get("token");
     this.$axios
       .get("http://104.199.134.68:8080//user/userfocusmonster", {
-        headers: { Authorization: key }
+        headers: { Authorization: key },
       })
-      .then(res => {
+      .then((res) => {
         console.log(res.data);
         if (res.data.message.monster.id == 1) {
           this.link = require("@/assets/gif/dino1.gif");
@@ -342,16 +408,16 @@ export default {
         .get("http://104.199.134.68:8080/store/userbuyweb", {
           headers: { Authorization: key },
           params: {
-            id: val
-          }
+            id: val,
+          },
         })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
           this.$axios
             .get("http://104.199.134.68:8080/store/userhave", {
-              headers: { Authorization: key }
+              headers: { Authorization: key },
             })
-            .then(res => {
+            .then((res) => {
               // console.log(res.data);
               for (let i = 0; i < res.data.message.length; i++) {
                 if (res.data.message[i].store.id == 1) {
@@ -365,10 +431,10 @@ export default {
               this.$axios
                 .get("http://104.199.134.68:8080/user/getdata", {
                   headers: {
-                    Authorization: key
-                  }
+                    Authorization: key,
+                  },
                 })
-                .then(res => {
+                .then((res) => {
                   // console.log(res.data);
                   this.cash = res.data.message.cash;
                   this.stock = res.data.message.stock;
@@ -390,12 +456,13 @@ export default {
       let key = "Bearer " + cookie.get("token");
       this.$axios
         .get("http://104.199.134.68:8080/user/getsalaryweb", {
-          headers: { Authorization: key }
+          headers: { Authorization: key },
         })
-        .then(res => {
+        .then((res) => {
           console.log(res.data);
           if (res.data.status == 200) {
             this.text = "簽到成功~";
+            this.cash += 5500;
           } else if (res.data.status == 401) {
             this.text = "已簽到~";
           }
@@ -445,7 +512,7 @@ export default {
       setInterval(function() {
         self.timeFormate(new Date());
       }, 1000);
-    }
+    },
   },
   created() {
     this.nowTimes();
@@ -456,10 +523,10 @@ export default {
     this.$axios
       .get("http://104.199.134.68:8080/user/userfocusmonster", {
         headers: {
-          Authorization: key
-        }
+          Authorization: key,
+        },
       })
-      .then(res => {
+      .then((res) => {
         console.log(res.data);
         if (res.data.message.monster.id == 1) {
           this.link = require("@/assets/gif/dino1.gif");
@@ -486,9 +553,9 @@ export default {
       });
     this.$axios
       .get("http://104.199.134.68:8080/store/userhave", {
-        headers: { Authorization: key }
+        headers: { Authorization: key },
       })
-      .then(res => {
+      .then((res) => {
         // console.log(res.data);
         for (let i = 0; i < res.data.message.length; i++) {
           if (res.data.message[i].store.id == 1) {
@@ -506,10 +573,10 @@ export default {
     this.$axios
       .get("http://104.199.134.68:8080/user/getdata", {
         headers: {
-          Authorization: key
-        }
+          Authorization: key,
+        },
       })
-      .then(res => {
+      .then((res) => {
         // console.log(res.data);
         this.cash = res.data.message.cash;
         this.stock = res.data.message.stock;
@@ -518,7 +585,7 @@ export default {
       .catch(function(error) {
         console.log("請求失敗", error);
       });
-  }
+  },
 };
 </script>
 

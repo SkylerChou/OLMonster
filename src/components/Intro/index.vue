@@ -1,22 +1,26 @@
 <template>
-  <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+  <div
+    id="carouselExampleFade"
+    class="carousel slide carousel-fade"
+    data-ride="carousel"
+  >
     <div class="carousel-inner">
-      <div class="carousel-item active" data-interval="10000">
-        <img src="@/assets/story/story01.png" class="d-block w-100" />
-      </div>
-      <div class="carousel-item" data-interval="2000">
-        <img src="@/assets/story/story02.png" class="d-block w-100" />
+      <div class="carousel-item active">
+        <img src="@/assets/info/1.png" class="d-block w-100" />
       </div>
       <div class="carousel-item">
-        <img src="@/assets/story/story03.png" class="d-block w-100" />
+        <img src="@/assets/info/2.png" class="d-block w-100" />
       </div>
       <div class="carousel-item">
-        <img src="@/assets/story/story04.png" class="d-block w-100" />
+        <img src="@/assets/info/3.png" class="d-block w-100" />
+      </div>
+      <div class="carousel-item">
+        <img src="@/assets/info/4.png" class="d-block w-100" />
       </div>
     </div>
     <a
       class="carousel-control-prev"
-      href="#carouselExampleInterval"
+      href="#carouselExampleFade"
       role="button"
       data-slide="prev"
     >
@@ -25,7 +29,7 @@
     </a>
     <a
       class="carousel-control-next"
-      href="#carouselExampleInterval"
+      href="#carouselExampleFade"
       role="button"
       data-slide="next"
     >
