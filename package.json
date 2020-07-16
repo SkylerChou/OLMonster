@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "ssh": "ssh kim19961012@104.199.236.54 -p 22 -i \"~/.ssh/server\""
   },
   "dependencies": {
     "axios": "^0.19.2",

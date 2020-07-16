@@ -1,12 +1,16 @@
 <script>
 import cookie from "../../utils/cookie";
+import Story from "@/components/Story/index.vue";
 export default {
+  components: {
+    Story,
+  },
   data() {
     return {
       account: "",
       password: "",
       confirmPassword: "",
-      nickname: ""
+      nickname: "",
     };
   },
   methods: {
@@ -14,9 +18,9 @@ export default {
       this.$axios
         .post("http://104.199.134.68:8080/user/login", {
           account: this.account,
-          password: this.password
+          password: this.password,
         })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
           cookie.set("token", res.data.message);
           if (res.data.status == 200) {
@@ -38,22 +42,26 @@ export default {
             password: this.password,
             confirmPassword: this.confirmPassword,
             nickname: this.nickname,
-            birth: this.birth
+            birth: this.birth,
           })
         )
-        .then(res => {
+        .then((res) => {
           // console.log(res);
         })
         .catch(function(error) {
           console.log(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <template>
   <div>
-    <ul class="nav justify-content-center nav-pills nav-justified" id="myTab" role="tablist">
+    <ul
+      class="nav justify-content-center nav-pills nav-justified"
+      id="myTab"
+      role="tablist"
+    >
       <li class="nav-item">
         <a
           class="nav-link active"
@@ -63,7 +71,8 @@ export default {
           role="tab"
           aria-controls="home"
           aria-selected="true"
-        >怪獸介紹</a>
+          >怪獸介紹</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -74,7 +83,8 @@ export default {
           role="tab"
           aria-controls="appIntro"
           aria-selected="false"
-        >APP介紹</a>
+          >APP介紹</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -85,13 +95,25 @@ export default {
           role="tab"
           aria-controls="login"
           aria-selected="false"
-        >登入/註冊</a>
+          >登入/註冊</a
+        >
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div
+        class="tab-pane fade show active"
+        id="home"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+      >
         <div class="container">
           <div class="flex">
+            <div id="title">
+              <h1>怪物故事</h1>
+            </div>
+            <div id="block">
+              <Story />
+            </div>
             <div id="title">
               <h1>怪物介紹</h1>
             </div>
@@ -104,8 +126,7 @@ export default {
               <div class="p">
                 <div class="container-fluid">
                   <p>
-                    雖然傻呆卻有顆真摯的心。
-                    外表有點粗線條，聲音卻細小，
+                    雖然傻呆卻有顆真摯的心。 外表有點粗線條，聲音卻細小，
                     夢想是跟大家交朋友。
                   </p>
                 </div>
@@ -137,8 +158,7 @@ export default {
                 <div class="container-fluid">
                   <p>
                     因為從樹上掉下來敲到頭，失去了記憶。
-                    傳聞之前是某座森林的守護神，
-                    所以對於保護弱小非常執著，
+                    傳聞之前是某座森林的守護神， 所以對於保護弱小非常執著，
                     大家都非常喜歡牠。
                   </p>
                 </div>
@@ -211,14 +231,24 @@ export default {
                   </div>
 
                   <div class="group">
-                    <input type="submit" class="button" @click="loginClicked" value="登入" />
+                    <input
+                      type="submit"
+                      class="button"
+                      @click="loginClicked"
+                      value="登入"
+                    />
                   </div>
                   <div class="hr"></div>
                 </div>
                 <div class="sign-up-htm">
                   <div class="group">
                     <label for="user" class="label">帳號</label>
-                    <input id="user" v-model="account" type="text" class="input" />
+                    <input
+                      id="user"
+                      v-model="account"
+                      type="text"
+                      class="input"
+                    />
                   </div>
                   <div class="group">
                     <label for="pass" class="label">密碼</label>
@@ -242,10 +272,20 @@ export default {
                   </div>
                   <div class="group">
                     <label for="nick" class="label">暱稱</label>
-                    <input id="nick" v-model="nickname" type="text" class="input" />
+                    <input
+                      id="nick"
+                      v-model="nickname"
+                      type="text"
+                      class="input"
+                    />
                   </div>
                   <div class="group">
-                    <input type="submit" class="button" value="確認" @click="registerClicked" />
+                    <input
+                      type="submit"
+                      class="button"
+                      value="確認"
+                      @click="registerClicked"
+                    />
                   </div>
                 </div>
               </form>
