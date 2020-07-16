@@ -321,19 +321,25 @@
           <img src="../../assets/shop/food1.png" />
           <p>馬卡龍</p>
           <p>持有數量: {{ mar }}</p>
-          <button type="button" class="btn btn-warning">餵食</button>
+          <button type="button" class="btn btn-warning" @click="eatMar()">
+            餵食
+          </button>
         </div>
         <div class="food">
           <img src="../../assets/shop/food2.png" />
           <p>草莓蛋糕</p>
           <p>持有數量: {{ cake }}</p>
-          <button type="button" class="btn btn-warning">餵食</button>
+          <button type="button" class="btn btn-warning" @click="eatCake()">
+            餵食
+          </button>
         </div>
         <div class="food">
           <img src="../../assets/shop/food3.png" />
           <p>相撲火鍋</p>
           <p>持有數量: {{ hotpot }}</p>
-          <button type="button" class="btn btn-warning">餵食</button>
+          <button type="button" class="btn btn-warning" @click="eatHotPot()">
+            餵食
+          </button>
         </div>
       </div>
     </div>
@@ -342,6 +348,7 @@
 
 <script>
 import cookie from "@/utils/cookie";
+let key = "Bearer " + cookie.get("token");
 export default {
   data() {
     return {
@@ -402,8 +409,106 @@ export default {
       });
   },
   methods: {
+    eatMar() {
+      this.$axios
+        .post(
+          "http://104.199.134.68:8080/user/eatfood",
+          this.$qs.stringify({
+            foodId: "3",
+          }),
+          {
+            headers: { Authorization: key },
+          }
+        )
+        .then((res) => {
+          // console.log(res.data);
+          if (this.mar == 0) {
+            this.mar = 0;
+          } else {
+            this.mar -= 1;
+          }
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
+      this.$axios
+        .get("http://104.199.134.68:8080/user/finishmission2", {
+          headers: { Authorization: key },
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
+    },
+    eatCake() {
+      this.$axios
+        .post(
+          "http://104.199.134.68:8080/user/eatfood",
+          this.$qs.stringify({
+            foodId: "1",
+          }),
+          {
+            headers: { Authorization: key },
+          }
+        )
+        .then((res) => {
+          // console.log(res.data);
+          if (this.cake == 0) {
+            this.cake = 0;
+          } else {
+            this.cake -= 1;
+          }
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
+      this.$axios
+        .get("http://104.199.134.68:8080/user/finishmission2", {
+          headers: { Authorization: key },
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
+    },
+    eatHotPot() {
+      this.$axios
+        .post(
+          "http://104.199.134.68:8080/user/eatfood",
+          this.$qs.stringify({
+            foodId: "2",
+          }),
+          {
+            headers: { Authorization: key },
+          }
+        )
+        .then((res) => {
+          // console.log(res.data);
+          if (this.hotpot == 0) {
+            this.hotpot = 0;
+          } else {
+            this.hotpot -= 1;
+          }
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
+      this.$axios
+        .get("http://104.199.134.68:8080/user/finishmission2", {
+          headers: { Authorization: key },
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
+    },
     buy(val) {
-      let key = "Bearer " + cookie.get("token");
       this.$axios
         .get("http://104.199.134.68:8080/store/userbuyweb", {
           headers: { Authorization: key },
@@ -453,7 +558,6 @@ export default {
         });
     },
     sign() {
-      let key = "Bearer " + cookie.get("token");
       this.$axios
         .get("http://104.199.134.68:8080/user/getsalaryweb", {
           headers: { Authorization: key },
@@ -473,12 +577,60 @@ export default {
     },
     change1() {
       this.link = require("@/assets/gif/dino1.gif");
+      this.$axios
+        .post(
+          "http://104.199.134.68:8080/user/changefocusmonster",
+          this.$qs.stringify({
+            monsterId: "1",
+          }),
+          {
+            headers: { Authorization: key },
+          }
+        )
+        .then((res) => {
+          // console.log(res.data);
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
     },
     change2() {
       this.link = require("@/assets/gif/cat1.gif");
+      this.$axios
+        .post(
+          "http://104.199.134.68:8080/user/changefocusmonster",
+          this.$qs.stringify({
+            monsterId: "2",
+          }),
+          {
+            headers: { Authorization: key },
+          }
+        )
+        .then((res) => {
+          // console.log(res.data);
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
     },
     change3() {
       this.link = require("@/assets/gif/fox1.gif");
+      this.$axios
+        .post(
+          "http://104.199.134.68:8080/user/changefocusmonster",
+          this.$qs.stringify({
+            monsterId: "3",
+          }),
+          {
+            headers: { Authorization: key },
+          }
+        )
+        .then((res) => {
+          // console.log(res.data);
+        })
+        .catch(function(error) {
+          console.log("請求失敗", error);
+        });
     }, // 得到當下時間
     timeFormate(timeStamp) {
       let newdate = new Date(timeStamp);
@@ -519,7 +671,6 @@ export default {
   },
   mounted() {
     this.nowTimes();
-    let key = "Bearer " + cookie.get("token");
     this.$axios
       .get("http://104.199.134.68:8080/user/userfocusmonster", {
         headers: {
