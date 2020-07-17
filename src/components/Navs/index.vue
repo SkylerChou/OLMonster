@@ -49,6 +49,7 @@ export default {
         )
         .then((res) => {
           // console.log(res);
+          alert("註冊成功");
         })
         .catch(function(error) {
           console.log(error);

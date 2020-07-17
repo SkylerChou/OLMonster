@@ -383,7 +383,7 @@ export default {
         headers: { Authorization: key },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.message.monster.id == 1) {
           this.link = require("@/assets/gif/dino1.gif");
         } else if (res.data.message.monster.id == 2) {
@@ -410,6 +410,9 @@ export default {
   },
   methods: {
     eatMar() {
+      if (this.mar == 0) {
+        return;
+      }
       this.$axios
         .post(
           "http://104.199.134.68:8080/user/eatfood",
@@ -422,27 +425,28 @@ export default {
         )
         .then((res) => {
           // console.log(res.data);
-          if (this.mar == 0) {
-            this.mar = 0;
-          } else {
+          if (this.mar > 0) {
             this.mar -= 1;
           }
-        })
-        .catch(function(error) {
-          console.log("請求失敗", error);
-        });
-      this.$axios
-        .get("http://104.199.134.68:8080/user/finishmission2", {
-          headers: { Authorization: key },
-        })
-        .then((res) => {
-          console.log(res.data);
+          this.$axios
+            .get("http://104.199.134.68:8080/user/finishmission2", {
+              headers: { Authorization: key },
+            })
+            .then((res) => {
+              // console.log(res.data);
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
         })
         .catch(function(error) {
           console.log("請求失敗", error);
         });
     },
     eatCake() {
+      if (this.this.cake == 0) {
+        return;
+      }
       this.$axios
         .post(
           "http://104.199.134.68:8080/user/eatfood",
@@ -455,27 +459,28 @@ export default {
         )
         .then((res) => {
           // console.log(res.data);
-          if (this.cake == 0) {
-            this.cake = 0;
-          } else {
+          if (this.cake > 0) {
             this.cake -= 1;
           }
-        })
-        .catch(function(error) {
-          console.log("請求失敗", error);
-        });
-      this.$axios
-        .get("http://104.199.134.68:8080/user/finishmission2", {
-          headers: { Authorization: key },
-        })
-        .then((res) => {
-          console.log(res.data);
+          this.$axios
+            .get("http://104.199.134.68:8080/user/finishmission2", {
+              headers: { Authorization: key },
+            })
+            .then((res) => {
+              // console.log(res.data);
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
         })
         .catch(function(error) {
           console.log("請求失敗", error);
         });
     },
     eatHotPot() {
+      if (this.hotpot == 0) {
+        return;
+      }
       this.$axios
         .post(
           "http://104.199.134.68:8080/user/eatfood",
@@ -488,21 +493,20 @@ export default {
         )
         .then((res) => {
           // console.log(res.data);
-          if (this.hotpot == 0) {
-            this.hotpot = 0;
-          } else {
+          if (this.hotpot > 0) {
             this.hotpot -= 1;
           }
-        })
-        .catch(function(error) {
-          console.log("請求失敗", error);
-        });
-      this.$axios
-        .get("http://104.199.134.68:8080/user/finishmission2", {
-          headers: { Authorization: key },
-        })
-        .then((res) => {
-          console.log(res.data);
+
+          this.$axios
+            .get("http://104.199.134.68:8080/user/finishmission2", {
+              headers: { Authorization: key },
+            })
+            .then((res) => {
+              // console.log(res.data);
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
         })
         .catch(function(error) {
           console.log("請求失敗", error);
@@ -678,7 +682,7 @@ export default {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.message.monster.id == 1) {
           this.link = require("@/assets/gif/dino1.gif");
         } else if (res.data.message.monster.id == 2) {

@@ -2,85 +2,61 @@
   <div class="container">
     <table class="table">
       <tr>
-        <th>編號</th>
-        <th>成交價</th>
-        <th>漲跌</th>
-        <th>交易量</th>
+        <th>名稱</th>
+        <th>平均價</th>
+        <!-- <th>漲跌</th> -->
+        <!-- <th>交易量</th> -->
         <th>持股數</th>
-        <th>購買成本</th>
+        <!-- <th>購買成本</th> -->
       </tr>
-      <tr
-        id="stock"
-        v-for="(item, index) in stocks"
-        :key="index"
-        data-toggle="modal"
-        data-target=".bd-example-modal-lg"
-      >
-        <th>{{ item.num }}</th>
-        <th :style="item.color">{{ item.dealprice }}</th>
-        <th :style="item.color">{{ item.updown }}</th>
-        <th>{{ item.Tv }}</th>
-        <th>{{ item.have }}</th>
-        <th>{{ item.cost }}</th>
+      <tr id="stock" v-for="(item, index) in stocks" :key="index">
+        <th>{{ name[index] }}</th>
+        <th>{{ price[index] }}</th>
+        <th>{{ userhave[index] }}</th>
+        <!-- <th>{{ item.cost }}</th> -->
       </tr>
     </table>
+
     <router-view />
-    <div
-      class="modal fade bd-example-modal-lg"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="myLargeModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="container">
-            <Chart />
-            <div class="input-group">
-              <input
-                type="number"
-                class="form-control"
-                placeholder="請輸入購買股數"
-                aria-label="Recipient's username with two button addons"
-                aria-describedby="button-addon4"
-              />
-              <div class="input-group-append" id="button-addon4">
-                <button class="btn btn-danger" type="button">買入</button>
-                <button class="btn btn-success" type="button">賣出</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-import Chart from "@/components/Chart/index.vue";
+import cookie from "@/utils/cookie";
 
+let key = "Bearer " + cookie.get("token");
 export default {
-  name: "Home",
-  components: {
-    Chart
-  },
   data() {
     return {
-      stocks: [
-        {
-          num: 2888,
-          name: "華南金 ",
-          dealprice: 20,
-          updown: 2,
-          Tv: 100,
-          have: 0,
-          cost: 0,
-          type: "金融股",
-          color: "color: green"
-        }
-      ]
+      stocks: [],
+      serial: [],
+      name: [],
+      price: [],
+      // updown: [],
+      dealNum: [],
+      userhave: [],
     };
-  }
+  },
+  mounted() {
+    this.$axios
+      .get("http://104.199.134.68:8080/stock/userholdallstock", {
+        headers: {
+          Authorization: key,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        this.stocks = res.data.message;
+        this.serial = this.stocks.map((item) => item.stockId);
+        this.name = this.stocks.map((item) => item.stockName);
+        this.price = this.stocks.map((item) => item.avgPrice);
+        // this.updown = this.stocks.map(item => item[index]);
+        this.userhave = this.stocks.map((item) => item.units);
+      })
+      .catch(function(error) {
+        console.log("請求失敗", error);
+      });
+  },
 };
 </script>
 
