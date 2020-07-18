@@ -25,13 +25,13 @@
           type="button"
           class="btn btn-light"
           data-toggle="modal"
-          data-target="#exampleModalCenter2"
+          data-target="#exampleModalCenter4"
         >切換住宅</button>
 
         <!-- Modal -->
         <div
           class="modal fade"
-          id="exampleModalCenter2"
+          id="exampleModalCenter4"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalCenterTitle"
@@ -437,8 +437,7 @@
 </template>
 
 <script>
-import cookie from "@/utils/cookie";
-let key = "Bearer " + cookie.get("token");
+import api from "../../utils/api";
 export default {
   data() {
     return {
@@ -471,11 +470,8 @@ export default {
     };
   },
   update() {
-    let key = "Bearer " + cookie.get("token");
-    this.$axios
-      .get("http://104.199.134.68:8080//user/userfocusmonster", {
-        headers: { Authorization: key }
-      })
+    api
+      .userfocusmonster()
       .then(res => {
         // console.log(res.data);
         if (res.data.message.monster.id == 1) {
@@ -506,16 +502,8 @@ export default {
     changBabkground(val) {
       if (val == 4) {
         this.url = require("@/assets/house/chairs.png");
-        this.$axios
-          .post(
-            "http://104.199.134.68:8080/user/focushouse",
-            this.$qs.stringify({
-              houseId: "4"
-            }),
-            {
-              headers: { Authorization: key }
-            }
-          )
+        api
+          .focushouse({ houseId: "4" })
           .then(res => {
             // console.log(res.data);
           })
@@ -524,16 +512,8 @@ export default {
           });
       } else if (val == 5) {
         this.url = require("@/assets/house/sofa.jpg");
-        this.$axios
-          .post(
-            "http://104.199.134.68:8080/user/focushouse",
-            this.$qs.stringify({
-              houseId: "5"
-            }),
-            {
-              headers: { Authorization: key }
-            }
-          )
+        api
+          .focushouse({ houseId: "5" })
           .then(res => {
             // console.log(res.data);
           })
@@ -542,16 +522,8 @@ export default {
           });
       } else if (val == 6) {
         this.url = require("../../assets/house/house2.jpg");
-        this.$axios
-          .post(
-            "http://104.199.134.68:8080/user/focushouse",
-            this.$qs.stringify({
-              houseId: "6"
-            }),
-            {
-              headers: { Authorization: key }
-            }
-          )
+        api
+          .focushouse({ houseId: "6" })
           .then(res => {
             // console.log(res.data);
           })
@@ -564,25 +536,15 @@ export default {
       if (this.mar == 0) {
         return;
       }
-      this.$axios
-        .post(
-          "http://104.199.134.68:8080/user/eatfood",
-          this.$qs.stringify({
-            foodId: "3"
-          }),
-          {
-            headers: { Authorization: key }
-          }
-        )
+      api
+        .eatfood({ foodId: "3" })
         .then(res => {
           // console.log(res.data);
           if (this.mar > 0) {
             this.mar -= 1;
           }
-          this.$axios
-            .get("http://104.199.134.68:8080/user/finishmission2", {
-              headers: { Authorization: key }
-            })
+          api
+            .finishmission2()
             .then(res => {
               // console.log(res.data);
             })
@@ -598,25 +560,15 @@ export default {
       if (this.cake == 0) {
         return;
       }
-      this.$axios
-        .post(
-          "http://104.199.134.68:8080/user/eatfood",
-          this.$qs.stringify({
-            foodId: "1"
-          }),
-          {
-            headers: { Authorization: key }
-          }
-        )
+      api
+        .eatfood({ foodId: "1" })
         .then(res => {
           // console.log(res.data);
           if (this.cake > 0) {
             this.cake -= 1;
           }
-          this.$axios
-            .get("http://104.199.134.68:8080/user/finishmission2", {
-              headers: { Authorization: key }
-            })
+          api
+            .finishmission2()
             .then(res => {
               // console.log(res.data);
             })
@@ -632,26 +584,15 @@ export default {
       if (this.hotpot == 0) {
         return;
       }
-      this.$axios
-        .post(
-          "http://104.199.134.68:8080/user/eatfood",
-          this.$qs.stringify({
-            foodId: "2"
-          }),
-          {
-            headers: { Authorization: key }
-          }
-        )
+      api
+        .eatfood({ foodId: "2" })
         .then(res => {
           // console.log(res.data);
           if (this.hotpot > 0) {
             this.hotpot -= 1;
           }
-
-          this.$axios
-            .get("http://104.199.134.68:8080/user/finishmission2", {
-              headers: { Authorization: key }
-            })
+          api
+            .finishmission2()
             .then(res => {
               // console.log(res.data);
             })
@@ -664,19 +605,12 @@ export default {
         });
     },
     buy(val) {
-      this.$axios
-        .get("http://104.199.134.68:8080/store/userbuyweb", {
-          headers: { Authorization: key },
-          params: {
-            id: val
-          }
-        })
+      api
+        .userbuyweb({ id: val })
         .then(res => {
           // console.log(res.data);
-          this.$axios
-            .get("http://104.199.134.68:8080/store/userhave", {
-              headers: { Authorization: key }
-            })
+          api
+            .userhave()
             .then(res => {
               // console.log(res.data);
               for (let i = 0; i < res.data.message.length; i++) {
@@ -694,12 +628,8 @@ export default {
                   this.haveCabin = true;
                 }
               }
-              this.$axios
-                .get("http://104.199.134.68:8080/user/getdata", {
-                  headers: {
-                    Authorization: key
-                  }
-                })
+              api
+                .getdata()
                 .then(res => {
                   // console.log(res.data);
                   this.cash = res.data.message.cash;
@@ -719,10 +649,8 @@ export default {
         });
     },
     sign() {
-      this.$axios
-        .get("http://104.199.134.68:8080/user/getsalaryweb", {
-          headers: { Authorization: key }
-        })
+      api
+        .getsalaryweb()
         .then(res => {
           console.log(res.data);
           if (res.data.status == 200) {
@@ -738,16 +666,8 @@ export default {
     },
     change1() {
       this.link = require("@/assets/gif/dino1.gif");
-      this.$axios
-        .post(
-          "http://104.199.134.68:8080/user/changefocusmonster",
-          this.$qs.stringify({
-            monsterId: "1"
-          }),
-          {
-            headers: { Authorization: key }
-          }
-        )
+      api
+        .changefocusmonster({ monsterId: "1" })
         .then(res => {
           // console.log(res.data);
         })
@@ -757,16 +677,8 @@ export default {
     },
     change2() {
       this.link = require("@/assets/gif/cat1.gif");
-      this.$axios
-        .post(
-          "http://104.199.134.68:8080/user/changefocusmonster",
-          this.$qs.stringify({
-            monsterId: "2"
-          }),
-          {
-            headers: { Authorization: key }
-          }
-        )
+      api
+        .changefocusmonster({ monsterId: "2" })
         .then(res => {
           // console.log(res.data);
         })
@@ -776,16 +688,8 @@ export default {
     },
     change3() {
       this.link = require("@/assets/gif/fox1.gif");
-      this.$axios
-        .post(
-          "http://104.199.134.68:8080/user/changefocusmonster",
-          this.$qs.stringify({
-            monsterId: "3"
-          }),
-          {
-            headers: { Authorization: key }
-          }
-        )
+      api
+        .changefocusmonster({ monsterId: "3" })
         .then(res => {
           // console.log(res.data);
         })
@@ -832,12 +736,8 @@ export default {
   },
   mounted() {
     this.nowTimes();
-    this.$axios
-      .get("http://104.199.134.68:8080/user/userfocusmonster", {
-        headers: {
-          Authorization: key
-        }
-      })
+    api
+      .userfocusmonster()
       .then(res => {
         // console.log(res.data);
         if (res.data.message.monster.id == 1) {
@@ -863,10 +763,8 @@ export default {
       .catch(function(error) {
         console.log("請求失敗", error);
       });
-    this.$axios
-      .get("http://104.199.134.68:8080/store/userhave", {
-        headers: { Authorization: key }
-      })
+    api
+      .userhave()
       .then(res => {
         // console.log(res.data);
         for (let i = 0; i < res.data.message.length; i++) {
@@ -888,23 +786,19 @@ export default {
       .catch(function(error) {
         console.log("請求失敗", error);
       });
-    this.$axios
-      .get("http://104.199.134.68:8080/user/getdata", {
-        headers: {
-          Authorization: key
-        }
-      })
+    api
+      .getdata()
       .then(res => {
         // console.log(res.data);
         let id = res.data.message.focusHouse;
         this.cash = res.data.message.cash;
         this.stock = res.data.message.stock;
         this.total = res.data.message.totalAsset;
-        if (id == 4) {
+        if (id == "帝寶") {
           this.url = require("@/assets/house/chairs.png");
-        } else if (id == 5) {
+        } else if (id == "獨棟豪宅") {
           this.url = require("@/assets/house/sofa.jpg");
-        } else if (id == 6) {
+        } else if (id == "小木屋") {
           this.url = require("../../assets/house/house2.jpg");
         }
       })

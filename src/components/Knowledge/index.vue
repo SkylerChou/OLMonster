@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import cookie from "@/utils/cookie";
-let key = "Bearer " + cookie.get("token");
+import api from "@/utils/api";
 
 export default {
   data() {
@@ -29,27 +28,14 @@ export default {
   },
   methods: {
     finish(val) {
-      let data = {
-        id: val
-      };
-      this.$axios
-        .post(
-          "http://104.199.134.68:8080/course/finishCourse",
-          this.$qs.stringify(data),
-          {
-            headers: {
-              Authorization: key
-            }
-          }
-        )
+      api
+        .finishCourse({
+          id: val
+        })
         .then(res => {
           console.log(res.data);
-          this.$axios
-            .get("http://104.199.134.68:8080/user/finishmission1", {
-              headers: {
-                Authorization: key
-              }
-            })
+          api
+            .finishmission1()
             .then(res => {
               console.log(res.data);
             })
@@ -63,12 +49,8 @@ export default {
     }
   },
   mounted() {
-    this.$axios
-      .get("http://104.199.134.68:8080/course/getallcourse", {
-        headers: {
-          Authorization: key
-        }
-      })
+    api
+      .getallcourse()
       .then(res => {
         console.log(res.data);
         this.classes = res.data.message;

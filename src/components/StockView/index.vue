@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import cookie from "@/utils/cookie";
+import api from "@/utils/api";
 export default {
   data() {
     return {
@@ -40,13 +40,8 @@ export default {
     };
   },
   mounted() {
-    let key = "Bearer " + cookie.get("token");
-    this.$axios
-      .get("http://104.199.134.68:8080/stock/getallstockdaydata", {
-        headers: {
-          Authorization: key
-        }
-      })
+    api
+      .getallstockdaydata()
       .then(res => {
         // console.log(res.data);
         this.stocks = res.data.message;

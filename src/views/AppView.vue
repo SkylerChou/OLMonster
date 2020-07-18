@@ -61,8 +61,8 @@
 </template>
 
 <script>
+import api from "../utils/api";
 import cookie from "../utils/cookie";
-
 export default {
   data() {
     return {
@@ -74,13 +74,8 @@ export default {
     if (!this.token) {
       this.$router.push({ path: "/" });
     }
-    let key = "Bearer " + cookie.get("token");
-    this.$axios
-      .get("http://104.199.134.68:8080/user/getdata", {
-        headers: {
-          Authorization: key
-        }
-      })
+    api
+      .getdata()
       .then(res => {
         // console.log(res.data);
         this.user = res.data.message.nickname;

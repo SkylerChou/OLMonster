@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import cookie from "@/utils/cookie";
+import api from "../../utils/api";
 export default {
   data() {
     return {
@@ -91,13 +91,8 @@ export default {
     };
   },
   mounted() {
-    let key = "Bearer " + cookie.get("token");
-    this.$axios
-      .get("http://104.199.134.68:8080/user/getachievementdata", {
-        headers: {
-          Authorization: key
-        }
-      })
+    api
+      .getachievementdata()
       .then(res => {
         console.log(res.data);
         this.isActive = res.data.message;
@@ -105,12 +100,8 @@ export default {
       .catch(function(error) {
         console.log("請求失敗", error);
       });
-    this.$axios
-      .get("http://104.199.134.68:8080/user/getmission", {
-        headers: {
-          Authorization: key
-        }
-      })
+    api
+      .getmission()
       .then(res => {
         console.log(res.data.message);
         this.isFinish1 = res.data.message.mission1;

@@ -1,28 +1,29 @@
 <script>
 import cookie from "../../utils/cookie";
+import api from "../../utils/api";
 import Story from "@/components/Story/index.vue";
 import Intro from "@/components/Intro/index.vue";
 export default {
   components: {
     Story,
-    Intro,
+    Intro
   },
   data() {
     return {
       account: "",
       password: "",
       confirmPassword: "",
-      nickname: "",
+      nickname: ""
     };
   },
   methods: {
     loginClicked() {
-      this.$axios
-        .post("http://104.199.134.68:8080/user/login", {
+      api
+        .login({
           account: this.account,
-          password: this.password,
+          password: this.password
         })
-        .then((res) => {
+        .then(res => {
           // console.log(res.data);
           cookie.set("token", res.data.message);
           if (res.data.status == 200) {
@@ -36,35 +37,32 @@ export default {
         });
     },
     registerClicked() {
-      this.$axios
-        .post(
-          "http://104.199.134.68:8080/user/register",
-          this.$qs.stringify({
-            account: this.account,
-            password: this.password,
-            confirmPassword: this.confirmPassword,
-            nickname: this.nickname,
-            birth: this.birth,
-          })
-        )
-        .then((res) => {
+      api
+        .register({
+          account: this.account,
+          password: this.password,
+          confirmPassword: this.confirmPassword,
+          nickname: this.nickname,
+          birth: this.birth
+        })
+        .then(res => {
           // console.log(res);
-          alert("註冊成功");
+          if (res.data.status == 200) {
+            alert("註冊成功！");
+          } else {
+            alert("註冊失敗！請再試一次");
+          }
         })
         .catch(function(error) {
           console.log(error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 <template>
   <div>
-    <ul
-      class="nav justify-content-center nav-pills nav-justified"
-      id="myTab"
-      role="tablist"
-    >
+    <ul class="nav justify-content-center nav-pills nav-justified" id="myTab" role="tablist">
       <li class="nav-item">
         <a
           class="nav-link active"
@@ -74,8 +72,7 @@ export default {
           role="tab"
           aria-controls="home"
           aria-selected="true"
-          >怪獸介紹</a
-        >
+        >怪獸介紹</a>
       </li>
       <li class="nav-item">
         <a
@@ -86,8 +83,7 @@ export default {
           role="tab"
           aria-controls="appIntro"
           aria-selected="false"
-          >APP介紹</a
-        >
+        >APP介紹</a>
       </li>
       <li class="nav-item">
         <a
@@ -98,17 +94,11 @@ export default {
           role="tab"
           aria-controls="login"
           aria-selected="false"
-          >登入/註冊</a
-        >
+        >登入/註冊</a>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div
-        class="tab-pane fade show active"
-        id="home"
-        role="tabpanel"
-        aria-labelledby="home-tab"
-      >
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="container">
           <div class="flex">
             <div id="title">
@@ -231,24 +221,14 @@ export default {
                   </div>
 
                   <div class="group">
-                    <input
-                      type="submit"
-                      class="button"
-                      @click="loginClicked"
-                      value="登入"
-                    />
+                    <input type="submit" class="button" @click="loginClicked" value="登入" />
                   </div>
                   <div class="hr"></div>
                 </div>
                 <div class="sign-up-htm">
                   <div class="group">
                     <label for="user" class="label">帳號</label>
-                    <input
-                      id="user"
-                      v-model="account"
-                      type="text"
-                      class="input"
-                    />
+                    <input id="user" v-model="account" type="text" class="input" />
                   </div>
                   <div class="group">
                     <label for="pass" class="label">密碼</label>
@@ -272,20 +252,10 @@ export default {
                   </div>
                   <div class="group">
                     <label for="nick" class="label">暱稱</label>
-                    <input
-                      id="nick"
-                      v-model="nickname"
-                      type="text"
-                      class="input"
-                    />
+                    <input id="nick" v-model="nickname" type="text" class="input" />
                   </div>
                   <div class="group">
-                    <input
-                      type="submit"
-                      class="button"
-                      value="確認"
-                      @click="registerClicked"
-                    />
+                    <input type="submit" class="button" value="確認" @click="registerClicked" />
                   </div>
                 </div>
               </form>
