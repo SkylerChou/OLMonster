@@ -42,7 +42,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5
-                  class="modal-title"
+                  class="modal-title1"
                   id="exampleModalCenterTitle"
                   style="font-size:35px;color:white;"
                 >每日簽到</h5>
@@ -264,6 +264,7 @@
             @click="eatMar()"
             v-if="mar > 0"
           >餵食</button>
+          <button type="button" class="btn btn-warning disabled" v-if="mar == 0">餵食</button>
 
           <!-- Modal -->
           <div
@@ -298,8 +299,10 @@
             class="btn btn-warning"
             data-toggle="modal"
             data-target="#exampleModalCenter1"
+            @click="eatCake()"
             v-if="cake > 0"
           >餵食</button>
+          <button type="button" class="btn btn-warning disabled" v-if="cake == 0">餵食</button>
 
           <!-- Modal -->
           <div
@@ -336,6 +339,7 @@
             @click="eatHotPot()"
             v-if="hotpot > 0"
           >餵食</button>
+          <button type="button" class="btn btn-warning disabled" v-if="hotpot == 0">餵食</button>
 
           <!-- Modal -->
           <div

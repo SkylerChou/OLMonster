@@ -34,29 +34,30 @@ export default {
       price: [],
       // updown: [],
       dealNum: [],
-      userhave: [],
+      userhave: []
     };
   },
   mounted() {
     this.$axios
       .get("http://104.199.134.68:8080/stock/userholdallstock", {
         headers: {
-          Authorization: key,
-        },
+          Authorization: key
+        }
       })
-      .then((res) => {
+      .then(res => {
         console.log(res.data);
         this.stocks = res.data.message;
-        this.serial = this.stocks.map((item) => item.stockId);
-        this.name = this.stocks.map((item) => item.stockName);
-        this.price = this.stocks.map((item) => item.avgPrice);
+        this.serial = this.stocks.map(item => item.stockId);
+        this.name = this.stocks.map(item => item.stockName);
+        this.price = this.stocks.map(item => item.avgPrice);
         // this.updown = this.stocks.map(item => item[index]);
-        this.userhave = this.stocks.map((item) => item.units);
+        this.userhave = this.stocks.map(item => item.units);
       })
       .catch(function(error) {
         console.log("請求失敗", error);
       });
   },
+  methods: {}
 };
 </script>
 

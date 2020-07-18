@@ -1,6 +1,17 @@
 <template>
-  <div class="container">
-    <canvas id="lineChart"></canvas>
+  <div class="container-fluid">
+    <div>
+      <canvas id="lineChart"></canvas>
+    </div>
+    <div>
+      <input type="number" />
+    </div>
+    <div>
+      <button type="button" class="btn btn-danger">買入</button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-success">賣出</button>
+    </div>
   </div>
 </template>
 
@@ -11,7 +22,7 @@ import planetChartData from "./lineChart.js";
 export default {
   data() {
     return {
-      planetChartData: planetChartData,
+      planetChartData: planetChartData
     };
   },
   methods: {
@@ -20,13 +31,13 @@ export default {
       const myChart = new Chart(ctx, {
         type: chartData.type,
         data: chartData.data,
-        options: chartData.options,
+        options: chartData.options
       });
-    },
+    }
   },
   mounted() {
     this.createChart("lineChart", this.planetChartData);
-  },
+  }
 };
 </script>
 

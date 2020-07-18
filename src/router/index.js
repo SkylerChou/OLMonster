@@ -8,6 +8,8 @@ import Knowledge from "@/components/Knowledge/index.vue";
 import StockView from "@/components/StockView/index.vue";
 import StockView2 from "@/components/StockView2/index.vue";
 import Achievement from "@/components/Achievement/index.vue";
+import Rank from "@/components/Rank/index.vue";
+import Chart from "@/components/Chart/index.vue";
 
 Vue.use(VueRouter);
 
@@ -47,12 +49,22 @@ const routes = [
             name: "myStock",
             component: StockView2,
           },
+          {
+            path: "chart",
+            name: "chart",
+            component: Chart,
+          },
         ],
       },
       {
         path: "knowledge",
         name: "knowledge",
         component: Knowledge,
+      },
+      {
+        path: "rank",
+        name: "rank",
+        component: Rank,
       },
     ],
   },

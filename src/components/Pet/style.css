@@ -14,7 +14,7 @@
 .pet {
   width: 100%;
   height: 50vh;
-  padding-top: 100px;
+  padding-top: 80px;
   background-image: url(../../assets/house/house2.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -112,7 +112,13 @@ a#profile-tab:hover {
   color: aliceblue;
   background: rgba(228, 131, 101, 0.787);
 }
+.modal-title1 {
+  padding: 10px;
+  background: rgba(238, 156, 89, 0.753);
+}
 .modal-title {
   padding: 10px;
-  background: rgb(238, 156, 89);
+}
+.btn-secondary {
+  margin: 10px;
 }
