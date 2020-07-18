@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="pet">
+    <div class="pet" id="pet" :style="{backgroundImage: 'url('+url+')'}">
       <img :src="link" />
     </div>
     <div id="info">
@@ -23,6 +23,55 @@
         <!-- Button trigger modal -->
         <button
           type="button"
+          class="btn btn-light"
+          data-toggle="modal"
+          data-target="#exampleModalCenter2"
+        >切換住宅</button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModalCenter2"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-body" style="font-size:30px;color:white;">
+                <img class="house" src="../../assets/house/house2.jpg" />
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  @click="changBabkground(6)"
+                  v-if="haveCabin"
+                >更換</button>
+                <button type="button" class="btn btn-dark disabled" v-if="!haveCabin">未持有</button>
+                <img class="house" src="../../assets/house/sofa.jpg" />
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  @click="changBabkground(5)"
+                  v-if="havaVilla"
+                >更換</button>
+                <button type="button" class="btn btn-dark disabled" v-if="!havaVilla">未持有</button>
+                <img class="house" src="../../assets/house/chairs.png" />
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  @click="changBabkground(4)"
+                  v-if="haveSkyscraper"
+                >更換</button>
+                <button type="button" class="btn btn-dark disabled" v-if="!haveSkyscraper">未持有</button>
+              </div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+        <!-- Button trigger modal -->
+        <button
+          type="button"
           class="btn btn-secondary"
           data-toggle="modal"
           data-target="#exampleModalCenter"
@@ -40,13 +89,11 @@
         >
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5
-                  class="modal-title1"
-                  id="exampleModalCenterTitle"
-                  style="font-size:35px;color:white;"
-                >每日簽到</h5>
-              </div>
+              <h5
+                class="modal-title1"
+                id="exampleModalCenterTitle"
+                style="font-size:35px;color:white;"
+              >每日簽到</h5>
               <div class="modal-body" style="font-size:30px;color:white;">
                 <div class="h3">當前時間：</div>
                 <h1>{{ nowDay }}</h1>
@@ -57,7 +104,6 @@
             </div>
           </div>
         </div>
-
         <div
           class="modal fade bd-example-modal-sm"
           tabindex="-1"
@@ -174,7 +220,13 @@
                             ${{ wood }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(6)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(6)"
+                            v-if="!haveCabin"
+                          >購買</button>
+                          <button type="button" class="btn btn-dark disabled" v-if="haveCabin">已擁有</button>
                           <br />
                           <img src="../../assets/shop/house2.png" />
                           <div>
@@ -184,7 +236,13 @@
                               ${{ house }}
                             </span>
                             <br />
-                            <button type="button" class="btn btn-info" @click="buy(5)">購買</button>
+                            <button
+                              type="button"
+                              class="btn btn-info"
+                              @click="buy(5)"
+                              v-if="!havaVilla"
+                            >購買</button>
+                            <button type="button" class="btn btn-dark disabled" v-if="havaVilla">已擁有</button>
                           </div>
                         </div>
                         <img src="../../assets/shop/house3.png" />
@@ -195,7 +253,17 @@
                             ${{ flat }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(4)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(4)"
+                            v-if="!haveSkyscraper"
+                          >購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-dark disabled"
+                            v-if="haveSkyscraper"
+                          >已擁有</button>
                         </div>
                       </div>
                     </div>
@@ -395,7 +463,11 @@ export default {
       food3: 1000,
       food3name: "相撲火鍋",
       nowDay: "",
-      nowTime: ""
+      nowTime: "",
+      url: require("@/assets/house/carpet.png"),
+      haveCabin: false,
+      havaVilla: false,
+      haveSkyscraper: false
     };
   },
   update() {
@@ -431,6 +503,63 @@ export default {
       });
   },
   methods: {
+    changBabkground(val) {
+      if (val == 4) {
+        this.url = require("@/assets/house/chairs.png");
+        this.$axios
+          .post(
+            "http://104.199.134.68:8080/user/focushouse",
+            this.$qs.stringify({
+              houseId: "4"
+            }),
+            {
+              headers: { Authorization: key }
+            }
+          )
+          .then(res => {
+            // console.log(res.data);
+          })
+          .catch(function(error) {
+            console.log("請求失敗", error);
+          });
+      } else if (val == 5) {
+        this.url = require("@/assets/house/sofa.jpg");
+        this.$axios
+          .post(
+            "http://104.199.134.68:8080/user/focushouse",
+            this.$qs.stringify({
+              houseId: "5"
+            }),
+            {
+              headers: { Authorization: key }
+            }
+          )
+          .then(res => {
+            // console.log(res.data);
+          })
+          .catch(function(error) {
+            console.log("請求失敗", error);
+          });
+      } else if (val == 6) {
+        this.url = require("../../assets/house/house2.jpg");
+        this.$axios
+          .post(
+            "http://104.199.134.68:8080/user/focushouse",
+            this.$qs.stringify({
+              houseId: "6"
+            }),
+            {
+              headers: { Authorization: key }
+            }
+          )
+          .then(res => {
+            // console.log(res.data);
+          })
+          .catch(function(error) {
+            console.log("請求失敗", error);
+          });
+      }
+    },
     eatMar() {
       if (this.mar == 0) {
         return;
@@ -557,6 +686,12 @@ export default {
                   this.hotpot = res.data.message[i].number;
                 } else if (res.data.message[i].store.id == 3) {
                   this.mar = res.data.message[i].number;
+                } else if (res.data.message[i].store.id == 4) {
+                  this.haveSkyscraper = true;
+                } else if (res.data.message[i].store.id == 5) {
+                  this.havaVilla = true;
+                } else if (res.data.message[i].store.id == 6) {
+                  this.haveCabin = true;
                 }
               }
               this.$axios
@@ -741,6 +876,12 @@ export default {
             this.hotpot = res.data.message[i].number;
           } else if (res.data.message[i].store.id == 3) {
             this.mar = res.data.message[i].number;
+          } else if (res.data.message[i].store.id == 4) {
+            this.haveSkyscraper = true;
+          } else if (res.data.message[i].store.id == 5) {
+            this.havaVilla = true;
+          } else if (res.data.message[i].store.id == 6) {
+            this.haveCabin = true;
           }
         }
       })
@@ -755,9 +896,17 @@ export default {
       })
       .then(res => {
         // console.log(res.data);
+        let id = res.data.message.focusHouse;
         this.cash = res.data.message.cash;
         this.stock = res.data.message.stock;
         this.total = res.data.message.totalAsset;
+        if (id == 4) {
+          this.url = require("@/assets/house/chairs.png");
+        } else if (id == 5) {
+          this.url = require("@/assets/house/sofa.jpg");
+        } else if (id == 6) {
+          this.url = require("../../assets/house/house2.jpg");
+        }
       })
       .catch(function(error) {
         console.log("請求失敗", error);
