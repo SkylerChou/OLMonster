@@ -1,16 +1,18 @@
 <template>
-  <div class="container-fluid">
+  <div class="flex">
     <div>
+      <h2>0050 台灣50</h2>
+      <span style="color:red;">股價:94.4 漲幅:1.01</span>
       <canvas id="lineChart"></canvas>
     </div>
-    <div>
+    <div class="group">
       <input type="number" />
-    </div>
-    <div>
-      <button type="button" class="btn btn-danger">買入</button>
-    </div>
-    <div>
-      <button type="button" class="btn btn-success">賣出</button>
+      <div>
+        <button type="button" class="btn btn-danger">買入</button>
+      </div>
+      <div>
+        <button type="button" class="btn btn-success">賣出</button>
+      </div>
     </div>
   </div>
 </template>

@@ -3,27 +3,27 @@
 }
 
 h2 {
-  color: aliceblue;
+  color: rgb(3, 3, 3);
 }
-#chart {
+#lineChart {
   width: 100%;
-  max-width: 700px;
-  min-width: 390px;
+  max-width: 900px;
+  height: 100%;
+  max-height: 500px;
+  margin: auto;
 }
-div {
+.flex {
   display: flex;
   width: 100%;
   flex-direction: column;
-  justify-content: center;
+  justify-items: center;
   align-content: center;
-}
-#info {
-  font-size: 30px;
 }
 input {
   width: 100%;
   max-width: 500px;
-  margin: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 button {
   width: 100%;
