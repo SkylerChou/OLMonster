@@ -8,26 +8,11 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
   background-color: rgb(132, 223, 226);
 }
 div.tab-content {
-  /* background-color: rgba(132, 223, 226, 0.445); */
-  background-attachment: fixed;
+  width: 100%;
+  max-width: 1920px;
+  background-image: url(../../assets/homePage.jpg);
   background-position: center;
-  background-size: cover;
-  background: -webkit-linear-gradient(
-    rgba(201, 250, 168, 0.685),
-    rgba(81, 226, 231, 0.856)
-  );
-  background: -o-linear-gradient(
-    rgba(201, 250, 168, 0.685),
-    rgba(81, 226, 231, 0.856)
-  );
-  background: -moz-linear-gradient(
-    rgba(201, 250, 168, 0.685),
-    rgba(81, 226, 231, 0.856)
-  );
-  background: linear-gradient(
-    rgba(201, 250, 168, 0.685),
-    rgba(81, 226, 231, 0.856)
-  );
+  background-size: 100% 100%;
 }
 #title,
 h1#APPIntroduction,
@@ -61,7 +46,7 @@ a {
   height: 100%;
   position: absolute;
   padding: 90px 70px 50px 70px;
-  background: #273b37b6;
+  background: #273b37ec;
   border-radius: 20px;
 }
 .login-html .sign-in-htm,
@@ -92,6 +77,11 @@ a {
   margin: 0 15px 10px 0;
   display: inline-block;
   border-bottom: 2px solid transparent;
+}
+
+.login-html .sign-in + .tab,
+.login-html .sign-up + .tab {
+  color: rgb(144, 144, 144);
 }
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab {
@@ -232,9 +222,9 @@ div.login-html {
   align-items: center;
   width: 350px;
   height: 350px;
-  border: 1px solid rgba(139, 237, 100, 0.513);
+  border: 1px solid rgba(244, 245, 247, 0.356);
   border-radius: 99%;
-  background: rgba(139, 237, 100, 0.513);
+  background-image: url(../../assets/background.jpg);
 }
 #block {
   display: flex;
@@ -260,17 +250,21 @@ div.login-html {
   background-size: 100% 100%;
   padding: 10px;
   font-size: 25px;
-  /* background: rgba(245, 222, 179, 0.781); */
-  /* border: 1px solid rgba(245, 222, 179, 0.781); */
   border-radius: 10px;
 }
 
 #block h2 {
-  background: #e0cb63;
+  background: #e9d679;
   border: 1px solid #e0cb63;
   border-radius: 20px;
+  padding: 5px;
 }
-
+#block h3 {
+  background: #f8a2a7;
+  border: 1px solid #f8a2a7;
+  border-radius: 20px;
+  padding: 10px;
+}
 .flex {
   display: flex;
   flex-direction: column;
