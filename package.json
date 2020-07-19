@@ -8,13 +8,14 @@
     "ssh": "ssh kim19961012@104.199.236.54 -p 22 -i \"~/.ssh/server\""
   },
   "dependencies": {
+    "apexcharts": "^3.19.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
-    "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "vue": "^2.6.11",
+    "vue-apexcharts": "^1.6.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },

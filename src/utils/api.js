@@ -99,6 +99,27 @@ const api = {
       headers: { Authorization: key },
     });
   },
+  setActor: (data) => {
+    return axious.post(URL.user + "/setActor", qs.stringify(data), {
+      headers: { Authorization: key },
+    });
+  },
+  sellstock: (data) => {
+    return axious.post(URL.stock + "/sellstock", qs.stringify(data), {
+      headers: { Authorization: key },
+    });
+  },
+  buystock: (data) => {
+    return axious.post(URL.stock + "/buystock", qs.stringify(data), {
+      headers: { Authorization: key },
+    });
+  },
+  get30before: (data) => {
+    return axious.get(URL.stock + "/get30before", {
+      params: data,
+      headers: { Authorization: key },
+    });
+  },
 };
 
 export default api;

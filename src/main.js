@@ -4,11 +4,11 @@ import router from "./router";
 import store from "./store";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
-// import axious from "axios";
-// import qs from "qs";
+import VueApexCharts from "vue-apexcharts";
+Vue.use(VueApexCharts);
 
-// Vue.prototype.$axios = axious;
-// Vue.prototype.$qs = qs;
+Vue.component("apexchart", VueApexCharts);
+
 Vue.config.productionTip = false;
 
 new Vue({

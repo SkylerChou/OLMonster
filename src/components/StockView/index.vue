@@ -11,7 +11,9 @@
       </tr>
       <tr id="stock" v-for="(item, index) in stocks" :key="index" @click="chart()">
         <th>{{ name[index] }}</th>
-        <th>{{ price[index] }}</th>
+        <th v-if="updown[index] == 0">{{ price[index] }}</th>
+        <th v-if="updown[index] < 0" style=" color:green;">{{ price[index] }}</th>
+        <th v-if="updown[index] > 0" style=" color:red;">{{ price[index] }}</th>
         <th v-if="updown[index] == 0">{{ updown[index] }}</th>
         <th v-if="updown[index] < 0" style=" color:green;">{{ updown[index] }}</th>
         <th v-if="updown[index] > 0" style=" color:red;">{{ updown[index] }}</th>

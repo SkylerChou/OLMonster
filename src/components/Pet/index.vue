@@ -16,17 +16,23 @@
         <!-- Small modal -->
         <button
           type="button"
-          class="btn btn-danger"
+          class="btn btn-light"
           data-toggle="modal"
           data-target=".bd-example-modal-sm"
-        >切換怪獸</button>
+        >
+          <img src="@/assets/change.png" width="30px" />
+          <img src="@/assets/excited.png" width="30px" />
+        </button>
         <!-- Button trigger modal -->
         <button
           type="button"
           class="btn btn-light"
           data-toggle="modal"
           data-target="#exampleModalCenter4"
-        >切換住宅</button>
+        >
+          <img src="@/assets/change.png" width="30px" />
+          <img src="@/assets/home.png" width="30px" />
+        </button>
 
         <!-- Modal -->
         <div
@@ -72,11 +78,14 @@
         <!-- Button trigger modal -->
         <button
           type="button"
-          class="btn btn-secondary"
+          class="btn btn-light"
           data-toggle="modal"
           data-target="#exampleModalCenter"
           @click="sign()"
-        >簽到</button>
+        >
+          <img src="@/assets/clipboard.png" width="30px" />
+          <img src="@/assets/pencil.png" width="30px" />
+        </button>
 
         <!-- Modal -->
         <div
@@ -157,14 +166,13 @@
       <div>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-light"
           data-toggle="modal"
           data-target=".bd-example-modal-sm1"
-          style="width:150px;"
+          style="width:50px;"
         >
           <div class="column">
-            <img src="@/assets/svg/shop.svg" />
-            商店
+            <img src="@/assets/shop.png" width="40px" />SHOP
           </div>
         </button>
         <div

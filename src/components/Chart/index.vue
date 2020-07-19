@@ -3,7 +3,15 @@
     <div>
       <h2>0050 台灣50</h2>
       <span style="color:red;">股價:94.4 漲幅:1.01</span>
-      <canvas id="lineChart"></canvas>
+      <div class="container-fluid" id="chart">
+        <apexchart
+          type="area"
+          height="350"
+          :options="chartOptions"
+          :series="series"
+          v-if="series[0].data.length !== 0"
+        ></apexchart>
+      </div>
     </div>
     <div class="group">
       <input type="number" />
@@ -18,28 +26,91 @@
 </template>
 
 <script>
-import Chart from "chart.js";
-import planetChartData from "./lineChart.js";
+import api from "../../utils/api";
 
 export default {
   data() {
     return {
-      planetChartData: planetChartData
+      series: [
+        {
+          name: "Desktops",
+          data: [],
+        },
+      ],
+      chartOptions: {
+        chart: {
+          height: 350,
+          type: "line",
+          zoom: {
+            enabled: true,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "straight",
+        },
+        grid: {
+          row: {
+            colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+            opacity: 0.5,
+          },
+        },
+        colors: ["green"],
+        xaxis: {
+          labels: {
+            show: false,
+          },
+          categories: [
+            "1日",
+            "2日",
+            "3日",
+            "4日",
+            "5日",
+            "6日",
+            "7日",
+            "8日",
+            "9日",
+            "10日",
+            "11日",
+            "12日",
+            "13日",
+            "14日",
+            "15日",
+            "16日",
+            "17日",
+            "18日",
+            "19日",
+            "20日",
+            "21日",
+            "22日",
+            "23日",
+            "24日",
+            "25日",
+            "26日",
+            "27日",
+            "28日",
+            "29日",
+            "30日",
+          ],
+        },
+      },
     };
   },
-  methods: {
-    createChart(chartId, chartData) {
-      const ctx = document.getElementById(chartId);
-      const myChart = new Chart(ctx, {
-        type: chartData.type,
-        data: chartData.data,
-        options: chartData.options
-      });
-    }
-  },
   mounted() {
-    this.createChart("lineChart", this.planetChartData);
-  }
+    api
+      .get30before({ stockId: 1101 })
+      .then((res) => {
+        if (res.data.status == 200) {
+          console.log(res.data.message.before30price);
+          this.series[0].data = res.data.message.before30price;
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  },
 };
 </script>
 

@@ -48,8 +48,9 @@
         </router-link>
       </li>
       <li>
-        <div class="container">
+        <div class="container" style="bordor:1px solid black">
           <div>
+            <img class="user" src="@/assets/user.png" width="30px" />
             <span>HI~{{ user }}</span>
           </div>
           <button type="button" class="btn btn-warning text-nowrap" @click="logout()">登出</button>
@@ -105,5 +106,8 @@ ul#myTab.nav.justify-content-center.nav-pills.nav-justified {
 }
 span {
   font-size: 20px;
+}
+.user {
+  margin-bottom: 8px;
 }
 </style>

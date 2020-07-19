@@ -18,11 +18,19 @@
         <th>120%</th>
       </tr>
       <tr>
-        <th>小飛俠</th>
+        <th>
+          <img src="@/assets/second.png" />小飛俠
+          <img src="@/assets/second.png" />
+        </th>
+
         <th>120%</th>
       </tr>
       <tr>
-        <th>小飛俠</th>
+        <th>
+          <img src="@/assets/third.png" />小飛俠
+          <img src="@/assets/third.png" />
+        </th>
+
         <th>120%</th>
       </tr>
       <tr>
