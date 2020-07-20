@@ -9,64 +9,41 @@
         <th>玩家名稱</th>
         <th>獲利率</th>
       </tr>
-      <tr>
+      <tr v-for="(item, index) in rank" :key="index">
         <th>
-          <img src="@/assets/crown.png" />
-          小飛俠
-          <img src="@/assets/crown.png" />
+          <img src="@/assets/crown.png" v-if="index == 0" />
+          <img src="@/assets/second.png" v-if="index == 1" />
+          <img src="@/assets/third.png" v-if="index == 2" />
+          {{ item.nickname }}
+          <img src="@/assets/crown.png" v-if="index == 0" />
+          <img src="@/assets/second.png" v-if="index == 1" />
+          <img src="@/assets/third.png" v-if="index == 2" />
         </th>
-        <th>120%</th>
-      </tr>
-      <tr>
-        <th>
-          <img src="@/assets/second.png" />小飛俠
-          <img src="@/assets/second.png" />
-        </th>
-
-        <th>120%</th>
-      </tr>
-      <tr>
-        <th>
-          <img src="@/assets/third.png" />小飛俠
-          <img src="@/assets/third.png" />
-        </th>
-
-        <th>120%</th>
-      </tr>
-      <tr>
-        <th>小飛俠</th>
-        <th>120%</th>
-      </tr>
-      <tr>
-        <th>小飛俠</th>
-        <th>120%</th>
-      </tr>
-      <tr>
-        <th>小飛俠</th>
-        <th>120%</th>
-      </tr>
-      <tr>
-        <th>小飛俠</th>
-        <th>120%</th>
-      </tr>
-      <tr>
-        <th>小飛俠</th>
-        <th>120%</th>
-      </tr>
-      <tr>
-        <th>小飛俠</th>
-        <th>120%</th>
-      </tr>
-      <tr>
-        <th>小飛俠</th>
-        <th>120%</th>
+        <th>{{ item.assets }}</th>
       </tr>
     </table>
   </div>
 </template>
 <script>
-export default {};
+import api from "@/utils/api";
+export default {
+  data() {
+    return {
+      rank: [],
+    };
+  },
+  mounted() {
+    api
+      .findtop10()
+      .then((res) => {
+        // console.log(res.data.message);
+        this.rank = res.data.message;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  },
+};
 </script>
 
-<style src="./style.css" scoped>
-</style>
+<style src="./style.css" scoped></style>

@@ -1,14 +1,16 @@
 <template>
   <div class="container-fluid">
-    <div class="pet" id="pet" :style="{backgroundImage: 'url('+url+')'}">
+    <div class="pet" id="pet" :style="{ backgroundImage: 'url(' + url + ')' }">
       <img :src="link" />
     </div>
     <div id="info">
       <div>
         <span>
-          現金: {{ cash }}
+          等級: {{ level }}
           <br />
-          股票: {{ stock }}
+          經驗值: {{ exp }} 心情: {{ mood }}
+          <br />
+          現金: {{ cash }} 股票: {{ stock }}
           <br />
           總資產: {{ cash + stock }}
         </span>
@@ -52,26 +54,56 @@
                   class="btn btn-success"
                   @click="changBabkground(6)"
                   v-if="haveCabin"
-                >更換</button>
-                <button type="button" class="btn btn-dark disabled" v-if="!haveCabin">未持有</button>
+                >
+                  更換
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark disabled"
+                  v-if="!haveCabin"
+                >
+                  未持有
+                </button>
                 <img class="house" src="../../assets/house/sofa.jpg" />
                 <button
                   type="button"
                   class="btn btn-success"
                   @click="changBabkground(5)"
                   v-if="havaVilla"
-                >更換</button>
-                <button type="button" class="btn btn-dark disabled" v-if="!havaVilla">未持有</button>
+                >
+                  更換
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark disabled"
+                  v-if="!havaVilla"
+                >
+                  未持有
+                </button>
                 <img class="house" src="../../assets/house/chairs.png" />
                 <button
                   type="button"
                   class="btn btn-success"
                   @click="changBabkground(4)"
                   v-if="haveSkyscraper"
-                >更換</button>
-                <button type="button" class="btn btn-dark disabled" v-if="!haveSkyscraper">未持有</button>
+                >
+                  更換
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark disabled"
+                  v-if="!haveSkyscraper"
+                >
+                  未持有
+                </button>
               </div>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -102,14 +134,22 @@
                 class="modal-title1"
                 id="exampleModalCenterTitle"
                 style="font-size:35px;color:white;"
-              >每日簽到</h5>
+              >
+                每日簽到
+              </h5>
               <div class="modal-body" style="font-size:30px;color:white;">
                 <div class="h3">當前時間：</div>
                 <h1>{{ nowDay }}</h1>
                 <h1>{{ nowTime }}</h1>
                 {{ text }}
               </div>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -131,7 +171,9 @@
                       class="btn btn-success"
                       data-dismiss="modal"
                       @click="change1()"
-                    >選牠</button>
+                    >
+                      選牠
+                    </button>
                   </div>
                 </div>
                 <div class="row">
@@ -142,7 +184,9 @@
                       class="btn btn-success"
                       data-dismiss="modal"
                       @click="change2()"
-                    >選牠</button>
+                    >
+                      選牠
+                    </button>
                   </div>
                 </div>
                 <div class="row">
@@ -153,7 +197,9 @@
                       class="btn btn-success"
                       data-dismiss="modal"
                       @click="change3()"
-                    >選牠</button>
+                    >
+                      選牠
+                    </button>
                   </div>
                 </div>
               </div>
@@ -186,7 +232,11 @@
             <div class="modal-content" id="store">
               <h5 class="modal-title" id="exampleModalLabel">怪獸商店</h5>
               <div class="modal-body">
-                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                <ul
+                  class="nav nav-tabs justify-content-center"
+                  id="myTab"
+                  role="tablist"
+                >
                   <li class="nav-item">
                     <a
                       class="nav-link active"
@@ -196,7 +246,8 @@
                       role="tab"
                       aria-controls="home"
                       aria-selected="true"
-                    >怪物住宅</a>
+                      >怪物住宅</a
+                    >
                   </li>
                   <li class="nav-item">
                     <a
@@ -207,7 +258,8 @@
                       role="tab"
                       aria-controls="profile"
                       aria-selected="false"
-                    >怪物食品</a>
+                      >怪物食品</a
+                    >
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -233,8 +285,16 @@
                             class="btn btn-info"
                             @click="buy(6)"
                             v-if="!haveCabin"
-                          >購買</button>
-                          <button type="button" class="btn btn-dark disabled" v-if="haveCabin">已擁有</button>
+                          >
+                            購買
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-dark disabled"
+                            v-if="haveCabin"
+                          >
+                            已擁有
+                          </button>
                           <br />
                           <img src="../../assets/shop/house2.png" />
                           <div>
@@ -249,8 +309,16 @@
                               class="btn btn-info"
                               @click="buy(5)"
                               v-if="!havaVilla"
-                            >購買</button>
-                            <button type="button" class="btn btn-dark disabled" v-if="havaVilla">已擁有</button>
+                            >
+                              購買
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-dark disabled"
+                              v-if="havaVilla"
+                            >
+                              已擁有
+                            </button>
                           </div>
                         </div>
                         <img src="../../assets/shop/house3.png" />
@@ -266,12 +334,16 @@
                             class="btn btn-info"
                             @click="buy(4)"
                             v-if="!haveSkyscraper"
-                          >購買</button>
+                          >
+                            購買
+                          </button>
                           <button
                             type="button"
                             class="btn btn-dark disabled"
                             v-if="haveSkyscraper"
-                          >已擁有</button>
+                          >
+                            已擁有
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -292,7 +364,13 @@
                             ${{ food1 }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(3)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(3)"
+                          >
+                            購買
+                          </button>
                         </div>
                         <img src="../../assets/shop/food2.png" />
                         <div>
@@ -302,7 +380,13 @@
                             ${{ food2 }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(1)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(1)"
+                          >
+                            購買
+                          </button>
                         </div>
                         <img src="../../assets/shop/food3.png" />
                         <div>
@@ -312,7 +396,13 @@
                             ${{ food3 }}
                           </span>
                           <br />
-                          <button type="button" class="btn btn-info" @click="buy(2)">購買</button>
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            @click="buy(2)"
+                          >
+                            購買
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -320,7 +410,13 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -339,8 +435,16 @@
             data-target="#exampleModalCenter2"
             @click="eatMar()"
             v-if="mar > 0"
-          >餵食</button>
-          <button type="button" class="btn btn-warning disabled" v-if="mar == 0">餵食</button>
+          >
+            餵食
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning disabled"
+            v-if="mar == 0"
+          >
+            餵食
+          </button>
 
           <!-- Modal -->
           <div
@@ -354,12 +458,20 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="flex">
-                  <h5 class="modal-title" id="exampleModalCenterTitle1">卡滋~卡滋~</h5>
+                  <h5 class="modal-title" id="exampleModalCenterTitle1">
+                    卡滋~卡滋~
+                  </h5>
                   <div class="modal-body">
                     <img src="@/assets/eat/eatAnimation01.gif" />
                   </div>
 
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
@@ -377,8 +489,16 @@
             data-target="#exampleModalCenter1"
             @click="eatCake()"
             v-if="cake > 0"
-          >餵食</button>
-          <button type="button" class="btn btn-warning disabled" v-if="cake == 0">餵食</button>
+          >
+            餵食
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning disabled"
+            v-if="cake == 0"
+          >
+            餵食
+          </button>
 
           <!-- Modal -->
           <div
@@ -392,11 +512,19 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="flex">
-                  <h5 class="modal-title" id="exampleModalCenterTitle1">卡滋~卡滋~</h5>
+                  <h5 class="modal-title" id="exampleModalCenterTitle1">
+                    卡滋~卡滋~
+                  </h5>
                   <div class="modal-body">
                     <img src="@/assets/eat/eatAnimation02.gif" />
                   </div>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
@@ -414,8 +542,16 @@
             data-target="#exampleModalCenter3"
             @click="eatHotPot()"
             v-if="hotpot > 0"
-          >餵食</button>
-          <button type="button" class="btn btn-warning disabled" v-if="hotpot == 0">餵食</button>
+          >
+            餵食
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning disabled"
+            v-if="hotpot == 0"
+          >
+            餵食
+          </button>
 
           <!-- Modal -->
           <div
@@ -429,11 +565,19 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="flex">
-                  <h5 class="modal-title" id="exampleModalCenterTitle1">卡滋~卡滋~</h5>
+                  <h5 class="modal-title" id="exampleModalCenterTitle1">
+                    卡滋~卡滋~
+                  </h5>
                   <div class="modal-body">
                     <img src="@/assets/eat/eatAnimation03.gif" />
                   </div>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
@@ -474,13 +618,16 @@ export default {
       url: require("@/assets/house/carpet.png"),
       haveCabin: false,
       havaVilla: false,
-      haveSkyscraper: false
+      haveSkyscraper: false,
+      level: 1,
+      exp: 0,
+      mood: 0,
     };
   },
   update() {
     api
       .userfocusmonster()
-      .then(res => {
+      .then((res) => {
         // console.log(res.data);
         if (res.data.message.monster.id == 1) {
           this.link = require("@/assets/gif/dino1.gif");
@@ -512,7 +659,7 @@ export default {
         this.url = require("@/assets/house/chairs.png");
         api
           .focushouse({ houseId: "4" })
-          .then(res => {
+          .then((res) => {
             // console.log(res.data);
           })
           .catch(function(error) {
@@ -522,7 +669,7 @@ export default {
         this.url = require("@/assets/house/sofa.jpg");
         api
           .focushouse({ houseId: "5" })
-          .then(res => {
+          .then((res) => {
             // console.log(res.data);
           })
           .catch(function(error) {
@@ -532,7 +679,7 @@ export default {
         this.url = require("../../assets/house/house2.jpg");
         api
           .focushouse({ houseId: "6" })
-          .then(res => {
+          .then((res) => {
             // console.log(res.data);
           })
           .catch(function(error) {
@@ -546,14 +693,14 @@ export default {
       }
       api
         .eatfood({ foodId: "3" })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
           if (this.mar > 0) {
             this.mar -= 1;
           }
           api
             .finishmission2()
-            .then(res => {
+            .then((res) => {
               // console.log(res.data);
             })
             .catch(function(error) {
@@ -570,14 +717,14 @@ export default {
       }
       api
         .eatfood({ foodId: "1" })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
           if (this.cake > 0) {
             this.cake -= 1;
           }
           api
             .finishmission2()
-            .then(res => {
+            .then((res) => {
               // console.log(res.data);
             })
             .catch(function(error) {
@@ -594,14 +741,14 @@ export default {
       }
       api
         .eatfood({ foodId: "2" })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
           if (this.hotpot > 0) {
             this.hotpot -= 1;
           }
           api
             .finishmission2()
-            .then(res => {
+            .then((res) => {
               // console.log(res.data);
             })
             .catch(function(error) {
@@ -615,11 +762,11 @@ export default {
     buy(val) {
       api
         .userbuyweb({ id: val })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
           api
             .userhave()
-            .then(res => {
+            .then((res) => {
               // console.log(res.data);
               for (let i = 0; i < res.data.message.length; i++) {
                 if (res.data.message[i].store.id == 1) {
@@ -638,7 +785,7 @@ export default {
               }
               api
                 .getdata()
-                .then(res => {
+                .then((res) => {
                   // console.log(res.data);
                   this.cash = res.data.message.cash;
                   this.stock = res.data.message.stock;
@@ -659,7 +806,7 @@ export default {
     sign() {
       api
         .getsalaryweb()
-        .then(res => {
+        .then((res) => {
           console.log(res.data);
           if (res.data.status == 200) {
             this.text = "簽到成功~";
@@ -676,7 +823,7 @@ export default {
       this.link = require("@/assets/gif/dino1.gif");
       api
         .changefocusmonster({ monsterId: "1" })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
         })
         .catch(function(error) {
@@ -687,7 +834,7 @@ export default {
       this.link = require("@/assets/gif/cat1.gif");
       api
         .changefocusmonster({ monsterId: "2" })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
         })
         .catch(function(error) {
@@ -698,7 +845,7 @@ export default {
       this.link = require("@/assets/gif/fox1.gif");
       api
         .changefocusmonster({ monsterId: "3" })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
         })
         .catch(function(error) {
@@ -737,7 +884,7 @@ export default {
       setInterval(function() {
         self.timeFormate(new Date());
       }, 1000);
-    }
+    },
   },
   created() {
     this.nowTimes();
@@ -746,14 +893,47 @@ export default {
     this.nowTimes();
     api
       .userfocusmonster()
-      .then(res => {
+      .then((res) => {
         // console.log(res.data);
         if (res.data.message.monster.id == 1) {
           this.link = require("@/assets/gif/dino1.gif");
+          api
+            .getuserallmonsterdata()
+            .then((res) => {
+              // console.log(res.data);
+              this.level = res.data.message[0].level;
+              this.exp = res.data.message[0].exp;
+              this.mood = res.data.message[0].mood;
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
         } else if (res.data.message.monster.id == 2) {
           this.link = require("@/assets/gif/cat1.gif");
+          api
+            .getuserallmonsterdata()
+            .then((res) => {
+              // console.log(res.data);
+              this.level = res.data.message[1].level;
+              this.exp = res.data.message[1].exp;
+              this.mood = res.data.message[1].mood;
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
         } else if (res.data.message.monster.id == 3) {
           this.link = require("@/assets/gif/fox1.gif");
+          api
+            .getuserallmonsterdata()
+            .then((res) => {
+              // console.log(res.data);
+              this.level = res.data.message[2].level;
+              this.exp = res.data.message[2].exp;
+              this.mood = res.data.message[2].mood;
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
         } else if (res.data.message.monster.id == 4) {
           this.link = require("@/assets/gif/dino2.gif");
         } else if (res.data.message.monster.id == 5) {
@@ -773,7 +953,7 @@ export default {
       });
     api
       .userhave()
-      .then(res => {
+      .then((res) => {
         // console.log(res.data);
         for (let i = 0; i < res.data.message.length; i++) {
           if (res.data.message[i].store.id == 1) {
@@ -796,7 +976,7 @@ export default {
       });
     api
       .getdata()
-      .then(res => {
+      .then((res) => {
         // console.log(res.data);
         let id = res.data.message.focusHouse;
         this.cash = res.data.message.cash;
@@ -813,7 +993,7 @@ export default {
       .catch(function(error) {
         console.log("請求失敗", error);
       });
-  }
+  },
 };
 </script>
 

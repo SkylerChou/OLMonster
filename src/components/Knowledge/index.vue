@@ -10,7 +10,8 @@
             class="btn btn-primary"
             target="_blank"
             @click="finish(index + 1)"
-          >閱讀</a>
+            >閱讀</a
+          >
         </div>
       </div>
     </div>
@@ -23,20 +24,20 @@ import api from "@/utils/api";
 export default {
   data() {
     return {
-      classes: []
+      classes: [],
     };
   },
   methods: {
     finish(val) {
       api
         .finishCourse({
-          id: val
+          id: val,
         })
-        .then(res => {
+        .then((res) => {
           console.log(res.data);
           api
             .finishmission1()
-            .then(res => {
+            .then((res) => {
               console.log(res.data);
             })
             .catch(function(error) {
@@ -46,19 +47,19 @@ export default {
         .catch(function(error) {
           console.log("請求失敗", error);
         });
-    }
+    },
   },
   mounted() {
     api
       .getallcourse()
-      .then(res => {
-        console.log(res.data);
+      .then((res) => {
+        // console.log(res.data);
         this.classes = res.data.message;
       })
       .catch(function(error) {
         console.log("請求失敗", error);
       });
-  }
+  },
 };
 </script>
 

@@ -120,6 +120,16 @@ const api = {
       headers: { Authorization: key },
     });
   },
+  findtop10: () => {
+    return axious.get(URL.user + "/findtop10", {
+      headers: { Authorization: key },
+    });
+  },
+  getuserallmonsterdata: () => {
+    return axious.get(URL.monster + "/getuserallmonsterdata", {
+      headers: { Authorization: key },
+    });
+  },
 };
 
 export default api;

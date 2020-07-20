@@ -33,7 +33,7 @@ export default {
     return {
       series: [
         {
-          name: "Desktops",
+          name: "股價",
           data: [],
         },
       ],
@@ -46,7 +46,7 @@ export default {
           },
         },
         dataLabels: {
-          enabled: false,
+          enabled: true,
         },
         stroke: {
           curve: "straight",
@@ -103,7 +103,7 @@ export default {
       .get30before({ stockId: 1101 })
       .then((res) => {
         if (res.data.status == 200) {
-          console.log(res.data.message.before30price);
+          // console.log(res.data.message.before30price);
           this.series[0].data = res.data.message.before30price;
         }
       })

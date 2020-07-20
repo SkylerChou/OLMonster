@@ -31,7 +31,7 @@ button {
   margin-bottom: 10px;
 }
 
-.chart {
+#chart {
   width: 100%;
   max-width: 900px;
 }
