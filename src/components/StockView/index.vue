@@ -28,9 +28,9 @@
           {{ updown[index] }}
         </th>
         <th>{{ dealNum[index] }}</th>
-        <th v-if="!ALLIndex(name, name2[holdIndex(name, name[index])])">0</th>
-        <th v-if="ALLIndex(name, name2[holdIndex(name, name[index])])">
-          {{ userhave[holdIndex(name, name[index])] }}
+        <th v-if="!ALLIndex(name, name2[holdIndex(name2, name[index])])">0</th>
+        <th v-if="ALLIndex(name, name2[holdIndex(name2, name[index])])">
+          {{ userhave[holdIndex(name2, name[index])] }}
         </th>
       </tr>
     </table>

@@ -4,13 +4,16 @@
       <tr>
         <th>名稱</th>
         <th>平均價</th>
-        <!-- <th>漲跌</th> -->
-        <!-- <th>交易量</th> -->
         <th>持股數</th>
         <!-- <th>購買成本</th> -->
       </tr>
-      <tr id="stock" v-for="(item, index) in stocks" :key="index">
-        <th>{{ name[index] }}</th>
+      <tr
+        id="stock"
+        v-for="(item, index) in stocks"
+        :key="index"
+        @click="chart(serial[index])"
+      >
+        <th>{{ name[index] }} {{ serial[index] }}</th>
         <th>{{ price[index] }}</th>
         <th>{{ userhave[index] }}</th>
         <!-- <th>{{ item.cost }}</th> -->
@@ -31,16 +34,16 @@ export default {
       serial: [],
       name: [],
       price: [],
-      // updown: [],
       dealNum: [],
       userhave: [],
+      sellprice: [],
     };
   },
   mounted() {
     api
       .userholdallstock()
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         this.stocks = res.data.message;
         this.serial = this.stocks.map((item) => item.stockId);
         this.name = this.stocks.map((item) => item.stockName);
@@ -52,7 +55,14 @@ export default {
         console.log("請求失敗", error);
       });
   },
-  methods: {},
+  methods: {
+    chart(val) {
+      this.$router.push({
+        path: "/app/deal/chart",
+        query: { stockId: val },
+      });
+    },
+  },
 };
 </script>
 

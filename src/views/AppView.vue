@@ -1,8 +1,16 @@
 <template>
   <div>
-    <ul class="nav justify-content-center nav-pills nav-justified" id="myTab" role="tablist">
+    <ul
+      class="nav justify-content-center nav-pills nav-justified"
+      id="myTab"
+      role="tablist"
+    >
       <li class="nav-item">
-        <router-link class="nav-link active text-nowrap" to="/app/pet" data-toggle="tab">
+        <router-link
+          class="nav-link active text-nowrap"
+          to="/app/pet"
+          data-toggle="tab"
+        >
           <div class="container">
             <div>
               <img src="@/assets/svg/home.svg" />
@@ -12,38 +20,58 @@
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link text-nowrap" to="/app/about" data-toggle="tab">
+        <router-link
+          class="nav-link text-nowrap"
+          to="/app/about"
+          data-toggle="tab"
+        >
           <div class="container">
             <div>
               <img src="@/assets/svg/bag.svg" />
-            </div>怪獸相關
+            </div>
+            怪獸相關
           </div>
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link text-nowrap" to="/app/deal/allStock" data-toggle="tab">
+        <router-link
+          class="nav-link text-nowrap"
+          to="/app/deal/allStock"
+          data-toggle="tab"
+        >
           <div class="container">
             <div>
               <img src="@/assets/svg/stock.svg" />
-            </div>交易
+            </div>
+            交易
           </div>
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link text-nowrap" to="/app/knowledge" data-toggle="tab">
+        <router-link
+          class="nav-link text-nowrap"
+          to="/app/knowledge"
+          data-toggle="tab"
+        >
           <div class="container">
             <div>
               <img src="@/assets/svg/book.svg" />
-            </div>寶典
+            </div>
+            寶典
           </div>
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link text-nowrap" to="/app/rank" data-toggle="tab">
+        <router-link
+          class="nav-link text-nowrap"
+          to="/app/rank"
+          data-toggle="tab"
+        >
           <div class="container">
             <div>
               <img src="@/assets/rank.png" width="26px" />
-            </div>排行榜
+            </div>
+            排行榜
           </div>
         </router-link>
       </li>
@@ -53,7 +81,13 @@
             <img class="user" src="@/assets/user.png" width="30px" />
             <span>HI~{{ user }}</span>
           </div>
-          <button type="button" class="btn btn-warning text-nowrap" @click="logout()">登出</button>
+          <button
+            type="button"
+            class="btn btn-warning text-nowrap"
+            @click="logout()"
+          >
+            登出
+          </button>
         </div>
       </li>
     </ul>
@@ -68,7 +102,7 @@ export default {
   data() {
     return {
       user: "",
-      token: cookie.get("token")
+      token: cookie.get("token"),
     };
   },
   mounted() {
@@ -77,7 +111,7 @@ export default {
     }
     api
       .getdata()
-      .then(res => {
+      .then((res) => {
         // console.log(res.data);
         this.user = res.data.message.nickname;
       })
@@ -89,8 +123,8 @@ export default {
     logout() {
       cookie.del("token");
       this.$router.push({ path: "/" });
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -2,6 +2,7 @@
   <div class="flex">
     <div>
       <h2>{{ stockId }} {{ name }}</h2>
+      <h3>股價:{{ stockPrice }} 現金:{{ this.$store.state.asset }}</h3>
       <div class="container-fluid" id="chart">
         <apexchart
           type="area"
@@ -78,6 +79,11 @@ export default {
           },
         },
         colors: ["green"],
+        yaxis: {
+          labels: {
+            show: false,
+          },
+        },
         xaxis: {
           labels: {
             show: false,
@@ -128,6 +134,9 @@ export default {
         })
         .then((res) => {
           if (res.data.status == 200) {
+            alert("買入成功");
+          } else {
+            alert("買入失敗");
           }
         })
         .catch(function(error) {
@@ -144,6 +153,9 @@ export default {
         .then((res) => {
           console.log(res.data);
           if (res.data.status == 200) {
+            alert("賣出成功");
+          } else {
+            alert("賣出失敗");
           }
         })
         .catch(function(error) {
