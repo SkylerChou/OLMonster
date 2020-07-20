@@ -1,8 +1,7 @@
 <template>
   <div class="flex">
     <div>
-      <h2>0050 台灣50</h2>
-      <span style="color:red;">股價:94.4 漲幅:1.01</span>
+      <h2>{{ stockId }} {{ name }}</h2>
       <div class="container-fluid" id="chart">
         <apexchart
           type="area"
@@ -14,12 +13,27 @@
       </div>
     </div>
     <div class="group">
-      <input type="number" />
-      <div>
-        <button type="button" class="btn btn-danger">買入</button>
+      <input type="number" v-model="units" />
+      <div class="span">
+        <span
+          v-if="units * stockPrice > this.$store.state.asset"
+          style="color:red;"
+          >可憐哪~買入資金不足</span
+        >
       </div>
       <div>
-        <button type="button" class="btn btn-success">賣出</button>
+        <button type="button" class="btn btn-danger" @click="buy()">
+          買入
+        </button>
+      </div>
+      <input type="number" v-model="units2" />
+      <div class="span">
+        <span v-if="units2 > have" style="color:green;">醒醒吧~張數不足</span>
+      </div>
+      <div>
+        <button type="button" class="btn btn-success" @click="sell()">
+          賣出
+        </button>
       </div>
     </div>
   </div>
@@ -31,6 +45,12 @@ import api from "../../utils/api";
 export default {
   data() {
     return {
+      stockId: this.$route.query.stockId,
+      name: "",
+      stockPrice: 0,
+      units: 0,
+      units2: 0,
+      have: 0,
       series: [
         {
           name: "股價",
@@ -98,13 +118,86 @@ export default {
       },
     };
   },
+  methods: {
+    buy() {
+      api
+        .buystock({
+          stockId: this.stockId,
+          units: this.units,
+          price: this.stockPrice,
+        })
+        .then((res) => {
+          if (res.data.status == 200) {
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+    sell() {
+      api
+        .sellstock({
+          stockId: this.stockId,
+          units: this.units2,
+          price: this.stockPrice,
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.status == 200) {
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+  },
   mounted() {
+    this.$store.commit("setAsset");
     api
-      .get30before({ stockId: 1101 })
+      .get30before(this.$route.query)
       .then((res) => {
         if (res.data.status == 200) {
+          let data = res.data.message.before30price;
+          let length = data.length;
+          if (data[length - 1] > data[length - 2]) {
+            this.chartOptions.colors = ["red"];
+          } else if (data[length - 1] < data[length - 2]) {
+            this.chartOptions.colors = ["green"];
+          } else {
+            this.chartOptions.colors = ["gray"];
+          }
           // console.log(res.data.message.before30price);
           this.series[0].data = res.data.message.before30price;
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    api
+      .getallstockdaydata()
+      .then((res) => {
+        let stocks = res.data.message;
+        for (let i = 0; i < stocks.length; i++) {
+          if (stocks[i][0] == this.stockId) {
+            this.name = stocks[i][1];
+            this.stockPrice = stocks[i][2];
+          }
+          api
+            .userholdallstock()
+            .then((res) => {
+              // console.log(res.data);
+              let stocks = res.data.message;
+              let name = stocks.map((item) => item.stockName);
+              let userhave = stocks.map((item) => item.units);
+              for (let i = 0; i < name.length; i++) {
+                if (this.name == name[i]) {
+                  this.have = userhave[i];
+                }
+              }
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
         }
       })
       .catch(function(error) {
