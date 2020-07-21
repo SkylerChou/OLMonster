@@ -51,17 +51,19 @@
           placeholder="Enter email"
           v-model="email"
         />
-        <small
-          id="emailHelp"
-          class="form-text text-muted"
-        >We'll never share your email with anyone else.</small>
+        <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
       </div>
-      <button type="submit" class="btn btn-primary" @click="transformuser()">確認</button>
+      <button type="submit" class="btn btn-primary" @click="transformuser()">
+        確認
+      </button>
     </form>
   </div>
 </template>
 
 <script>
+import md5 from "md5";
 import api from "../../utils/api";
 export default {
   data() {
@@ -70,31 +72,38 @@ export default {
       password: "",
       confirmPassword: "",
       nickname: "",
-      email: ""
+      email: "",
     };
   },
   methods: {
     transformuser() {
+      if (this.password == this.confirmPassword) {
+        let encryption = md5(this.password);
+        console.log(encryption);
+      } else {
+        alert("密碼輸入錯誤");
+        return;
+      }
+
       api
         .transformuser({
           account: this.account,
           password: this.password,
           confirmPassword: this.confirmPassword,
-          nickname: this.nickname
+          nickname: this.nickname,
         })
-        .then(res => {
-          // console.log(res.data);
+        .then((res) => {
+          console.log(res.data);
           if (res.data.status == 200) {
+            alert("綁定成功");
             this.$router.push({ path: "/app/pet" });
-          } else {
-            alert("請確認是否填妥資料");
           }
         })
         .catch(function(error) {
           console.log(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

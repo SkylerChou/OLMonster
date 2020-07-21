@@ -170,7 +170,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col" id="sel">
-                    <img src="@/assets/gif/dino1.gif" />
+                    <img :src="dino" />
                     <button
                       type="button"
                       class="btn btn-success"
@@ -183,7 +183,7 @@
                 </div>
                 <div class="row">
                   <div class="col" id="sel">
-                    <img src="@/assets/gif/cat1.gif" />
+                    <img :src="cat" />
                     <button
                       type="button"
                       class="btn btn-success"
@@ -196,7 +196,7 @@
                 </div>
                 <div class="row">
                   <div class="col" id="sel">
-                    <img src="@/assets/gif/fox1.gif" />
+                    <img :src="fox" />
                     <button
                       type="button"
                       class="btn btn-success"
@@ -624,7 +624,7 @@ export default {
       food3name: "相撲火鍋",
       nowDay: "",
       nowTime: "",
-      url: require("@/assets/house/carpet.png"),
+      url: require("@/assets/house/window2.jpg"),
       haveCabin: false,
       havaVilla: false,
       haveSkyscraper: false,
@@ -635,6 +635,9 @@ export default {
       idx1: 0,
       idx2: 0,
       show: false,
+      dino: require("@/assets/gif/dino1.gif"),
+      cat: require("@/assets/gif/cat1.gif"),
+      fox: require("@/assets/gif/fox1.gif"),
       talks: [
         [
           "投資不熟悉的產業或企業，勝算通常不高 －彼得林區",
@@ -863,11 +866,118 @@ export default {
       api
         .eatfood({ foodId: "3" })
         .then((res) => {
-          // console.log(res.data);
           if (this.mar > 0) {
             this.mar -= 1;
           }
-          this.exp += 20;
+          api
+            .userfocusmonster()
+            .then((res) => {
+              if (res.data.message.monster.id == 1) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[0].level;
+                    this.exp = res.data.message[0].exp;
+                    this.mood = res.data.message[0].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 2) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[1].level;
+                    this.exp = res.data.message[1].exp;
+                    this.mood = res.data.message[1].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 3) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[2].level;
+                    this.exp = res.data.message[2].exp;
+                    this.mood = res.data.message[2].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 4) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[0].level;
+                    this.exp = res.data.message[0].exp;
+                    this.mood = res.data.message[0].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 5) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[1].level;
+                    this.exp = res.data.message[1].exp;
+                    this.mood = res.data.message[1].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 6) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[2].level;
+                    this.exp = res.data.message[2].exp;
+                    this.mood = res.data.message[2].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 7) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[0].level;
+                    this.exp = res.data.message[0].exp;
+                    this.mood = res.data.message[0].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 8) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    // console.log(res.data);
+                    this.level = res.data.message[1].level;
+                    this.exp = res.data.message[1].exp;
+                    this.mood = res.data.message[1].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 9) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[2].level;
+                    this.exp = res.data.message[2].exp;
+                    this.mood = res.data.message[2].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              }
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
+
           api
             .finishmission2()
             .then((res) => {
@@ -892,7 +1002,114 @@ export default {
           if (this.cake > 0) {
             this.cake -= 1;
           }
-          this.exp += 20;
+          api
+            .userfocusmonster()
+            .then((res) => {
+              if (res.data.message.monster.id == 1) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[0].level;
+                    this.exp = res.data.message[0].exp;
+                    this.mood = res.data.message[0].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 2) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[1].level;
+                    this.exp = res.data.message[1].exp;
+                    this.mood = res.data.message[1].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 3) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[2].level;
+                    this.exp = res.data.message[2].exp;
+                    this.mood = res.data.message[2].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 4) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[0].level;
+                    this.exp = res.data.message[0].exp;
+                    this.mood = res.data.message[0].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 5) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[1].level;
+                    this.exp = res.data.message[1].exp;
+                    this.mood = res.data.message[1].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 6) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[2].level;
+                    this.exp = res.data.message[2].exp;
+                    this.mood = res.data.message[2].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 7) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[0].level;
+                    this.exp = res.data.message[0].exp;
+                    this.mood = res.data.message[0].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 8) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    // console.log(res.data);
+                    this.level = res.data.message[1].level;
+                    this.exp = res.data.message[1].exp;
+                    this.mood = res.data.message[1].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 9) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[2].level;
+                    this.exp = res.data.message[2].exp;
+                    this.mood = res.data.message[2].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              }
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
           api
             .finishmission2()
             .then((res) => {
@@ -917,7 +1134,114 @@ export default {
           if (this.hotpot > 0) {
             this.hotpot -= 1;
           }
-          this.exp += 20;
+          api
+            .userfocusmonster()
+            .then((res) => {
+              if (res.data.message.monster.id == 1) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[0].level;
+                    this.exp = res.data.message[0].exp;
+                    this.mood = res.data.message[0].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 2) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[1].level;
+                    this.exp = res.data.message[1].exp;
+                    this.mood = res.data.message[1].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 3) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[2].level;
+                    this.exp = res.data.message[2].exp;
+                    this.mood = res.data.message[2].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 4) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[0].level;
+                    this.exp = res.data.message[0].exp;
+                    this.mood = res.data.message[0].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 5) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[1].level;
+                    this.exp = res.data.message[1].exp;
+                    this.mood = res.data.message[1].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 6) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[2].level;
+                    this.exp = res.data.message[2].exp;
+                    this.mood = res.data.message[2].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 7) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[0].level;
+                    this.exp = res.data.message[0].exp;
+                    this.mood = res.data.message[0].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 8) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    // console.log(res.data);
+                    this.level = res.data.message[1].level;
+                    this.exp = res.data.message[1].exp;
+                    this.mood = res.data.message[1].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              } else if (res.data.message.monster.id == 9) {
+                api
+                  .getuserallmonsterdata()
+                  .then((res) => {
+                    this.level = res.data.message[2].level;
+                    this.exp = res.data.message[2].exp;
+                    this.mood = res.data.message[2].mood;
+                  })
+                  .catch(function(error) {
+                    console.log("請求失敗", error);
+                  });
+              }
+            })
+            .catch(function(error) {
+              console.log("請求失敗", error);
+            });
           api
             .finishmission2()
             .then((res) => {
@@ -1110,6 +1434,7 @@ export default {
             });
         } else if (res.data.message.monster.id == 4) {
           this.link = require("@/assets/gif/dino2.gif");
+          this.dino = require("@/assets/gif/dino2.gif");
           api
             .getuserallmonsterdata()
             .then((res) => {
@@ -1123,6 +1448,7 @@ export default {
             });
         } else if (res.data.message.monster.id == 5) {
           this.link = require("@/assets/gif/cat2.gif");
+          this.cat = require("@/assets/gif/cat2.gif");
           api
             .getuserallmonsterdata()
             .then((res) => {
@@ -1136,6 +1462,7 @@ export default {
             });
         } else if (res.data.message.monster.id == 6) {
           this.link = require("@/assets/gif/fox2.gif");
+          this.fox = require("@/assets/gif/fox2.gif");
           api
             .getuserallmonsterdata()
             .then((res) => {
@@ -1149,6 +1476,7 @@ export default {
             });
         } else if (res.data.message.monster.id == 7) {
           this.link = require("@/assets/gif/dino3.gif");
+          this.dino = require("@/assets/gif/dino3.gif");
           api
             .getuserallmonsterdata()
             .then((res) => {
@@ -1162,6 +1490,7 @@ export default {
             });
         } else if (res.data.message.monster.id == 8) {
           this.link = require("@/assets/gif/cat3.gif");
+          this.cat = require("@/assets/gif/cat3.gif");
           api
             .getuserallmonsterdata()
             .then((res) => {
@@ -1175,6 +1504,7 @@ export default {
             });
         } else if (res.data.message.monster.id == 9) {
           this.link = require("@/assets/gif/fox3.gif");
+          this.cat = require("@/assets/gif/fox3.gif");
           api
             .getuserallmonsterdata()
             .then((res) => {
