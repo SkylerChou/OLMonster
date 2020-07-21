@@ -10,6 +10,7 @@ import StockView2 from "@/components/StockView2/index.vue";
 import Achievement from "@/components/Achievement/index.vue";
 import Rank from "@/components/Rank/index.vue";
 import Chart from "@/components/Chart/index.vue";
+import Transter from "@/components/Transter/index.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
         path: "about",
         name: "about",
         component: Achievement,
+      },
+      {
+        path: "register",
+        name: "register",
+        component: Transter,
       },
       {
         path: "deal",

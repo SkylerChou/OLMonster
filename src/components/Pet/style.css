@@ -27,7 +27,7 @@
     max-width: 150px;
   }
 }
-@media (min-width: 400px) {
+@media (min-width: 415px) {
   .pet img {
     margin-top: 80px;
     width: 100%;

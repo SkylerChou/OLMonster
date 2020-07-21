@@ -88,6 +88,15 @@
           >
             登出
           </button>
+          <button
+            type="button"
+            class="btn btn-warning text-nowrap"
+            v-if="user == '小資訓練家'"
+            @click="register()"
+            style="margin-left:10px"
+          >
+            綁定
+          </button>
         </div>
       </li>
     </ul>
@@ -123,6 +132,9 @@ export default {
     logout() {
       cookie.del("token");
       this.$router.push({ path: "/" });
+    },
+    register() {
+      this.$router.push({ path: "/app/register" });
     },
   },
 };

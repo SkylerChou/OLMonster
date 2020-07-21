@@ -6,7 +6,7 @@ import Intro from "@/components/Intro/index.vue";
 export default {
   components: {
     Story,
-    Intro,
+    Intro
   },
   data() {
     return {
@@ -14,16 +14,31 @@ export default {
       password: "",
       confirmPassword: "",
       nickname: "",
+      email: ""
     };
   },
   methods: {
+    guestlogin() {
+      api
+        .guestlogin()
+        .then(res => {
+          // console.log(res.data);
+          cookie.set("token", res.data.message);
+          if (res.data.status == 200) {
+            this.$router.push({ path: "/app/pet" });
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
     loginClicked() {
       api
         .login({
           account: this.account,
-          password: this.password,
+          password: this.password
         })
-        .then((res) => {
+        .then(res => {
           // console.log(res.data);
           cookie.set("token", res.data.message);
           if (res.data.status == 200) {
@@ -43,30 +58,26 @@ export default {
           password: this.password,
           confirmPassword: this.confirmPassword,
           nickname: this.nickname,
-          birth: this.birth,
+          birth: this.birth
         })
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           if (res.data.status == 200) {
             alert("註冊成功！");
           } else {
-            alert("註冊失敗！請再試一次");
+            alert("註冊失敗！請確認是否填妥資料");
           }
         })
         .catch(function(error) {
           console.log(error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 <template>
   <div>
-    <ul
-      class="nav justify-content-center nav-pills nav-justified"
-      id="myTab"
-      role="tablist"
-    >
+    <ul class="nav justify-content-center nav-pills nav-justified" id="myTab" role="tablist">
       <li class="nav-item">
         <a
           class="nav-link active"
@@ -76,8 +87,7 @@ export default {
           role="tab"
           aria-controls="home"
           aria-selected="true"
-          >怪獸介紹</a
-        >
+        >怪獸介紹</a>
       </li>
       <li class="nav-item">
         <a
@@ -88,8 +98,7 @@ export default {
           role="tab"
           aria-controls="appIntro"
           aria-selected="false"
-          >APP介紹</a
-        >
+        >APP介紹</a>
       </li>
       <li class="nav-item">
         <a
@@ -100,17 +109,11 @@ export default {
           role="tab"
           aria-controls="login"
           aria-selected="false"
-          >登入/註冊</a
-        >
+        >登入/註冊</a>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div
-        class="tab-pane fade show active"
-        id="home"
-        role="tabpanel"
-        aria-labelledby="home-tab"
-      >
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="container">
           <div class="flex">
             <div id="title">
@@ -233,24 +236,18 @@ export default {
                   </div>
 
                   <div class="group">
-                    <input
-                      type="submit"
-                      class="button"
-                      @click="loginClicked"
-                      value="登入"
-                    />
+                    <input type="submit" class="button" @click="loginClicked()" value="登入" />
+                    <input class="button" @click="guestlogin()" value="訪客登入" />
                   </div>
                   <div class="hr"></div>
+                  <div class="foot-lnk">
+                    <a href="#forgot">Forgot Password?</a>
+                  </div>
                 </div>
                 <div class="sign-up-htm">
                   <div class="group">
                     <label for="user" class="label">帳號</label>
-                    <input
-                      id="user"
-                      v-model="account"
-                      type="text"
-                      class="input"
-                    />
+                    <input id="user" v-model="account" type="text" class="input" />
                   </div>
                   <div class="group">
                     <label for="pass" class="label">密碼</label>
@@ -274,20 +271,14 @@ export default {
                   </div>
                   <div class="group">
                     <label for="nick" class="label">暱稱</label>
-                    <input
-                      id="nick"
-                      v-model="nickname"
-                      type="text"
-                      class="input"
-                    />
+                    <input id="nick" v-model="nickname" type="text" class="input" />
                   </div>
                   <div class="group">
-                    <input
-                      type="submit"
-                      class="button"
-                      value="確認"
-                      @click="registerClicked"
-                    />
+                    <label for="email" class="label">Email</label>
+                    <input id="email" v-model="email" type="email" class="input" />
+                  </div>
+                  <div class="group">
+                    <input type="submit" class="button" value="確認" @click="registerClicked" />
                   </div>
                 </div>
               </form>

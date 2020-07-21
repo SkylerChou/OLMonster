@@ -130,6 +130,14 @@ const api = {
       headers: { Authorization: key },
     });
   },
+  guestlogin: () => {
+    return axious.get(URL.user + "/guestlogin");
+  },
+  transformuser: (data) => {
+    return axious.post(URL.user + "/transformuser", qs.stringify(data), {
+      headers: { Authorization: key },
+    });
+  },
 };
 
 export default api;
