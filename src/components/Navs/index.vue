@@ -18,6 +18,9 @@ export default {
     };
   },
   methods: {
+    forget() {
+      this.$router.push({ path: "/SendEmail" });
+    },
     guestlogin() {
       api
         .guestlogin()
@@ -58,7 +61,7 @@ export default {
           password: this.password,
           confirmPassword: this.confirmPassword,
           nickname: this.nickname,
-          birth: this.birth
+          email: this.email
         })
         .then(res => {
           // console.log(res);
@@ -241,7 +244,7 @@ export default {
                   </div>
                   <div class="hr"></div>
                   <div class="foot-lnk">
-                    <a href="#forgot">Forgot Password?</a>
+                    <a href="#forget" @click="forget()">Forgot Password?</a>
                   </div>
                 </div>
                 <div class="sign-up-htm">
@@ -278,7 +281,7 @@ export default {
                     <input id="email" v-model="email" type="email" class="input" />
                   </div>
                   <div class="group">
-                    <input type="submit" class="button" value="確認" @click="registerClicked" />
+                    <input type="submit" class="button" value="確認" @click="registerClicked()" />
                   </div>
                 </div>
               </form>

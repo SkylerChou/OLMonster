@@ -138,6 +138,12 @@ const api = {
       headers: { Authorization: key },
     });
   },
+  sendemail: (data) => {
+    return axious.post(URL.user + "/sendemail", qs.stringify(data));
+  },
+  resetpassword: (data) => {
+    return axious.post(URL.user + "/resetpassword", qs.stringify(data));
+  },
 };
 
 export default api;

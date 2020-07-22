@@ -1,8 +1,11 @@
 <template>
   <div class="column">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div class="card" v-for="(item, index) in classes" :key="index">
         <div class="card-body">
+          <img src="@/assets/icon1.png" v-if="index % 3 == 0" />
+          <img src="@/assets/icon2.png" v-if="index % 3 == 1" />
+          <img src="@/assets/icon3.png" v-if="index % 3 == 2" />
           <h2 class="card-title">{{ item.headline }}</h2>
           <p class="card-text">{{ item.topic }}</p>
           <a

@@ -11,6 +11,8 @@ import Achievement from "@/components/Achievement/index.vue";
 import Rank from "@/components/Rank/index.vue";
 import Chart from "@/components/Chart/index.vue";
 import Transter from "@/components/Transter/index.vue";
+import ResetPassword from "@/components/ResetPassword/index.vue";
+import SendEmail from "@/components/SendEmail/index.vue";
 
 Vue.use(VueRouter);
 
@@ -19,6 +21,16 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/ResetPassword",
+    name: "ResetPassword",
+    component: ResetPassword,
+  },
+  {
+    path: "/SendEmail",
+    name: "SendEmail",
+    component: SendEmail,
   },
   {
     path: "/app",

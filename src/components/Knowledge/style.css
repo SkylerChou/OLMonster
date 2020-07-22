@@ -1,5 +1,11 @@
 .card {
   margin: 20px;
+  background-image: url(../../assets/background1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid white;
+  border-radius: 20px;
 }
 .modal-body {
   align-items: center;
@@ -36,4 +42,8 @@
 }
 .card-text {
   font-size: 25px;
+}
+img {
+  width: 100%;
+  max-width: 100px;
 }
