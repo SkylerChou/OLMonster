@@ -59,56 +59,26 @@
                   class="btn btn-success"
                   @click="changBabkground(6)"
                   v-if="haveCabin"
-                >
-                  更換
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-dark disabled"
-                  v-if="!haveCabin"
-                >
-                  未持有
-                </button>
+                >更換</button>
+                <button type="button" class="btn btn-dark disabled" v-if="!haveCabin">未持有</button>
                 <img class="house" src="../../assets/house/sofa.jpg" />
                 <button
                   type="button"
                   class="btn btn-success"
                   @click="changBabkground(5)"
                   v-if="havaVilla"
-                >
-                  更換
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-dark disabled"
-                  v-if="!havaVilla"
-                >
-                  未持有
-                </button>
+                >更換</button>
+                <button type="button" class="btn btn-dark disabled" v-if="!havaVilla">未持有</button>
                 <img class="house" src="../../assets/house/chairs.png" />
                 <button
                   type="button"
                   class="btn btn-success"
                   @click="changBabkground(4)"
                   v-if="haveSkyscraper"
-                >
-                  更換
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-dark disabled"
-                  v-if="!haveSkyscraper"
-                >
-                  未持有
-                </button>
+                >更換</button>
+                <button type="button" class="btn btn-dark disabled" v-if="!haveSkyscraper">未持有</button>
               </div>
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -139,22 +109,14 @@
                 class="modal-title1"
                 id="exampleModalCenterTitle"
                 style="font-size:35px;color:white;"
-              >
-                每日簽到
-              </h5>
+              >每日簽到</h5>
               <div class="modal-body" style="font-size:30px;color:white;">
                 <div class="h3">當前時間：</div>
                 <h1>{{ nowDay }}</h1>
                 <h1>{{ nowTime }}</h1>
                 {{ text }}
               </div>
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -176,9 +138,7 @@
                       class="btn btn-success"
                       data-dismiss="modal"
                       @click="change1()"
-                    >
-                      選牠
-                    </button>
+                    >選牠</button>
                   </div>
                 </div>
                 <div class="row">
@@ -189,9 +149,7 @@
                       class="btn btn-success"
                       data-dismiss="modal"
                       @click="change2()"
-                    >
-                      選牠
-                    </button>
+                    >選牠</button>
                   </div>
                 </div>
                 <div class="row">
@@ -202,9 +160,7 @@
                       class="btn btn-success"
                       data-dismiss="modal"
                       @click="change3()"
-                    >
-                      選牠
-                    </button>
+                    >選牠</button>
                   </div>
                 </div>
               </div>
@@ -237,11 +193,7 @@
             <div class="modal-content" id="store">
               <h5 class="modal-title" id="exampleModalLabel">怪獸商店</h5>
               <div class="modal-body">
-                <ul
-                  class="nav nav-tabs justify-content-center"
-                  id="myTab"
-                  role="tablist"
-                >
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                   <li class="nav-item">
                     <a
                       class="nav-link active"
@@ -251,8 +203,7 @@
                       role="tab"
                       aria-controls="home"
                       aria-selected="true"
-                      >怪物住宅</a
-                    >
+                    >怪物住宅</a>
                   </li>
                   <li class="nav-item">
                     <a
@@ -263,8 +214,7 @@
                       role="tab"
                       aria-controls="profile"
                       aria-selected="false"
-                      >怪物食品</a
-                    >
+                    >怪物食品</a>
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -290,16 +240,8 @@
                             class="btn btn-info"
                             @click="buy(6)"
                             v-if="!haveCabin"
-                          >
-                            購買
-                          </button>
-                          <button
-                            type="button"
-                            class="btn btn-dark disabled"
-                            v-if="haveCabin"
-                          >
-                            已擁有
-                          </button>
+                          >購買</button>
+                          <button type="button" class="btn btn-dark disabled" v-if="haveCabin">已擁有</button>
                           <br />
                           <img src="../../assets/shop/house2.png" />
                           <div>
@@ -314,16 +256,8 @@
                               class="btn btn-info"
                               @click="buy(5)"
                               v-if="!havaVilla"
-                            >
-                              購買
-                            </button>
-                            <button
-                              type="button"
-                              class="btn btn-dark disabled"
-                              v-if="havaVilla"
-                            >
-                              已擁有
-                            </button>
+                            >購買</button>
+                            <button type="button" class="btn btn-dark disabled" v-if="havaVilla">已擁有</button>
                           </div>
                         </div>
                         <img src="../../assets/shop/house3.png" />
@@ -339,16 +273,12 @@
                             class="btn btn-info"
                             @click="buy(4)"
                             v-if="!haveSkyscraper"
-                          >
-                            購買
-                          </button>
+                          >購買</button>
                           <button
                             type="button"
                             class="btn btn-dark disabled"
                             v-if="haveSkyscraper"
-                          >
-                            已擁有
-                          </button>
+                          >已擁有</button>
                         </div>
                       </div>
                     </div>
@@ -369,13 +299,7 @@
                             ${{ food1 }}
                           </span>
                           <br />
-                          <button
-                            type="button"
-                            class="btn btn-info"
-                            @click="buy(3)"
-                          >
-                            購買
-                          </button>
+                          <button type="button" class="btn btn-info" @click="buy(3)">購買</button>
                         </div>
                         <img src="../../assets/shop/food2.png" />
                         <div>
@@ -385,13 +309,7 @@
                             ${{ food2 }}
                           </span>
                           <br />
-                          <button
-                            type="button"
-                            class="btn btn-info"
-                            @click="buy(1)"
-                          >
-                            購買
-                          </button>
+                          <button type="button" class="btn btn-info" @click="buy(1)">購買</button>
                         </div>
                         <img src="../../assets/shop/food3.png" />
                         <div>
@@ -401,13 +319,7 @@
                             ${{ food3 }}
                           </span>
                           <br />
-                          <button
-                            type="button"
-                            class="btn btn-info"
-                            @click="buy(2)"
-                          >
-                            購買
-                          </button>
+                          <button type="button" class="btn btn-info" @click="buy(2)">購買</button>
                         </div>
                       </div>
                     </div>
@@ -415,13 +327,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
@@ -440,16 +346,8 @@
             data-target="#exampleModalCenter2"
             @click="eatMar()"
             v-if="mar > 0"
-          >
-            餵食
-          </button>
-          <button
-            type="button"
-            class="btn btn-warning disabled"
-            v-if="mar == 0"
-          >
-            餵食
-          </button>
+          >餵食</button>
+          <button type="button" class="btn btn-warning disabled" v-if="mar == 0">餵食</button>
 
           <!-- Modal -->
           <div
@@ -463,20 +361,12 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="flex">
-                  <h5 class="modal-title" id="exampleModalCenterTitle1">
-                    卡滋~卡滋~
-                  </h5>
+                  <h5 class="modal-title" id="exampleModalCenterTitle1">卡滋~卡滋~</h5>
                   <div class="modal-body">
                     <img src="@/assets/eat/eatAnimation01.gif" />
                   </div>
 
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
@@ -494,16 +384,8 @@
             data-target="#exampleModalCenter1"
             @click="eatCake()"
             v-if="cake > 0"
-          >
-            餵食
-          </button>
-          <button
-            type="button"
-            class="btn btn-warning disabled"
-            v-if="cake == 0"
-          >
-            餵食
-          </button>
+          >餵食</button>
+          <button type="button" class="btn btn-warning disabled" v-if="cake == 0">餵食</button>
 
           <!-- Modal -->
           <div
@@ -517,19 +399,11 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="flex">
-                  <h5 class="modal-title" id="exampleModalCenterTitle1">
-                    卡滋~卡滋~
-                  </h5>
+                  <h5 class="modal-title" id="exampleModalCenterTitle1">卡滋~卡滋~</h5>
                   <div class="modal-body">
                     <img src="@/assets/eat/eatAnimation02.gif" />
                   </div>
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
@@ -547,16 +421,8 @@
             data-target="#exampleModalCenter3"
             @click="eatHotPot()"
             v-if="hotpot > 0"
-          >
-            餵食
-          </button>
-          <button
-            type="button"
-            class="btn btn-warning disabled"
-            v-if="hotpot == 0"
-          >
-            餵食
-          </button>
+          >餵食</button>
+          <button type="button" class="btn btn-warning disabled" v-if="hotpot == 0">餵食</button>
 
           <!-- Modal -->
           <div
@@ -570,19 +436,11 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="flex">
-                  <h5 class="modal-title" id="exampleModalCenterTitle1">
-                    卡滋~卡滋~
-                  </h5>
+                  <h5 class="modal-title" id="exampleModalCenterTitle1">卡滋~卡滋~</h5>
                   <div class="modal-body">
                     <img src="@/assets/eat/eatAnimation03.gif" />
                   </div>
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
@@ -786,7 +644,7 @@ export default {
           this.link = require("@/assets/gif/fox3.gif");
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("請求失敗", error);
       });
   },
@@ -834,7 +692,7 @@ export default {
           .then((res) => {
             // console.log(res.data);
           })
-          .catch(function(error) {
+          .catch(function (error) {
             console.log("請求失敗", error);
           });
       } else if (val == 5) {
@@ -844,7 +702,7 @@ export default {
           .then((res) => {
             // console.log(res.data);
           })
-          .catch(function(error) {
+          .catch(function (error) {
             console.log("請求失敗", error);
           });
       } else if (val == 6) {
@@ -854,7 +712,7 @@ export default {
           .then((res) => {
             // console.log(res.data);
           })
-          .catch(function(error) {
+          .catch(function (error) {
             console.log("請求失敗", error);
           });
       }
@@ -880,7 +738,7 @@ export default {
                     this.exp = res.data.message[0].exp;
                     this.mood = res.data.message[0].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 2) {
@@ -891,7 +749,7 @@ export default {
                     this.exp = res.data.message[1].exp;
                     this.mood = res.data.message[1].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 3) {
@@ -902,7 +760,7 @@ export default {
                     this.exp = res.data.message[2].exp;
                     this.mood = res.data.message[2].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 4) {
@@ -913,7 +771,7 @@ export default {
                     this.exp = res.data.message[0].exp;
                     this.mood = res.data.message[0].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 5) {
@@ -924,7 +782,7 @@ export default {
                     this.exp = res.data.message[1].exp;
                     this.mood = res.data.message[1].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 6) {
@@ -935,7 +793,7 @@ export default {
                     this.exp = res.data.message[2].exp;
                     this.mood = res.data.message[2].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 7) {
@@ -946,7 +804,7 @@ export default {
                     this.exp = res.data.message[0].exp;
                     this.mood = res.data.message[0].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 8) {
@@ -958,7 +816,7 @@ export default {
                     this.exp = res.data.message[1].exp;
                     this.mood = res.data.message[1].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 9) {
@@ -969,12 +827,12 @@ export default {
                     this.exp = res.data.message[2].exp;
                     this.mood = res.data.message[2].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               }
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
 
@@ -983,11 +841,11 @@ export default {
             .then((res) => {
               // console.log(res.data);
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("請求失敗", error);
         });
     },
@@ -1013,7 +871,7 @@ export default {
                     this.exp = res.data.message[0].exp;
                     this.mood = res.data.message[0].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 2) {
@@ -1024,7 +882,7 @@ export default {
                     this.exp = res.data.message[1].exp;
                     this.mood = res.data.message[1].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 3) {
@@ -1035,7 +893,7 @@ export default {
                     this.exp = res.data.message[2].exp;
                     this.mood = res.data.message[2].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 4) {
@@ -1046,7 +904,7 @@ export default {
                     this.exp = res.data.message[0].exp;
                     this.mood = res.data.message[0].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 5) {
@@ -1057,7 +915,7 @@ export default {
                     this.exp = res.data.message[1].exp;
                     this.mood = res.data.message[1].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 6) {
@@ -1068,7 +926,7 @@ export default {
                     this.exp = res.data.message[2].exp;
                     this.mood = res.data.message[2].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 7) {
@@ -1079,7 +937,7 @@ export default {
                     this.exp = res.data.message[0].exp;
                     this.mood = res.data.message[0].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 8) {
@@ -1091,7 +949,7 @@ export default {
                     this.exp = res.data.message[1].exp;
                     this.mood = res.data.message[1].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 9) {
@@ -1102,12 +960,12 @@ export default {
                     this.exp = res.data.message[2].exp;
                     this.mood = res.data.message[2].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               }
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
           api
@@ -1115,11 +973,11 @@ export default {
             .then((res) => {
               // console.log(res.data);
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("請求失敗", error);
         });
     },
@@ -1145,7 +1003,7 @@ export default {
                     this.exp = res.data.message[0].exp;
                     this.mood = res.data.message[0].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 2) {
@@ -1156,7 +1014,7 @@ export default {
                     this.exp = res.data.message[1].exp;
                     this.mood = res.data.message[1].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 3) {
@@ -1167,7 +1025,7 @@ export default {
                     this.exp = res.data.message[2].exp;
                     this.mood = res.data.message[2].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 4) {
@@ -1178,7 +1036,7 @@ export default {
                     this.exp = res.data.message[0].exp;
                     this.mood = res.data.message[0].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 5) {
@@ -1189,7 +1047,7 @@ export default {
                     this.exp = res.data.message[1].exp;
                     this.mood = res.data.message[1].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 6) {
@@ -1200,7 +1058,7 @@ export default {
                     this.exp = res.data.message[2].exp;
                     this.mood = res.data.message[2].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 7) {
@@ -1211,7 +1069,7 @@ export default {
                     this.exp = res.data.message[0].exp;
                     this.mood = res.data.message[0].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 8) {
@@ -1223,7 +1081,7 @@ export default {
                     this.exp = res.data.message[1].exp;
                     this.mood = res.data.message[1].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               } else if (res.data.message.monster.id == 9) {
@@ -1234,12 +1092,12 @@ export default {
                     this.exp = res.data.message[2].exp;
                     this.mood = res.data.message[2].mood;
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.log("請求失敗", error);
                   });
               }
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
           api
@@ -1247,11 +1105,11 @@ export default {
             .then((res) => {
               // console.log(res.data);
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("請求失敗", error);
         });
     },
@@ -1288,15 +1146,15 @@ export default {
                   this.stock = res.data.message.stock;
                   this.total = res.data.message.totalAsset;
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                   console.log("請求失敗", error);
                 });
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("請求失敗", error);
         });
     },
@@ -1312,7 +1170,7 @@ export default {
             this.text = "已簽到~已領薪水~";
           }
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("請求失敗", error);
         });
     },
@@ -1323,7 +1181,7 @@ export default {
         .then((res) => {
           // console.log(res.data);
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("請求失敗", error);
         });
     },
@@ -1334,7 +1192,7 @@ export default {
         .then((res) => {
           // console.log(res.data);
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("請求失敗", error);
         });
     },
@@ -1345,7 +1203,7 @@ export default {
         .then((res) => {
           // console.log(res.data);
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("請求失敗", error);
         });
     }, // 得到當下時間
@@ -1378,7 +1236,7 @@ export default {
     nowTimes() {
       let self = this;
       self.timeFormate(new Date());
-      setInterval(function() {
+      setInterval(function () {
         self.timeFormate(new Date());
       }, 1000);
     },
@@ -1387,9 +1245,6 @@ export default {
     this.nowTimes();
   },
   mounted() {
-    if (!this.token) {
-      this.$router.push({ path: "/" });
-    }
     this.$store.commit("setAsset");
     this.nowTimes();
     api
@@ -1406,7 +1261,7 @@ export default {
               this.exp = res.data.message[0].exp;
               this.mood = res.data.message[0].mood;
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         } else if (res.data.message.monster.id == 2) {
@@ -1419,7 +1274,7 @@ export default {
               this.exp = res.data.message[1].exp;
               this.mood = res.data.message[1].mood;
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         } else if (res.data.message.monster.id == 3) {
@@ -1432,7 +1287,7 @@ export default {
               this.exp = res.data.message[2].exp;
               this.mood = res.data.message[2].mood;
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         } else if (res.data.message.monster.id == 4) {
@@ -1446,7 +1301,7 @@ export default {
               this.exp = res.data.message[0].exp;
               this.mood = res.data.message[0].mood;
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         } else if (res.data.message.monster.id == 5) {
@@ -1460,7 +1315,7 @@ export default {
               this.exp = res.data.message[1].exp;
               this.mood = res.data.message[1].mood;
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         } else if (res.data.message.monster.id == 6) {
@@ -1474,7 +1329,7 @@ export default {
               this.exp = res.data.message[2].exp;
               this.mood = res.data.message[2].mood;
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         } else if (res.data.message.monster.id == 7) {
@@ -1488,7 +1343,7 @@ export default {
               this.exp = res.data.message[0].exp;
               this.mood = res.data.message[0].mood;
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         } else if (res.data.message.monster.id == 8) {
@@ -1502,7 +1357,7 @@ export default {
               this.exp = res.data.message[1].exp;
               this.mood = res.data.message[1].mood;
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         } else if (res.data.message.monster.id == 9) {
@@ -1516,7 +1371,7 @@ export default {
               this.exp = res.data.message[2].exp;
               this.mood = res.data.message[2].mood;
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         }
@@ -1550,7 +1405,7 @@ export default {
           this.idx2 = parseInt(Math.random() * 15);
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("請求失敗", error);
       });
     api
@@ -1573,7 +1428,7 @@ export default {
           }
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("請求失敗", error);
       });
     api
@@ -1592,7 +1447,7 @@ export default {
           this.url = require("../../assets/house/house2.jpg");
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("請求失敗", error);
       });
   },

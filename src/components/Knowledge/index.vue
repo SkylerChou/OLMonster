@@ -52,9 +52,6 @@ export default {
     },
   },
   mounted() {
-    if (!this.token) {
-      this.$router.push({ path: "/" });
-    }
     api
       .getallcourse()
       .then((res) => {

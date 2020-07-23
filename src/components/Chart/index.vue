@@ -226,9 +226,6 @@ export default {
     },
   },
   mounted() {
-    if (!this.token) {
-      this.$router.push({ path: "/" });
-    }
     this.$store.commit("setAsset");
     let data = this.$route.query;
     api
