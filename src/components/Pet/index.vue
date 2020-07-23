@@ -724,118 +724,11 @@ export default {
       api
         .eatfood({ foodId: "3" })
         .then((res) => {
+          console.log(res.data);
           if (this.mar > 0) {
             this.mar -= 1;
+            this.exp += 10;
           }
-          api
-            .userfocusmonster()
-            .then((res) => {
-              if (res.data.message.monster.id == 1) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[0].level;
-                    this.exp = res.data.message[0].exp;
-                    this.mood = res.data.message[0].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 2) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[1].level;
-                    this.exp = res.data.message[1].exp;
-                    this.mood = res.data.message[1].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 3) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[2].level;
-                    this.exp = res.data.message[2].exp;
-                    this.mood = res.data.message[2].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 4) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[0].level;
-                    this.exp = res.data.message[0].exp;
-                    this.mood = res.data.message[0].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 5) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[1].level;
-                    this.exp = res.data.message[1].exp;
-                    this.mood = res.data.message[1].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 6) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[2].level;
-                    this.exp = res.data.message[2].exp;
-                    this.mood = res.data.message[2].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 7) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[0].level;
-                    this.exp = res.data.message[0].exp;
-                    this.mood = res.data.message[0].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 8) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    // console.log(res.data);
-                    this.level = res.data.message[1].level;
-                    this.exp = res.data.message[1].exp;
-                    this.mood = res.data.message[1].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 9) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[2].level;
-                    this.exp = res.data.message[2].exp;
-                    this.mood = res.data.message[2].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              }
-            })
-            .catch(function (error) {
-              console.log("請求失敗", error);
-            });
-
           api
             .finishmission2()
             .then((res) => {
@@ -859,115 +752,8 @@ export default {
           // console.log(res.data);
           if (this.cake > 0) {
             this.cake -= 1;
+            this.exp += 50;
           }
-          api
-            .userfocusmonster()
-            .then((res) => {
-              if (res.data.message.monster.id == 1) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[0].level;
-                    this.exp = res.data.message[0].exp;
-                    this.mood = res.data.message[0].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 2) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[1].level;
-                    this.exp = res.data.message[1].exp;
-                    this.mood = res.data.message[1].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 3) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[2].level;
-                    this.exp = res.data.message[2].exp;
-                    this.mood = res.data.message[2].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 4) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[0].level;
-                    this.exp = res.data.message[0].exp;
-                    this.mood = res.data.message[0].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 5) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[1].level;
-                    this.exp = res.data.message[1].exp;
-                    this.mood = res.data.message[1].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 6) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[2].level;
-                    this.exp = res.data.message[2].exp;
-                    this.mood = res.data.message[2].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 7) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[0].level;
-                    this.exp = res.data.message[0].exp;
-                    this.mood = res.data.message[0].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 8) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    // console.log(res.data);
-                    this.level = res.data.message[1].level;
-                    this.exp = res.data.message[1].exp;
-                    this.mood = res.data.message[1].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 9) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[2].level;
-                    this.exp = res.data.message[2].exp;
-                    this.mood = res.data.message[2].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              }
-            })
-            .catch(function (error) {
-              console.log("請求失敗", error);
-            });
           api
             .finishmission2()
             .then((res) => {
@@ -993,114 +779,6 @@ export default {
             this.hotpot -= 1;
           }
           api
-            .userfocusmonster()
-            .then((res) => {
-              if (res.data.message.monster.id == 1) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[0].level;
-                    this.exp = res.data.message[0].exp;
-                    this.mood = res.data.message[0].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 2) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[1].level;
-                    this.exp = res.data.message[1].exp;
-                    this.mood = res.data.message[1].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 3) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[2].level;
-                    this.exp = res.data.message[2].exp;
-                    this.mood = res.data.message[2].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 4) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[0].level;
-                    this.exp = res.data.message[0].exp;
-                    this.mood = res.data.message[0].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 5) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[1].level;
-                    this.exp = res.data.message[1].exp;
-                    this.mood = res.data.message[1].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 6) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[2].level;
-                    this.exp = res.data.message[2].exp;
-                    this.mood = res.data.message[2].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 7) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[0].level;
-                    this.exp = res.data.message[0].exp;
-                    this.mood = res.data.message[0].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 8) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    // console.log(res.data);
-                    this.level = res.data.message[1].level;
-                    this.exp = res.data.message[1].exp;
-                    this.mood = res.data.message[1].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              } else if (res.data.message.monster.id == 9) {
-                api
-                  .getuserallmonsterdata()
-                  .then((res) => {
-                    this.level = res.data.message[2].level;
-                    this.exp = res.data.message[2].exp;
-                    this.mood = res.data.message[2].mood;
-                  })
-                  .catch(function (error) {
-                    console.log("請求失敗", error);
-                  });
-              }
-            })
-            .catch(function (error) {
-              console.log("請求失敗", error);
-            });
-          api
             .finishmission2()
             .then((res) => {
               // console.log(res.data);
@@ -1114,49 +792,65 @@ export default {
         });
     },
     buy(val) {
-      api
-        .userbuyweb({ id: val })
-        .then((res) => {
-          // console.log(res.data);
-          api
-            .userhave()
-            .then((res) => {
-              // console.log(res.data);
-              for (let i = 0; i < res.data.message.length; i++) {
-                if (res.data.message[i].store.id == 1) {
-                  this.cake = res.data.message[i].number;
-                } else if (res.data.message[i].store.id == 2) {
-                  this.hotpot = res.data.message[i].number;
-                } else if (res.data.message[i].store.id == 3) {
-                  this.mar = res.data.message[i].number;
-                } else if (res.data.message[i].store.id == 4) {
-                  this.haveSkyscraper = true;
-                } else if (res.data.message[i].store.id == 5) {
-                  this.havaVilla = true;
-                } else if (res.data.message[i].store.id == 6) {
-                  this.haveCabin = true;
-                }
+      if (confirm("是否要購買?")) {
+        api
+          .userbuyweb({ id: val })
+          .then((res) => {
+            // console.log(res.data);
+            for (let i = 0; i < res.data.message.length; i++) {
+              if (res.data.message[i].store.id == 1 && this.cash < 100) {
+              } else if (res.data.message[i].store.id == 2) {
+                this.hotpot = res.data.message[i].number;
+              } else if (res.data.message[i].store.id == 3) {
+                this.mar = res.data.message[i].number;
+              } else if (res.data.message[i].store.id == 4) {
+                this.haveSkyscraper = true;
+              } else if (res.data.message[i].store.id == 5) {
+                this.havaVilla = true;
+              } else if (res.data.message[i].store.id == 6) {
+                this.haveCabin = true;
               }
-              api
-                .getdata()
-                .then((res) => {
-                  // console.log(res.data);
-                  this.cash = res.data.message.cash;
-                  this.$store.commit("setAsset");
-                  this.stock = res.data.message.stock;
-                  this.total = res.data.message.totalAsset;
-                })
-                .catch(function (error) {
-                  console.log("請求失敗", error);
-                });
-            })
-            .catch(function (error) {
-              console.log("請求失敗", error);
-            });
-        })
-        .catch(function (error) {
-          console.log("請求失敗", error);
-        });
+            }
+            api
+              .userhave()
+              .then((res) => {
+                // console.log(res.data);
+                for (let i = 0; i < res.data.message.length; i++) {
+                  if (res.data.message[i].store.id == 1) {
+                    this.cake = res.data.message[i].number;
+                  } else if (res.data.message[i].store.id == 2) {
+                    this.hotpot = res.data.message[i].number;
+                  } else if (res.data.message[i].store.id == 3) {
+                    this.mar = res.data.message[i].number;
+                  } else if (res.data.message[i].store.id == 4) {
+                    this.haveSkyscraper = true;
+                  } else if (res.data.message[i].store.id == 5) {
+                    this.havaVilla = true;
+                  } else if (res.data.message[i].store.id == 6) {
+                    this.haveCabin = true;
+                  }
+                }
+                api
+                  .getdata()
+                  .then((res) => {
+                    // console.log(res.data);
+                    this.cash = res.data.message.cash;
+                    this.$store.commit("setAsset");
+                    this.stock = res.data.message.stock;
+                    this.total = res.data.message.totalAsset;
+                  })
+                  .catch(function (error) {
+                    console.log("請求失敗", error);
+                  });
+              })
+              .catch(function (error) {
+                console.log("請求失敗", error);
+              });
+          })
+          .catch(function (error) {
+            console.log("請求失敗", error);
+          });
+      }
     },
     sign() {
       api
@@ -1250,29 +944,18 @@ export default {
     api
       .userfocusmonster()
       .then((res) => {
-        // console.log(res.data);
+        this.level = res.data.message.level;
+        this.exp = res.data.message.exp;
+        this.mood = res.data.message.mood;
+        console.log(res.data);
         if (res.data.message.monster.id == 1) {
           this.link = require("@/assets/gif/dino1.gif");
-          api
-            .getuserallmonsterdata()
-            .then((res) => {
-              // console.log(res.data);
-              this.level = res.data.message[0].level;
-              this.exp = res.data.message[0].exp;
-              this.mood = res.data.message[0].mood;
-            })
-            .catch(function (error) {
-              console.log("請求失敗", error);
-            });
         } else if (res.data.message.monster.id == 2) {
           this.link = require("@/assets/gif/cat1.gif");
           api
             .getuserallmonsterdata()
             .then((res) => {
               // console.log(res.data);
-              this.level = res.data.message[1].level;
-              this.exp = res.data.message[1].exp;
-              this.mood = res.data.message[1].mood;
             })
             .catch(function (error) {
               console.log("請求失敗", error);
@@ -1283,9 +966,6 @@ export default {
             .getuserallmonsterdata()
             .then((res) => {
               // console.log(res.data);
-              this.level = res.data.message[2].level;
-              this.exp = res.data.message[2].exp;
-              this.mood = res.data.message[2].mood;
             })
             .catch(function (error) {
               console.log("請求失敗", error);
@@ -1297,9 +977,6 @@ export default {
             .getuserallmonsterdata()
             .then((res) => {
               // console.log(res.data);
-              this.level = res.data.message[0].level;
-              this.exp = res.data.message[0].exp;
-              this.mood = res.data.message[0].mood;
             })
             .catch(function (error) {
               console.log("請求失敗", error);
@@ -1311,9 +988,6 @@ export default {
             .getuserallmonsterdata()
             .then((res) => {
               // console.log(res.data);
-              this.level = res.data.message[1].level;
-              this.exp = res.data.message[1].exp;
-              this.mood = res.data.message[1].mood;
             })
             .catch(function (error) {
               console.log("請求失敗", error);
@@ -1325,9 +999,6 @@ export default {
             .getuserallmonsterdata()
             .then((res) => {
               // console.log(res.data);
-              this.level = res.data.message[2].level;
-              this.exp = res.data.message[2].exp;
-              this.mood = res.data.message[2].mood;
             })
             .catch(function (error) {
               console.log("請求失敗", error);
@@ -1339,9 +1010,6 @@ export default {
             .getuserallmonsterdata()
             .then((res) => {
               // console.log(res.data);
-              this.level = res.data.message[0].level;
-              this.exp = res.data.message[0].exp;
-              this.mood = res.data.message[0].mood;
             })
             .catch(function (error) {
               console.log("請求失敗", error);
@@ -1353,9 +1021,6 @@ export default {
             .getuserallmonsterdata()
             .then((res) => {
               // console.log(res.data);
-              this.level = res.data.message[1].level;
-              this.exp = res.data.message[1].exp;
-              this.mood = res.data.message[1].mood;
             })
             .catch(function (error) {
               console.log("請求失敗", error);
@@ -1367,9 +1032,6 @@ export default {
             .getuserallmonsterdata()
             .then((res) => {
               // console.log(res.data);
-              this.level = res.data.message[2].level;
-              this.exp = res.data.message[2].exp;
-              this.mood = res.data.message[2].mood;
             })
             .catch(function (error) {
               console.log("請求失敗", error);

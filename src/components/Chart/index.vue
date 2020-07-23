@@ -2,7 +2,7 @@
   <div class="flex">
     <div>
       <h2>{{ stockId }} {{ name }}</h2>
-      <h3>股價:{{ stockPrice }} 現金:{{ this.$store.state.asset }}</h3>
+      <h3>股價:{{ stockPrice }} 現金:{{ cash }}</h3>
       <div class="container-fluid" id="chart">
         <apexchart
           type="area"
@@ -44,6 +44,7 @@ export default {
       units: 0,
       units2: 0,
       have: 0,
+      cash: this.$store.state.asset,
       series: [
         {
           name: "股價",
@@ -131,6 +132,7 @@ export default {
         })
         .then((res) => {
           if (res.data.status == 200) {
+            this.cash -= this.units * this.stockPrice;
             alert("買入成功");
           } else {
             alert("買入失敗");
@@ -185,6 +187,7 @@ export default {
         .then((res) => {
           console.log(res.data);
           if (res.data.status == 200) {
+            this.cash += this.units * this.stockPrice;
             alert("賣出成功");
           } else {
             alert("賣出失敗");
@@ -202,7 +205,6 @@ export default {
               api
                 .userholdallstock()
                 .then((res) => {
-                  console.log(2);
                   let stocks = res.data.message;
                   let name = stocks.map((item) => item.stockName);
                   let userhave = stocks.map((item) => item.units);
@@ -261,7 +263,6 @@ export default {
         api
           .userholdallstock()
           .then((res) => {
-            console.log(2);
             let stocks = res.data.message;
             let name = stocks.map((item) => item.stockName);
             let userhave = stocks.map((item) => item.units);
