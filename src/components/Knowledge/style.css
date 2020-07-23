@@ -15,11 +15,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: rgba(255, 127, 80, 0.5); */
+  background-image: url(../../assets/house/house2.jpg);
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  background: -webkit-linear-gradient(
+  /* background: -webkit-linear-gradient(
     rgba(201, 250, 168, 0.685),
     rgba(81, 226, 231, 0.856)
   );
@@ -34,7 +34,7 @@
   background: linear-gradient(
     rgba(201, 250, 168, 0.685),
     rgba(81, 226, 231, 0.856)
-  );
+  ); */
 }
 
 .card-title {

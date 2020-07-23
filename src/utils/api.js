@@ -9,7 +9,11 @@ const URL = {
   stock: "http://104.199.134.68:8080/stock",
 };
 
-let key = "Bearer " + cookie.get("token");
+const config = () => {
+  return {
+    headers: { Authorization: "Bearer " + cookie.get("token") },
+  };
+};
 
 const api = {
   login: (data) => {
@@ -19,124 +23,94 @@ const api = {
     return axious.post(URL.user + "/register", qs.stringify(data));
   },
   userfocusmonster: () => {
-    return axious.get(URL.user + "/userfocusmonster", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.user + "/userfocusmonster", config());
   },
   changefocusmonster: (data) => {
-    return axious.post(URL.user + "/changefocusmonster", qs.stringify(data), {
-      headers: { Authorization: key },
-    });
+    return axious.post(
+      URL.user + "/changefocusmonster",
+      qs.stringify(data),
+      config()
+    );
   },
   focushouse: (data) => {
-    return axious.post(URL.user + "/focushouse", qs.stringify(data), {
-      headers: { Authorization: key },
-    });
+    return axious.post(URL.user + "/focushouse", qs.stringify(data), config());
   },
   eatfood: (data) => {
-    return axious.post(URL.user + "/eatfood", qs.stringify(data), {
-      headers: { Authorization: key },
-    });
+    return axious.post(URL.user + "/eatfood", qs.stringify(data), config());
   },
   getmission: () => {
-    return axious.get(URL.user + "/getmission", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.user + "/getmission", config());
   },
   finishmission1: () => {
-    return axious.get(URL.user + "/finishmission1", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.user + "/finishmission1", config());
   },
   finishmission2: () => {
-    return axious.get(URL.user + "/finishmission2", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.user + "/finishmission2", config());
   },
   userbuyweb: (data) => {
     return axious.get(URL.store + "/userbuyweb", {
-      headers: { Authorization: key },
       params: data,
+      headers: { Authorization: "Bearer " + cookie.get("token") },
     });
   },
   userhave: () => {
-    return axious.get(URL.store + "/userhave", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.store + "/userhave", config());
   },
   getdata: () => {
-    return axious.get(URL.user + "/getdata", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.user + "/getdata", config());
   },
   getsalaryweb: () => {
-    return axious.get(URL.user + "/getsalaryweb", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.user + "/getsalaryweb", config());
   },
   finishCourse: (data) => {
-    return axious.post(URL.course + "/finishCourse", qs.stringify(data), {
-      headers: { Authorization: key },
-    });
+    return axious.post(
+      URL.course + "/finishCourse",
+      qs.stringify(data),
+      config()
+    );
   },
   getallcourse: () => {
-    return axious.get(URL.course + "/getallcourse", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.course + "/getallcourse", config());
   },
   getachievementdata: () => {
-    return axious.get(URL.user + "/getachievementdata", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.user + "/getachievementdata", config());
   },
   getallstockdaydata: () => {
-    return axious.get(URL.stock + "/getallstockdaydata", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.stock + "/getallstockdaydata", config());
   },
   userholdallstock: () => {
-    return axious.get(URL.stock + "/userholdallstock", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.stock + "/userholdallstock", config());
   },
   setActor: (data) => {
-    return axious.post(URL.user + "/setActor", qs.stringify(data), {
-      headers: { Authorization: key },
-    });
+    return axious.post(URL.user + "/setActor", qs.stringify(data), config());
   },
   sellstock: (data) => {
-    return axious.post(URL.stock + "/sellstock", qs.stringify(data), {
-      headers: { Authorization: key },
-    });
+    return axious.post(URL.stock + "/sellstock", qs.stringify(data), config());
   },
   buystock: (data) => {
-    return axious.post(URL.stock + "/buystock", qs.stringify(data), {
-      headers: { Authorization: key },
-    });
+    return axious.post(URL.stock + "/buystock", qs.stringify(data), config());
   },
   get30before: (data) => {
     return axious.get(URL.stock + "/get30before", {
       params: data,
-      headers: { Authorization: key },
+      headers: { Authorization: "Bearer " + cookie.get("token") },
     });
   },
   findtop10: () => {
-    return axious.get(URL.user + "/findtop10", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.user + "/findtop10", config());
   },
   getuserallmonsterdata: () => {
-    return axious.get(URL.monster + "/getuserallmonsterdata", {
-      headers: { Authorization: key },
-    });
+    return axious.get(URL.monster + "/getuserallmonsterdata", config());
   },
   guestlogin: () => {
     return axious.get(URL.user + "/guestlogin");
   },
   transformuser: (data) => {
-    return axious.post(URL.user + "/transformuser", qs.stringify(data), {
-      headers: { Authorization: key },
-    });
+    return axious.post(
+      URL.user + "/transformuser",
+      qs.stringify(data),
+      config()
+    );
   },
   sendemail: (data) => {
     return axious.post(URL.user + "/sendemail", qs.stringify(data));

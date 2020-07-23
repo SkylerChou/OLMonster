@@ -13,8 +13,7 @@
             class="btn btn-primary"
             target="_blank"
             @click="finish(index + 1)"
-            >閱讀</a
-          >
+          >閱讀</a>
         </div>
       </div>
     </div>
@@ -43,23 +42,26 @@ export default {
             .then((res) => {
               console.log(res.data);
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("請求失敗", error);
             });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("請求失敗", error);
         });
     },
   },
   mounted() {
+    if (!this.token) {
+      this.$router.push({ path: "/" });
+    }
     api
       .getallcourse()
       .then((res) => {
         // console.log(res.data);
         this.classes = res.data.message;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("請求失敗", error);
       });
   },

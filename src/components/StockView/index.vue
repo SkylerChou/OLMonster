@@ -16,22 +16,16 @@
       >
         <th>{{ name[index] }} ({{ serial[index] }})</th>
         <th v-if="updown[index] == 0">{{ price[index] }}</th>
-        <th v-if="updown[index] < 0" style=" color:green;">
-          {{ price[index] }}
-        </th>
+        <th v-if="updown[index] < 0" style=" color:green;">{{ price[index] }}</th>
         <th v-if="updown[index] > 0" style=" color:red;">{{ price[index] }}</th>
         <th v-if="updown[index] == 0">{{ updown[index] }}</th>
-        <th v-if="updown[index] < 0" style=" color:green;">
-          {{ updown[index] }}
-        </th>
-        <th v-if="updown[index] > 0" style=" color:red;">
-          {{ updown[index] }}
-        </th>
+        <th v-if="updown[index] < 0" style=" color:green;">{{ updown[index] }}</th>
+        <th v-if="updown[index] > 0" style=" color:red;">{{ updown[index] }}</th>
         <th>{{ dealNum[index] }}</th>
         <th v-if="!ALLIndex(name, name2[holdIndex(name2, name[index])])">0</th>
-        <th v-if="ALLIndex(name, name2[holdIndex(name2, name[index])])">
-          {{ userhave[holdIndex(name2, name[index])] }}
-        </th>
+        <th
+          v-if="ALLIndex(name, name2[holdIndex(name2, name[index])])"
+        >{{ userhave[holdIndex(name2, name[index])] }}</th>
       </tr>
     </table>
 
@@ -55,6 +49,9 @@ export default {
     };
   },
   mounted() {
+    if (!this.token) {
+      this.$router.push({ path: "/" });
+    }
     api
       .getallstockdaydata()
       .then((res) => {
@@ -67,7 +64,7 @@ export default {
         this.dealNum = this.stocks.map((item) => item[3]);
         // this.userhave=this.stocks.map(item => item[3]);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("請求失敗", error);
       });
     api
@@ -78,7 +75,7 @@ export default {
         this.name2 = this.stocks.map((item) => item.stockName);
         this.userhave = this.stocks.map((item) => item.units);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("請求失敗", error);
       });
   },

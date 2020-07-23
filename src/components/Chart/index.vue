@@ -16,25 +16,17 @@
     <div class="group">
       <input type="number" v-model="units" />
       <div class="span">
-        <span
-          v-if="units * stockPrice > this.$store.state.asset"
-          style="color:red;"
-          >可憐哪~買入資金不足</span
-        >
+        <span v-if="units * stockPrice > this.$store.state.asset" style="color:red;">可憐哪~買入資金不足</span>
       </div>
       <div>
-        <button type="button" class="btn btn-danger" @click="buy()">
-          買入
-        </button>
+        <button type="button" class="btn btn-danger" @click="buy()">買入</button>
       </div>
       <input type="number" v-model="units2" />
       <div class="span">
         <span v-if="units2 > have" style="color:green;">醒醒吧~張數不足</span>
       </div>
       <div>
-        <button type="button" class="btn btn-success" @click="sell()">
-          賣出
-        </button>
+        <button type="button" class="btn btn-success" @click="sell()">賣出</button>
       </div>
     </div>
   </div>
@@ -126,6 +118,11 @@ export default {
   },
   methods: {
     buy() {
+      if (this.units < 0) {
+        this.units = 0;
+        alert("請輸入整數");
+        return;
+      }
       api
         .buystock({
           stockId: this.stockId,
@@ -138,12 +135,47 @@ export default {
           } else {
             alert("買入失敗");
           }
+          api
+            .getallstockdaydata()
+            .then((res) => {
+              let stocks = res.data.message;
+              for (let i = 0; i < stocks.length; i++) {
+                if (stocks[i][0] == this.stockId) {
+                  this.name = stocks[i][1];
+                  this.stockPrice = stocks[i][2];
+                }
+              }
+              api
+                .userholdallstock()
+                .then((res) => {
+                  console.log(2);
+                  let stocks = res.data.message;
+                  let name = stocks.map((item) => item.stockName);
+                  let userhave = stocks.map((item) => item.units);
+                  for (let i = 0; i < name.length; i++) {
+                    if (this.name == name[i]) {
+                      this.have = userhave[i];
+                    }
+                  }
+                })
+                .catch(function (error) {
+                  console.log("請求失敗", error);
+                });
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
     },
     sell() {
+      if (this.units2 < 0) {
+        this.units2 = 0;
+        alert("請輸入整數");
+        return;
+      }
       api
         .sellstock({
           stockId: this.stockId,
@@ -157,16 +189,50 @@ export default {
           } else {
             alert("賣出失敗");
           }
+          api
+            .getallstockdaydata()
+            .then((res) => {
+              let stocks = res.data.message;
+              for (let i = 0; i < stocks.length; i++) {
+                if (stocks[i][0] == this.stockId) {
+                  this.name = stocks[i][1];
+                  this.stockPrice = stocks[i][2];
+                }
+              }
+              api
+                .userholdallstock()
+                .then((res) => {
+                  console.log(2);
+                  let stocks = res.data.message;
+                  let name = stocks.map((item) => item.stockName);
+                  let userhave = stocks.map((item) => item.units);
+                  for (let i = 0; i < name.length; i++) {
+                    if (this.name == name[i]) {
+                      this.have = userhave[i];
+                    }
+                  }
+                })
+                .catch(function (error) {
+                  console.log("請求失敗", error);
+                });
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
     },
   },
   mounted() {
+    if (!this.token) {
+      this.$router.push({ path: "/" });
+    }
     this.$store.commit("setAsset");
+    let data = this.$route.query;
     api
-      .get30before(this.$route.query)
+      .get30before(data)
       .then((res) => {
         if (res.data.status == 200) {
           let data = res.data.message.before30price;
@@ -182,7 +248,7 @@ export default {
           this.series[0].data = res.data.message.before30price;
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
     api
@@ -194,25 +260,25 @@ export default {
             this.name = stocks[i][1];
             this.stockPrice = stocks[i][2];
           }
-          api
-            .userholdallstock()
-            .then((res) => {
-              // console.log(res.data);
-              let stocks = res.data.message;
-              let name = stocks.map((item) => item.stockName);
-              let userhave = stocks.map((item) => item.units);
-              for (let i = 0; i < name.length; i++) {
-                if (this.name == name[i]) {
-                  this.have = userhave[i];
-                }
-              }
-            })
-            .catch(function(error) {
-              console.log("請求失敗", error);
-            });
         }
+        api
+          .userholdallstock()
+          .then((res) => {
+            console.log(2);
+            let stocks = res.data.message;
+            let name = stocks.map((item) => item.stockName);
+            let userhave = stocks.map((item) => item.units);
+            for (let i = 0; i < name.length; i++) {
+              if (this.name == name[i]) {
+                this.have = userhave[i];
+              }
+            }
+          })
+          .catch(function (error) {
+            console.log("請求失敗", error);
+          });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   },

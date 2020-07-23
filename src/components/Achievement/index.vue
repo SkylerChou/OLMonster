@@ -7,30 +7,14 @@
           <div>
             <ul>
               <h2>
-                <img
-                  class="check"
-                  src="@/assets/svg/check1.svg"
-                  v-if="!isFinish1"
-                />
-                <img
-                  class="check"
-                  src="@/assets/svg/check2.svg"
-                  v-if="isFinish1"
-                />
+                <img class="check" src="@/assets/svg/check1.svg" v-if="!isFinish1" />
+                <img class="check" src="@/assets/svg/check2.svg" v-if="isFinish1" />
                 <del v-if="isFinish1">學習新知識</del>
                 <span v-if="!isFinish1">學習新知識</span>
               </h2>
               <h2>
-                <img
-                  class="check"
-                  src="@/assets/svg/check1.svg"
-                  v-if="!isFinish2"
-                />
-                <img
-                  class="check"
-                  src="@/assets/svg/check2.svg"
-                  v-if="isFinish2"
-                />
+                <img class="check" src="@/assets/svg/check1.svg" v-if="!isFinish2" />
+                <img class="check" src="@/assets/svg/check2.svg" v-if="isFinish2" />
                 <del v-if="isFinish2">餵怪獸吃飯</del>
                 <span v-if="!isFinish2">餵怪獸吃飯</span>
               </h2>
@@ -107,13 +91,16 @@ export default {
     };
   },
   mounted() {
+    if (!this.token) {
+      this.$router.push({ path: "/" });
+    }
     api
       .getachievementdata()
       .then((res) => {
         // console.log(res.data);
         this.isActive = res.data.message;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("請求失敗", error);
       });
     api
@@ -123,7 +110,7 @@ export default {
         this.isFinish1 = res.data.message.mission1;
         this.isFinish2 = res.data.message.mission2;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("請求失敗", error);
       });
   },

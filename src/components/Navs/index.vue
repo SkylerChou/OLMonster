@@ -244,7 +244,7 @@ export default {
                   </div>
                   <div class="hr"></div>
                   <div class="foot-lnk">
-                    <a href="#forget" @click="forget()">Forgot Password?</a>
+                    <a @click="forget()">Forgot Password?</a>
                   </div>
                 </div>
                 <div class="sign-up-htm">

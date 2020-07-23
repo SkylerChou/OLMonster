@@ -1387,6 +1387,9 @@ export default {
     this.nowTimes();
   },
   mounted() {
+    if (!this.token) {
+      this.$router.push({ path: "/" });
+    }
     this.$store.commit("setAsset");
     this.nowTimes();
     api

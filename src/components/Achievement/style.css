@@ -12,7 +12,9 @@ img {
 .container-fluid {
   height: 100vh;
   background-position: center;
-  background: -webkit-linear-gradient(
+  background-image: url(../../assets/house/window2.jpg);
+  background-size: cover;
+  /* background: -webkit-linear-gradient(
     rgba(201, 250, 168, 0.685),
     rgba(81, 226, 231, 0.856)
   );
@@ -27,7 +29,7 @@ img {
   background: linear-gradient(
     rgba(201, 250, 168, 0.685),
     rgba(81, 226, 231, 0.856)
-  );
+  ); */
 }
 
 h1 {
@@ -37,7 +39,7 @@ h1 {
   padding: 10px;
   border: 1px solid rgba(255, 251, 243, 0.596);
   border-radius: 30px;
-  background: rgba(255, 251, 243, 0.596);
+  background: rgba(255, 251, 243, 0.87);
 }
 
 ul {
@@ -58,7 +60,7 @@ ul {
   max-width: 350px;
   height: 200px;
   background-position: center;
-  background-image: url(../../assets/box/background_test01.png);
+  background-image: url(../../assets/box/background_test051.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }

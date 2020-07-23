@@ -33,13 +33,16 @@ export default {
     };
   },
   mounted() {
+    if (!this.token) {
+      this.$router.push({ path: "/" });
+    }
     api
       .findtop10()
       .then((res) => {
         // console.log(res.data.message);
         this.rank = res.data.message;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   },
