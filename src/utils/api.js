@@ -118,6 +118,9 @@ const api = {
   resetpassword: (data) => {
     return axious.post(URL.user + "/resetpassword", qs.stringify(data));
   },
+  gettime: () => {
+    return axious.get(URL.stock + "/gettime");
+  },
 };
 
 export default api;

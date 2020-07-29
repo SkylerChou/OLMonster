@@ -947,7 +947,7 @@ export default {
         this.level = res.data.message.level;
         this.exp = res.data.message.exp;
         this.mood = res.data.message.mood;
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.message.monster.id == 1) {
           this.link = require("@/assets/gif/dino1.gif");
         } else if (res.data.message.monster.id == 2) {

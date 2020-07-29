@@ -6,7 +6,7 @@ import Intro from "@/components/Intro/index.vue";
 export default {
   components: {
     Story,
-    Intro
+    Intro,
   },
   data() {
     return {
@@ -14,7 +14,7 @@ export default {
       password: "",
       confirmPassword: "",
       nickname: "",
-      email: ""
+      email: "",
     };
   },
   methods: {
@@ -24,14 +24,14 @@ export default {
     guestlogin() {
       api
         .guestlogin()
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
           cookie.set("token", res.data.message);
           if (res.data.status == 200) {
             this.$router.push({ path: "/app/pet" });
           }
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
     },
@@ -39,9 +39,9 @@ export default {
       api
         .login({
           account: this.account,
-          password: this.password
+          password: this.password,
         })
-        .then(res => {
+        .then((res) => {
           // console.log(res.data);
           cookie.set("token", res.data.message);
           if (res.data.status == 200) {
@@ -50,7 +50,7 @@ export default {
             alert("登入失敗");
           }
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
     },
@@ -61,9 +61,9 @@ export default {
           password: this.password,
           confirmPassword: this.confirmPassword,
           nickname: this.nickname,
-          email: this.email
+          email: this.email,
         })
-        .then(res => {
+        .then((res) => {
           // console.log(res);
           if (res.data.status == 200) {
             alert("註冊成功！");
@@ -71,11 +71,11 @@ export default {
             alert("註冊失敗！請確認是否填妥資料");
           }
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <template>
@@ -240,11 +240,11 @@ export default {
 
                   <div class="group">
                     <input type="submit" class="button" @click="loginClicked()" value="登入" />
-                    <input class="button" @click="guestlogin()" value="訪客登入" />
+                    <input type="submit" class="button" @click="guestlogin()" value="訪客登入" />
                   </div>
                   <div class="hr"></div>
                   <div class="foot-lnk">
-                    <a @click="forget()">Forgot Password?</a>
+                    <a type="submit" @click="forget()">Forgot Password?</a>
                   </div>
                 </div>
                 <div class="sign-up-htm">

@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div>
+      <h1>當前遊戲時間: {{date}}</h1>
+    </div>
     <table class="table">
       <tr>
         <th>名稱</th>
@@ -46,6 +49,7 @@ export default {
       dealNum: [],
       name2: [],
       userhave: [],
+      date: "1999/09/01",
     };
   },
   mounted() {
@@ -71,6 +75,15 @@ export default {
         this.stocks = res.data.message;
         this.name2 = this.stocks.map((item) => item.stockName);
         this.userhave = this.stocks.map((item) => item.units);
+      })
+      .catch(function (error) {
+        console.log("請求失敗", error);
+      });
+    api
+      .gettime()
+      .then((res) => {
+        // console.log(res.data);
+        this.date = res.data.message;
       })
       .catch(function (error) {
         console.log("請求失敗", error);
