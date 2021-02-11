@@ -8,7 +8,7 @@
     "ssh": "ssh kim19961012@104.199.236.54 -p 22 -i \"~/.ssh/server\""
   },
   "dependencies": {
-    "apexcharts": "^3.19.3",
+    "apexcharts": "^3.24.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
